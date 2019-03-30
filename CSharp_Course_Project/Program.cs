@@ -6,10 +6,14 @@ namespace CSharp_Course_Project
     {
         static void Main(string[] args)
         {
-            short num1 = 10;
-            short num2 = 15;
+            int i1 = 435;
+            int i2 = 24500;
+            decimal dec = 7.98845m;
 
-            Console.WriteLine($"{num1} + {num2} = {Program.Sum(num1, num2)}");
+            Console.WriteLine((short)i1);
+            Console.WriteLine((short)i2);
+
+            Console.WriteLine((int)dec);
         }
 
         static int Sum(int x, int y)
