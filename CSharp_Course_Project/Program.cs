@@ -16,11 +16,11 @@ namespace CSharp_Course_Project
 
         public static void squareCircle()
         {
-            const double pi = Math.PI;
+            const double PI = Math.PI;
             Console.Write("Enter a radius of a circle: ");
             string radius = Console.ReadLine();
             double r = Convert.ToInt32(radius);
-            double squareCircle = (r*r) * pi;
+            double squareCircle = (r*r) * PI;
             Console.WriteLine(squareCircle);
         }
 
