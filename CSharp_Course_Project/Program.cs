@@ -6,8 +6,12 @@ namespace CSharp_Course_Project
     {
         static void Main(string[] args)
         {
-            squareCircle();
-            //Console.WriteLine(squareCircle2(4)); 
+            //squareCircle();
+            //Console.WriteLine(squareCircle2(4));
+
+            //task1();
+            //task2();
+            //task3();
         }
 
         public static void squareCircle()
@@ -26,5 +30,17 @@ namespace CSharp_Course_Project
             double square = (r * r) * pi;
             return square;
         }
+
+        public static void task1()
+        {
+            int uberflu = 1;
+            int _identifier = 1;
+            int u006identifier = 1;
+            int myVar = 1;
+            int myVariable = 1;
+        }
+
+
+
     }
 }
