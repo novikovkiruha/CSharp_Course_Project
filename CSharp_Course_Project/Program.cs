@@ -40,6 +40,13 @@ namespace CSharp_Course_Project
             int myVariable = 1;
         }
 
+        public static void task2()
+        {
+            double pi = 3.141592653;
+            double e = 2.7182818284590452;
+            Console.WriteLine(pi);
+            Console.WriteLine(e);
+        }
 
 
     }
