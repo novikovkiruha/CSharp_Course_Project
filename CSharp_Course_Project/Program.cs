@@ -48,6 +48,14 @@ namespace CSharp_Course_Project
             Console.WriteLine(e);
         }
 
-
+        public static void task3()
+        {
+            string string1 = "\nмоя строка 1";
+            string string2 = "\tмоя строка 2";
+            string string3 = "\aмоя строка 3";
+            Console.WriteLine(string1);
+            Console.WriteLine(string2);
+            Console.WriteLine(string3);
+        }
     }
 }
