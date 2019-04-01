@@ -13,7 +13,8 @@ namespace CSharp_Course_Project
 
             //HT1_IntVariable();
             //HT2_StringVariables();
-            HT3_IntVariable();
+            //HT3_VarVariable();
+            //HT4_PerimetrOperations();
         }
 
         public static void squareCircle()
@@ -87,17 +88,22 @@ namespace CSharp_Course_Project
         }
 
         //Задание №3. Переменные
-        //1.Создайте переменную v1 с неявной типизацией и проинициализируйте ее символьным значением: 'v';
-        //2. Измените значение переменной v1 на любое другое;
-        //3. Выведите значение переменной v1 в консоль.
-
-        public static void HT3_IntVariable()
+        public static void HT3_VarVariable()
         {
             var v1 = 'v';
             //v1 = "variable"; //can't change variable type
             //v1 = 10; //can't change variable type
             v1 = 'c';
             Console.WriteLine(v1);
+        }
+
+        //Задание №4. Операции
+        public static void HT4_PerimetrOperations()
+        {
+            Console.WriteLine("Введите длину стороны квадрата:");
+            int x = Int32.Parse(Console.ReadLine());
+            int p = 4 * x;
+            Console.WriteLine(p);
         }
     }
 }
