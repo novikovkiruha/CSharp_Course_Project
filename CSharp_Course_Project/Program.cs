@@ -17,7 +17,8 @@ namespace CSharp_Course_Project
             //HT4_PerimetrOperations();
             //HT5_AreasOperations();
             //HT6_2DigitNumberOperations();
-            HT7_IntAndLongConversion();
+            //HT7_IntAndLongConversion();
+            HT8_LongAndByteConversion();
         }
 
         public static void squareCircle()
@@ -150,6 +151,17 @@ namespace CSharp_Course_Project
             int x2 = 260;
             long sum = x1 + x2;
             Console.WriteLine(sum);
+        }
+
+        //Задание №8. Преобразования базовых типов данных
+        //1. Создайте две переменные типа long и проинициализируйте любыми значениями;
+        //2. Создайте переменную типа byte и сохраните в нее произведение двух ранее созданных переменных, выведите результат в консоль.
+        public static void HT8_LongAndByteConversion()
+        {
+            long x1 = 15;
+            long x2 = 16;
+            byte multiply = (byte)(x1 * x2);
+            Console.WriteLine(multiply);
         }
     }
 }
