@@ -6,12 +6,13 @@ namespace CSharp_Course_Project
     {
         static void Main(string[] args)
         {
-            //squareCircle();
-            //Average();
-            //Volume();
-            //Area();
+            squareCircle();
+            Average();
+            Volume();
+            Area();
 
             HT1_IntVariable();
+            HT2_StringVariables();
         }
 
         public static void squareCircle()
@@ -75,6 +76,13 @@ namespace CSharp_Course_Project
             Console.WriteLine(x1);
         }
 
-
+        //Задание №2. Переменные
+        public static void HT2_StringVariables()
+        {
+            Console.Write("Enter your name: ");
+            string str1 = Console.ReadLine();
+            string str2 = "Hi, " + str1;
+            Console.WriteLine(str2);
+        }
     }
 }
