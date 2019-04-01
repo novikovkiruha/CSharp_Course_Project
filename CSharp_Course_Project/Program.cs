@@ -18,7 +18,8 @@ namespace CSharp_Course_Project
             //HT5_AreasOperations();
             //HT6_2DigitNumberOperations();
             //HT7_IntAndLongConversion();
-            HT8_LongAndByteConversion();
+            //HT8_LongAndByteConversion();
+            HT9_TwoVariables();
         }
 
         public static void squareCircle()
@@ -154,14 +155,37 @@ namespace CSharp_Course_Project
         }
 
         //Задание №8. Преобразования базовых типов данных
-        //1. Создайте две переменные типа long и проинициализируйте любыми значениями;
-        //2. Создайте переменную типа byte и сохраните в нее произведение двух ранее созданных переменных, выведите результат в консоль.
         public static void HT8_LongAndByteConversion()
         {
             long x1 = 15;
             long x2 = 16;
             byte multiply = (byte)(x1 * x2);
             Console.WriteLine(multiply);
+        }
+
+        //Задание №9. 
+        //Даны две целые переменные a, b.Составить фрагмент программы, после исполнения которого значения переменных поменялись бы местами.
+        //Решить двумя способами.
+
+        public static void HT9_TwoVariables()
+        {
+            //1st option
+            int a = 2;
+            int b = 3;
+            
+            int temp = a;
+            a = b;
+            b = temp;
+            Console.WriteLine($"a: {a}, b: {b}");
+
+            //2nd option
+            int x = 2;
+            int y = 3;
+
+            x = y + x; // 2 + 3 = 6
+            y = x - y; // 6 - 3 = 2
+            x = x - y; // 6 - 2 = 3
+            Console.WriteLine($"x: {x}, y: {y}");
         }
     }
 }
