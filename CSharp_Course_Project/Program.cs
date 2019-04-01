@@ -6,9 +6,27 @@ namespace CSharp_Course_Project
     {
         static void Main(string[] args)
         {
+            squareCircle();
             Average();
             Volume();
             Area();
+        }
+
+        public static void squareCircle()
+        {
+            const double pi = Math.PI;
+            Console.Write("Enter a radius of a circle: ");
+            string radius = Console.ReadLine();
+            double r = Convert.ToInt32(radius);
+            double squareCircle = (r * r) * pi;
+            Console.WriteLine(squareCircle);
+        }
+
+        public static double squareCircle(int r)
+        {
+            const double pi = Math.PI;
+            double square = (r * r) * pi;
+            return square;
         }
 
         static int Sum(int x, int y)
