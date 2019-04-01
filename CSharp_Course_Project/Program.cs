@@ -6,10 +6,12 @@ namespace CSharp_Course_Project
     {
         static void Main(string[] args)
         {
-            squareCircle();
-            Average();
-            Volume();
-            Area();
+            //squareCircle();
+            //Average();
+            //Volume();
+            //Area();
+
+            HT1_IntVariable();
         }
 
         public static void squareCircle()
@@ -65,5 +67,14 @@ namespace CSharp_Course_Project
             double area = 2 * PI * radius * (radius + height);
             Console.WriteLine(area);
         }
+
+        //Задание №1. Переменные
+        public static void HT1_IntVariable()
+        {
+            int x1 = 10;
+            Console.WriteLine(x1);
+        }
+
+
     }
 }
