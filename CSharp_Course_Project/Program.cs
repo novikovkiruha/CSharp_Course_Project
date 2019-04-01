@@ -6,13 +6,14 @@ namespace CSharp_Course_Project
     {
         static void Main(string[] args)
         {
-            squareCircle();
-            Average();
-            Volume();
-            Area();
+            //squareCircle();
+            //Average();
+            //Volume();
+            //Area();
 
-            HT1_IntVariable();
-            HT2_StringVariables();
+            //HT1_IntVariable();
+            //HT2_StringVariables();
+            HT3_IntVariable();
         }
 
         public static void squareCircle()
@@ -83,6 +84,20 @@ namespace CSharp_Course_Project
             string str1 = Console.ReadLine();
             string str2 = "Hi, " + str1;
             Console.WriteLine(str2);
+        }
+
+        //Задание №3. Переменные
+        //1.Создайте переменную v1 с неявной типизацией и проинициализируйте ее символьным значением: 'v';
+        //2. Измените значение переменной v1 на любое другое;
+        //3. Выведите значение переменной v1 в консоль.
+
+        public static void HT3_IntVariable()
+        {
+            var v1 = 'v';
+            //v1 = "variable"; //can't change variable type
+            //v1 = 10; //can't change variable type
+            v1 = 'c';
+            Console.WriteLine(v1);
         }
     }
 }
