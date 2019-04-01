@@ -16,7 +16,8 @@ namespace CSharp_Course_Project
             //HT3_VarVariable();
             //HT4_PerimetrOperations();
             //HT5_AreasOperations();
-            HT6_2DigitNumberOperations();
+            //HT6_2DigitNumberOperations();
+            HT7_IntAndLongConversion();
         }
 
         public static void squareCircle()
@@ -125,8 +126,6 @@ namespace CSharp_Course_Project
         }
 
         //Задание №6. Операции
-        //Дано двузначное число.Выведите на консоль вначале его левую цифру(десятки), а затем – его правую цифру(единицы).
-        //Для нахождения десятков использовать операцию деления нацело, для нахождения единиц – операцию взятия остатка от деления.
         public static void HT6_2DigitNumberOperations()
         {
             Console.Write("Enter the 2-digit number: ");
@@ -142,6 +141,15 @@ namespace CSharp_Course_Project
             {
                 Console.WriteLine("Not a 2-digit number. Try again...");
             }
+        }
+
+        //Задание №7. Преобразования базовых типов данных
+        public static void HT7_IntAndLongConversion()
+        {
+            int x1 = 10;
+            int x2 = 260;
+            long sum = x1 + x2;
+            Console.WriteLine(sum);
         }
     }
 }
