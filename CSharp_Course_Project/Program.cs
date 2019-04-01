@@ -15,6 +15,7 @@ namespace CSharp_Course_Project
             //HT2_StringVariables();
             //HT3_VarVariable();
             //HT4_PerimetrOperations();
+            HT5_AreasOperations();
         }
 
         public static void squareCircle()
@@ -104,6 +105,22 @@ namespace CSharp_Course_Project
             int x = Int32.Parse(Console.ReadLine());
             int p = 4 * x;
             Console.WriteLine(p);
+        }
+
+        //Задание №5. Операции
+        public static void HT5_AreasOperations()
+        {
+            const double PI = Math.PI;
+            Console.Write("Enter the larger circle radius: ");
+            int r1 = Int32.Parse(Console.ReadLine());
+            Console.Write("Enter the smaller circle radius: ");
+            int r2 = Int32.Parse(Console.ReadLine());
+
+            double s1 = PI * r1 * r1;
+            double s2 = PI * r2 * r2;
+            double s3 = s1 - s2;
+
+            Console.WriteLine($"S1 = {s1}\nS2 = {s2}\nS3 = {s3}");
         }
     }
 }
