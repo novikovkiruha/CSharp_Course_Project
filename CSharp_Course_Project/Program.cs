@@ -11,7 +11,8 @@ namespace CSharp_Course_Project
             //OddAndThreeDigitNumber();
             //ThreeNumbersOperations();
             //ConsoleCalculator();
-            RangeNumber();
+            //RangeNumber();
+            Translator();
         }
 
         public static void SecondsAndHours()
@@ -122,7 +123,7 @@ namespace CSharp_Course_Project
             }
             else if (number == 50)
             {
-                Console.WriteLine($"{number} is 50");
+                Console.WriteLine($"{number} is between [36-50] and [50-100]");
             }
             else if (number >= 36 && number < 50)
             {
@@ -135,6 +136,44 @@ namespace CSharp_Course_Project
             else
             {
                 Console.WriteLine($"{number} is between other ranges");
+            }
+        }
+
+        public static void Translator()
+        {
+            string word = Console.ReadLine();
+
+            const string RussianWord1 = "погода";
+            const string RussianWord2 = "тепло";
+            const string RussianWord3 = "холодно";
+            const string RussianWord4 = "ветер";
+            const string RussianWord5 = "дождь";
+
+            const string EnglishWord1 = "weather";
+            const string EnglishWord2 = "warm";
+            const string EnglishWord3 = "cold";
+            const string EnglishWord4 = "wind";
+            const string EnglishWord5 = "rain";
+
+            switch (word)
+            {
+                case RussianWord1:
+                    Console.WriteLine(EnglishWord1);
+                    break;
+                case RussianWord2:
+                    Console.WriteLine(EnglishWord2);
+                    break;
+                case RussianWord3:
+                    Console.WriteLine(EnglishWord1);
+                    break;
+                case RussianWord4:
+                    Console.WriteLine(EnglishWord1);
+                    break;
+                case RussianWord5:
+                    Console.WriteLine(EnglishWord1);
+                    break;
+                default:
+                    break;
             }
         }
     }
