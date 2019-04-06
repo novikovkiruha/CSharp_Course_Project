@@ -10,11 +10,11 @@ namespace CSharp_Course_Project
             //ThreeNumbers();
             //OddAndThreeDigitNumber();
             //ThreeNumbersOperations();
-            //ConsoleCalculator();
+            ConsoleCalculator();
             //RangeNumber();
             //Translator();
             //EmployeeBonus();
-            Factrorial();
+            //Factrorial();
         }
 
         public static void SecondsAndHours()
@@ -72,17 +72,17 @@ namespace CSharp_Course_Project
 
         public static void ConsoleCalculator()
         {
-            Console.Write("Enter the first number: ");
-            int operand1 = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Enter the second number: ");
-            int operand2 = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Enter the operation symbol: ");
-            string symbol = Console.ReadLine();
-
-            int result = 0;
-
             while (true)
             {
+                Console.Write("Enter the first number: ");
+                int operand1 = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Enter the second number: ");
+                int operand2 = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Enter the operation symbol: ");
+                string symbol = Console.ReadLine();
+
+                int result = 0;
+
                 switch (symbol)
                 {
                     case "+":
@@ -108,6 +108,12 @@ namespace CSharp_Course_Project
                         break;
                 }
                 Console.WriteLine(result);
+                Console.WriteLine("Do you want to proceed? Y/N");
+                string proceed = Console.ReadLine();
+                if (proceed == "N")
+                {
+                    break;
+                }
             }
         }
 
