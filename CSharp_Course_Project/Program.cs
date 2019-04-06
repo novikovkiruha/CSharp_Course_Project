@@ -13,7 +13,8 @@ namespace CSharp_Course_Project
             //ConsoleCalculator();
             //RangeNumber();
             //Translator();
-            EmployeeBonus();
+            //EmployeeBonus();
+            Factrorial();
         }
 
         public static void SecondsAndHours()
@@ -78,65 +79,36 @@ namespace CSharp_Course_Project
             Console.Write("Enter the operation symbol: ");
             string symbol = Console.ReadLine();
 
-            //int sum = operand1 + operand2;
-            //int subtraction = operand1 - operand2;
-            //int multiply = operand1 * operand2;
-            //int division = operand1 / operand2;
-
             int result = 0;
 
-            switch (symbol)
+            while (true)
             {
-                case "+":
-                    result = operand1 + operand2;
-                    break;
-                case "-":
-                    result = operand1 - operand2;
-                    break;
-                case "*":
-                    result = operand1 * operand2;
-                    break;
-                case "/":
-                    if (operand2 != 0)
-                    {
-                        result = operand1 / operand2;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Cann't divide by 0");
-                    }
-                    break;
-                default:
-                    break;
+                switch (symbol)
+                {
+                    case "+":
+                        result = operand1 + operand2;
+                        break;
+                    case "-":
+                        result = operand1 - operand2;
+                        break;
+                    case "*":
+                        result = operand1 * operand2;
+                        break;
+                    case "/":
+                        if (operand2 != 0)
+                        {
+                            result = operand1 / operand2;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Cann't divide by 0");
+                        }
+                        break;
+                    default:
+                        break;
+                }
+                Console.WriteLine(result);
             }
-
-            Console.WriteLine(result);
-
-            //switch (symbol)
-            //{
-            //    case "+":
-            //        Console.WriteLine(sum);
-            //        break;
-            //    case "-":
-            //        Console.WriteLine(subtraction);
-            //        break;
-            //    case "*":
-            //        Console.WriteLine(multiply);
-            //        break;
-            //    case "/":
-            //        if (operand2 != 0)
-            //        {
-            //            Console.WriteLine(division);
-
-            //        }
-            //        else
-            //        {
-            //            Console.WriteLine("Cann't divide by 0");
-            //        }
-            //        break;
-            //    default:
-            //        break;
-            //}
         }
 
         public static void RangeNumber()
@@ -241,6 +213,18 @@ namespace CSharp_Course_Project
                 salaryWithBonus = salary * 1.5;
             }
             Console.WriteLine($"Employee salary with bonus - {salaryWithBonus}");
+        }
+
+        public static void Factrorial()
+        {
+            int number = Convert.ToInt32(Console.ReadLine());
+            int factorial = 1;
+
+            for (int i = 1; i < number; i++)
+            {
+                factorial *= i + 1;
+            }
+            Console.WriteLine(factorial);
         }
     }
 }
