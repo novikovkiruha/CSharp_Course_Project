@@ -15,6 +15,7 @@ namespace CSharp_Course_Project
             //Translator();
             //EmployeeBonus();
             //Factrorial();
+            //NumberProcesses();
         }
 
         public static void SecondsAndHours()
@@ -81,6 +82,12 @@ namespace CSharp_Course_Project
                 Console.Write("Enter the operation symbol: ");
                 string symbol = Console.ReadLine();
 
+                while (operand2 == 0 && symbol == "/")
+                {
+                    Console.Write("Cann't divide by 0. Try enter the second number again: ");
+                    operand2 = Convert.ToInt32(Console.ReadLine());
+                }
+
                 int result = 0;
 
                 switch (symbol)
@@ -95,22 +102,16 @@ namespace CSharp_Course_Project
                         result = operand1 * operand2;
                         break;
                     case "/":
-                        if (operand2 != 0)
-                        {
-                            result = operand1 / operand2;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Cann't divide by 0");
-                        }
+                        result = operand1 / operand2;
                         break;
                     default:
                         break;
                 }
                 Console.WriteLine(result);
+
                 Console.WriteLine("Do you want to proceed? Y/N");
                 string proceed = Console.ReadLine();
-                if (proceed == "N")
+                if (proceed == "N" || proceed == "n")
                 {
                     break;
                 }
