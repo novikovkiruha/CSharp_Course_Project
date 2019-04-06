@@ -7,7 +7,8 @@ namespace CSharp_Course_Project
         static void Main(string[] args)
         {
             //SecondsAndHours();
-            ThreeNumbers();
+            //ThreeNumbers();
+            OddAndThreeDigitNumber();
         }
 
         public static void SecondsAndHours()
@@ -30,6 +31,21 @@ namespace CSharp_Course_Project
             else
             {
                 Console.WriteLine("B is not betweeen A and C");
+            }
+        }
+
+        public static void OddAndThreeDigitNumber()
+        {
+            string n = Console.ReadLine();
+            int number = Convert.ToInt32(n);
+
+            if (n.Length == 3 && number % 2 != 0)
+            {
+                Console.WriteLine($"{number} is odd and 3-digit number");
+            }
+            else
+            {
+                Console.WriteLine($"{number} is not odd and 3-digit number");
             }
         }
     }
