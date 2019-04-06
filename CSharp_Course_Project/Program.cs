@@ -8,7 +8,8 @@ namespace CSharp_Course_Project
         {
             //SecondsAndHours();
             //ThreeNumbers();
-            OddAndThreeDigitNumber();
+            //OddAndThreeDigitNumber();
+            ThreeNumbersOperations();
         }
 
         public static void SecondsAndHours()
@@ -47,6 +48,21 @@ namespace CSharp_Course_Project
             {
                 Console.WriteLine($"{number} is not odd and 3-digit number");
             }
+        }
+
+        public static void ThreeNumbersOperations()
+        {
+            int x = 10, y = 12, z = 3;
+            x += y - x++ * z; // 10 + 12 - (10 * 3)
+            Console.WriteLine(x);
+            z = --x - y * 5; // 10 + 12 - (11 * 3)
+            Console.WriteLine(z);
+            y /= x + 5 % z; // 10 + 12 - (11 * 3)
+            Console.WriteLine(y);
+            z = x++ + y * 5; // 10 + 12 - (11 * 3)
+            Console.WriteLine(z);
+            x = y - x++ * z; // 10 + 12 - (11 * 3)
+            Console.WriteLine(x);
         }
     }
 }
