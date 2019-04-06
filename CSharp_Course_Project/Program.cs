@@ -10,7 +10,8 @@ namespace CSharp_Course_Project
             //ThreeNumbers();
             //OddAndThreeDigitNumber();
             //ThreeNumbersOperations();
-            ConsoleCalculator();
+            //ConsoleCalculator();
+            RangeNumber();
         }
 
         public static void SecondsAndHours()
@@ -92,14 +93,48 @@ namespace CSharp_Course_Project
                     Console.WriteLine(multiply);
                     break;
                 case "/":
-                    Console.WriteLine(division);
-                    if (operand2 == 0)
+                    if (operand2 != 0)
+                    {
+                        Console.WriteLine(division);
+                        
+                    }
+                    else
                     {
                         Console.WriteLine("Cann't divide by 0");
                     }
                     break;
                 default:
                     break;
+            }
+        }
+
+        public static void RangeNumber()
+        {
+            int number = Convert.ToInt32(Console.ReadLine());
+
+            if (number >= 0 && number <= 14)
+            {
+                Console.WriteLine($"{number} is between [0-14]");
+            }
+            else if (number >= 15 && number <= 35)
+            {
+                Console.WriteLine($"{number} is between [15-35]");
+            }
+            else if (number == 50)
+            {
+                Console.WriteLine($"{number} is 50");
+            }
+            else if (number >= 36 && number < 50)
+            {
+                Console.WriteLine($"{number} is between [36-50]");
+            }
+            else if (number > 50 && number <= 100)
+            {
+                Console.WriteLine($"{number} is between [50-100]");
+            }
+            else
+            {
+                Console.WriteLine($"{number} is between other ranges");
             }
         }
     }
