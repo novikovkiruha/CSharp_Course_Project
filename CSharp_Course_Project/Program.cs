@@ -6,7 +6,7 @@ namespace CSharp_Course_Project
     {
         static void Main(string[] args)
         {
-            //squareCircle();
+            //SquareCircle();
             //Average();
             //Volume();
             //Area();
@@ -22,17 +22,17 @@ namespace CSharp_Course_Project
             HT9_TwoVariables();
         }
 
-        public static void squareCircle()
+        public static void SquareCircle()
         {
-            const double pi = Math.PI;
+            const double PI = Math.PI;
             Console.Write("Enter a radius of a circle: ");
             string radius = Console.ReadLine();
             double r = Convert.ToInt32(radius);
-            double squareCircle = (r * r) * pi;
+            double squareCircle = (r * r) * PI;
             Console.WriteLine(squareCircle);
         }
 
-        public static double squareCircle(int r)
+        public static double SquareCircle(int r)
         {
             const double pi = Math.PI;
             double square = (r * r) * pi;
@@ -76,14 +76,12 @@ namespace CSharp_Course_Project
             Console.WriteLine(area);
         }
 
-        //Задание №1. Переменные
         public static void HT1_IntVariable()
         {
             int x1 = 10;
             Console.WriteLine(x1);
         }
 
-        //Задание №2. Переменные
         public static void HT2_StringVariables()
         {
             Console.Write("Enter your name: ");
@@ -92,17 +90,18 @@ namespace CSharp_Course_Project
             Console.WriteLine(str2);
         }
 
-        //Задание №3. Переменные
         public static void HT3_VarVariable()
         {
             var v1 = 'v';
+
+            //
             //v1 = "variable"; //can't change variable type
             //v1 = 10; //can't change variable type
+            //
             v1 = 'c';
             Console.WriteLine(v1);
         }
 
-        //Задание №4. Операции
         public static void HT4_PerimetrOperations()
         {
             Console.WriteLine("Введите длину стороны квадрата:");
@@ -111,7 +110,6 @@ namespace CSharp_Course_Project
             Console.WriteLine(p);
         }
 
-        //Задание №5. Операции
         public static void HT5_AreasOperations()
         {
             const double PI = Math.PI;
@@ -127,7 +125,6 @@ namespace CSharp_Course_Project
             Console.WriteLine($"S1 = {s1}\nS2 = {s2}\nS3 = {s3}");
         }
 
-        //Задание №6. Операции
         public static void HT6_2DigitNumberOperations()
         {
             Console.Write("Enter the 2-digit number: ");
@@ -145,7 +142,6 @@ namespace CSharp_Course_Project
             }
         }
 
-        //Задание №7. Преобразования базовых типов данных
         public static void HT7_IntAndLongConversion()
         {
             int x1 = 10;
@@ -154,7 +150,6 @@ namespace CSharp_Course_Project
             Console.WriteLine(sum);
         }
 
-        //Задание №8. Преобразования базовых типов данных
         public static void HT8_LongAndByteConversion()
         {
             long x1 = 15;
@@ -163,13 +158,11 @@ namespace CSharp_Course_Project
             Console.WriteLine(multiply);
         }
 
-        //Задание №9. 
-        //Даны две целые переменные a, b.Составить фрагмент программы, после исполнения которого значения переменных поменялись бы местами.
-        //Решить двумя способами.
-
         public static void HT9_TwoVariables()
         {
+            //
             //1st option
+            //
             int a = 2;
             int b = 3;
             
@@ -178,13 +171,15 @@ namespace CSharp_Course_Project
             b = temp;
             Console.WriteLine($"a: {a}, b: {b}");
 
+            //
             //2nd option
+            //
             int x = 2;
             int y = 3;
 
-            x = y + x; // 2 + 3 = 6
-            y = x - y; // 6 - 3 = 2
-            x = x - y; // 6 - 2 = 3
+            x = y + x;
+            y = x - y;
+            x = x - y;
             Console.WriteLine($"x: {x}, y: {y}");
         }
     }
