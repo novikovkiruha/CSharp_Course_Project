@@ -12,7 +12,8 @@ namespace CSharp_Course_Project
             //ThreeNumbersOperations();
             //ConsoleCalculator();
             //RangeNumber();
-            Translator();
+            //Translator();
+            EmployeeBonus();
         }
 
         public static void SecondsAndHours()
@@ -77,27 +78,28 @@ namespace CSharp_Course_Project
             Console.Write("Enter the operation symbol: ");
             string symbol = Console.ReadLine();
 
-            int sum = operand1 + operand2;
-            int subtraction = operand1 - operand2;
-            int multiply = operand1 * operand2;
-            int division = operand1 / operand2;
+            //int sum = operand1 + operand2;
+            //int subtraction = operand1 - operand2;
+            //int multiply = operand1 * operand2;
+            //int division = operand1 / operand2;
+
+            int result = 0;
 
             switch (symbol)
             {
                 case "+":
-                    Console.WriteLine(sum);
+                    result = operand1 + operand2;
                     break;
                 case "-":
-                    Console.WriteLine(subtraction);
+                    result = operand1 - operand2;
                     break;
                 case "*":
-                    Console.WriteLine(multiply);
+                    result = operand1 * operand2;
                     break;
                 case "/":
                     if (operand2 != 0)
                     {
-                        Console.WriteLine(division);
-                        
+                        result = operand1 / operand2;
                     }
                     else
                     {
@@ -107,6 +109,34 @@ namespace CSharp_Course_Project
                 default:
                     break;
             }
+
+            Console.WriteLine(result);
+
+            //switch (symbol)
+            //{
+            //    case "+":
+            //        Console.WriteLine(sum);
+            //        break;
+            //    case "-":
+            //        Console.WriteLine(subtraction);
+            //        break;
+            //    case "*":
+            //        Console.WriteLine(multiply);
+            //        break;
+            //    case "/":
+            //        if (operand2 != 0)
+            //        {
+            //            Console.WriteLine(division);
+
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("Cann't divide by 0");
+            //        }
+            //        break;
+            //    default:
+            //        break;
+            //}
         }
 
         public static void RangeNumber()
@@ -164,17 +194,53 @@ namespace CSharp_Course_Project
                     Console.WriteLine(EnglishWord2);
                     break;
                 case RussianWord3:
-                    Console.WriteLine(EnglishWord1);
+                    Console.WriteLine(EnglishWord3);
                     break;
                 case RussianWord4:
-                    Console.WriteLine(EnglishWord1);
+                    Console.WriteLine(EnglishWord4);
                     break;
                 case RussianWord5:
-                    Console.WriteLine(EnglishWord1);
+                    Console.WriteLine(EnglishWord5);
                     break;
                 default:
+                    Console.WriteLine("There is no such word. Please, enter another one.");
                     break;
             }
+        }
+
+        public static void EmployeeBonus()
+        {
+            Console.WriteLine("Enter employee experience:");
+            int years = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter employee salary:");
+            int salary = Convert.ToInt32(Console.ReadLine());
+            double salaryWithBonus = 0;
+
+            if (years < 5)
+            {
+                salaryWithBonus = salary * 1.1;
+            }
+            else if (years >= 5 && years < 10)
+            {
+                salaryWithBonus = salary * 1.15;
+            }
+            else if (years >= 10 && years < 15)
+            {
+                salaryWithBonus = salary * 1.25;
+            }
+            else if (years >= 15 && years < 20)
+            {
+                salaryWithBonus = salary * 1.35;
+            }
+            else if (years >= 20 && years < 25)
+            {
+                salaryWithBonus = salary * 1.45;
+            }
+            else if (years >= 25)
+            {
+                salaryWithBonus = salary * 1.5;
+            }
+            Console.WriteLine($"Employee salary with bonus - {salaryWithBonus}");
         }
     }
 }
