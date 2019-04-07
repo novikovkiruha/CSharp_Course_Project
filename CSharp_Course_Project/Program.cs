@@ -4,20 +4,6 @@ namespace CSharp_Course_Project
 {
     class Program
     {
-        static void Main(string[] args)
-        {
-            //SecondsAndHours();
-            //ThreeNumbers();
-            //OddAndThreeDigitNumber();
-            //ThreeNumbersOperations();
-            ConsoleCalculator();
-            //RangeNumber();
-            //Translator();
-            //EmployeeBonus();
-            //Factrorial();
-            //NumberProcesses();
-        }
-
         public static void SecondsAndHours()
         {
             int seconds = Convert.ToInt32(Console.ReadLine());
@@ -75,10 +61,34 @@ namespace CSharp_Course_Project
         {
             while (true)
             {
+                // проверить на строку через continue (в цикле)
                 Console.Write("Enter the first number: ");
-                int operand1 = Convert.ToInt32(Console.ReadLine());
+                string op1 = Console.ReadLine();
+                //int operand1 = Convert.ToInt32(op1);
+                bool isNumber = Int32.TryParse(op1, out int operand1);
+                while (true)
+                {
+                    if (!isNumber)
+                    {
+                        Console.Write("Enter the first number: ");
+                        operand1 = Convert.ToInt32(Console.ReadLine());
+                        continue;
+                    }
+                }
+
                 Console.Write("Enter the second number: ");
                 int operand2 = Convert.ToInt32(Console.ReadLine());
+                while (true)
+                {
+                    if (!(operand2.GetType().Equals("System.Int32")))
+                    {
+                        Console.Write("Not a number. Enter the first number again: ");
+                        operand2 = Convert.ToInt32(Console.ReadLine());
+                        continue;
+                    }
+                    else break;
+                }
+
                 Console.Write("Enter the operation symbol: ");
                 string symbol = Console.ReadLine();
 
@@ -232,6 +242,203 @@ namespace CSharp_Course_Project
                 factorial *= i + 1;
             }
             Console.WriteLine(factorial);
+        }
+
+        public static void GeometricalFigures()
+        {
+            Console.WriteLine("Enter one of the figure from the list:\n" +
+                "'S' for String\n" +
+                "'R' for Rectangle\n" +
+                "'RT' for Right Triangle\n" +
+                "'ET' for Equilateral Triangle\n" +
+                "'RH' for Rhombus");
+            string figure = Console.ReadLine();
+
+            int i, j, k;
+
+            if (figure == "string" || figure == "String" || figure == "S" || figure == "s")
+            {
+                Console.Write("Enter the length of a string: ");
+                while (true)
+                {
+                    string stringLength = Console.ReadLine();
+                    bool isLengthNumber = Int32.TryParse(stringLength, out int length);
+                    if (!isLengthNumber || stringLength == "0")
+                    {
+                        Console.Write("Length is not a numeric value. Try again and enter the length of a string: ");
+                        continue;
+                    }
+                    else
+                    {
+                        for (i = 0; i < length; i++)
+                        {
+                            Console.Write("*");
+                        }
+                        Console.WriteLine();
+                        break;
+                    }
+                }
+            }
+            else if (figure == "rectangle" || figure == "Rectangle" || figure == "R" || figure == "r")
+            {
+                Console.WriteLine("Enter the length and height of a rectangle: ");
+
+                while (true)
+                {
+                    string stringLength = Console.ReadLine();
+                    string stringHeight = Console.ReadLine();
+                    bool isLengthNumber = Int32.TryParse(stringLength, out int length);
+                    bool isHeightNumber = Int32.TryParse(stringHeight, out int height);
+
+                    if ((!isLengthNumber || stringLength == "0") || (!isHeightNumber || stringHeight == "0"))
+                    {
+                        Console.WriteLine("Length or height is not a numeric value. Try again and enter the length and height of a rectangle: ");
+                        continue;
+                    }
+                    else
+                    {
+                        for (i = 0; i < height; i++)
+                        {
+                            for (j = 0; j < length; j++)
+                            {
+                                Console.Write("*");
+                            }
+                            Console.Write("\n");
+                        }
+                        break;
+                    }
+                }
+            }
+            else if (figure == "right triangle" || figure == "Right Triangle" || figure == "RT" || figure == "rt")
+            {
+                Console.Write("Enter the base length of a right triangle: ");
+
+                while (true)
+                {
+                    string stringLength = Console.ReadLine();
+                    bool isLengthNumber = Int32.TryParse(stringLength, out int length);
+
+                    if (!isLengthNumber || stringLength == "0")
+                    {
+                        Console.Write("Length is not a numeric value. Try again and enter the length of a right triangle: ");
+                        continue;
+                    }
+                    else
+                    {
+                        for (i = 1; i <= length; i++)
+                        {
+                            for (j = 1; j <= i; j++)
+                            {
+                                Console.Write("*");
+                            }
+                            Console.Write("\n");
+                        }
+                        break;
+                    }
+                }
+            }
+            else if (figure == "equilateral triangle" || figure == "Equilateral Triangle" || figure == "ET" || figure == "et")
+            {
+                Console.Write("Enter the side length of a equilateral triangle: ");
+                while (true)
+                {
+                    string stringLength = Console.ReadLine();
+                    bool isLengthNumber = Int32.TryParse(stringLength, out int length);
+
+                    if (!isLengthNumber || stringLength == "0")
+                    {
+                        Console.Write("Length is not a numeric value. Try again and enter the length of a equilateral triangle: ");
+                        continue;
+                    }
+                    else
+                    {
+                        for (i = 1; i <= length; i += 2)
+                        {
+                            for (k = length; k > i; k -= 2)
+                            {
+                                Console.Write(" ");
+                            }
+                            for (j = 0; j < i; j++)
+                            {
+                                Console.Write("*");
+                            }
+                            Console.Write("\n");
+                        }
+                        break;
+                    }
+                }
+            }
+            else if (figure == "rhombus" || figure == "Rhombus" || figure == "RH" || figure == "rh")
+            {
+                Console.Write("Enter the diagonal length of a rhombus: ");
+                while (true)
+                {
+                    string stringDiagonal = Console.ReadLine();
+                    bool isDiagonalNumber = Int32.TryParse(stringDiagonal, out int length);
+
+                    if (!isDiagonalNumber || stringDiagonal == "0")
+                    {
+                        Console.Write("Diagonal is not a numeric value. Try again and enter the diagonal of a rhombus: ");
+                        continue;
+                    }
+                    else
+                    {
+                        for (i = 1; i <= length; i += 2)
+                        {
+                            for (k = length; k > i; k -= 2)
+                            {
+                                Console.Write(" ");
+                            }
+                            for (j = 0; j < i; j++)
+                            {
+                                Console.Write("*");
+                            }
+                            Console.Write("\n");
+                        }
+                        for (i = length-3; i >= 0; i -= 2)
+                        {
+                            for (k = length; k > i; k -= 2)
+                            {
+                                Console.Write(" ");
+                            }
+                            for (j = 0; j < i; j++)
+                            {
+                                Console.Write("*");
+                            }
+                            Console.Write("\n");
+                        }
+                        break;
+                    }
+                }
+            }
+        }
+
+        public static void NumberProcesses()
+        {
+            string n = Console.ReadLine();
+            int number = Convert.ToInt32(n);
+
+            if (number == 0)
+                Console.WriteLine($"Number is 0");
+            else if (number < 0)
+                Console.WriteLine("Number is negative");
+            else if (number > 0)
+                Console.WriteLine("Number is positive");
+        }
+
+        static void Main(string[] args)
+        {
+            //SecondsAndHours();
+            //ThreeNumbers();
+            //OddAndThreeDigitNumber();
+            //ThreeNumbersOperations();
+            //ConsoleCalculator();
+            //RangeNumber();
+            //Translator();
+            //EmployeeBonus();
+            //Factrorial();
+            //NumberProcesses();
+            GeometricalFigures();
         }
     }
 }
