@@ -101,7 +101,7 @@ namespace CSharp_Course_Project
         {
             while (true)
             {
-                Console.WriteLine("Enter 2 numbers:");
+                Console.WriteLine("Enter 2 numbers A and B:");
                 string stringNumberA = Console.ReadLine();
                 bool isNumberA = Int32.TryParse(stringNumberA, out int a);
                 string stringNumberB = Console.ReadLine();
@@ -126,6 +126,11 @@ namespace CSharp_Course_Project
                     }
                     Console.WriteLine($"Sum of numbers in range: {sum} ");
                 }
+                else
+                {
+                    Console.WriteLine("A should be less than B");
+                    continue;
+                }
                 Console.WriteLine("Do you want to proceed? Y/N");
                 string proceed = Console.ReadLine();
                 if (proceed.Equals("Y") || proceed.Equals("y"))
@@ -135,7 +140,6 @@ namespace CSharp_Course_Project
             }
         }
 
-        //Дано натуральное число.Определить количество четных цифр в нем.
         public static void EvenDigits()
         {
             while (true)
@@ -170,12 +174,56 @@ namespace CSharp_Course_Project
             }
         }
 
+        //Найти среднее арифметическое всех целых чисел от а до b (значения а и b вводятся с клавиатуры (b>=a)
+        public static void NumbersAverage()
+        {
+            while (true)
+            {
+                Console.WriteLine("Enter 2 numbers A and B:");
+                string stringNumberA = Console.ReadLine();
+                bool isNumberA = Int32.TryParse(stringNumberA, out int a);
+                string stringNumberB = Console.ReadLine();
+                bool isNumberB = Int32.TryParse(stringNumberB, out int b);
+
+                if (!isNumberA || !isNumberB)
+                {
+                    Console.WriteLine("Not a numeric values. Try again...");
+                    continue;
+                }
+                if (a <= b)
+                {
+                    int sum = a;
+                    sum -= a;
+                    int count = 0;
+                    for (int i = a; i <= b; i++)
+                    {
+                        sum += i;
+                        count++;
+                    }
+                    double average = (double)sum / (double)count;
+                    Console.WriteLine($"Average: {average}");
+                }
+                else
+                {
+                    Console.WriteLine("A should be less or equal to B");
+                    continue;
+                }
+                Console.WriteLine("Do you want to proceed? Y/N");
+                string proceed = Console.ReadLine();
+                if (proceed.Equals("Y") || proceed.Equals("y"))
+                    continue;
+                else
+                    break;
+            }
+        }
+
         static void Main(string[] args)
         {
             //NumberProcesses();
             //Logistics();
             //TwoNumbersAandB();
-            EvenDigits();
+            //EvenDigits();
+            NumbersAverage();
         }
     }
 }
