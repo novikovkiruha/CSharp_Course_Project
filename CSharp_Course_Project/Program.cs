@@ -422,24 +422,10 @@ namespace CSharp_Course_Project
                                 Console.Write("\n");
                             }
                         }
-                        
                         break;
                     }
                 }
             }
-        }
-
-        public static void NumberProcesses()
-        {
-            string n = Console.ReadLine();
-            int number = Convert.ToInt32(n);
-
-            if (number == 0)
-                Console.WriteLine($"Number is 0");
-            else if (number < 0)
-                Console.WriteLine("Number is negative");
-            else if (number > 0)
-                Console.WriteLine("Number is positive");
         }
 
         static void Main(string[] args)
@@ -453,7 +439,6 @@ namespace CSharp_Course_Project
             //Translator();
             //EmployeeBonus();
             //Factrorial();
-            //NumberProcesses();
             GeometricalFigures();
         }
     }
