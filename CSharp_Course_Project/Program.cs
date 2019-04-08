@@ -97,8 +97,6 @@ namespace CSharp_Course_Project
             }
         }
 
-        //Дано два числа A и B(A<B) выведите сумму всех чисел расположенных между данными числами на экран.
-        //Дано два числа A и B (A<B) выведите все нечетные значения, расположенные между данными числами. 
         public static void TwoNumbersAandB()
         {
             while (true)
@@ -137,11 +135,47 @@ namespace CSharp_Course_Project
             }
         }
 
+        //Дано натуральное число.Определить количество четных цифр в нем.
+        public static void EvenDigits()
+        {
+            while (true)
+            {
+                Console.Write("Enter the number: ");
+                string stringNumber = Console.ReadLine();
+                bool isNumber = Int32.TryParse(stringNumber, out int number);
+
+                if (!isNumber || number <= 0)
+                {
+                    Console.WriteLine("Not a numeric value or natural number. Try again...");
+                    continue;
+                }
+
+                int temp = 0;
+                int count = 0;
+                for (int i = 0; i < stringNumber.Length; i++)
+                {
+                    temp = number % 10;
+                    number /= 10;
+                    if (temp % 2 == 0)
+                        count++;
+                }
+                Console.WriteLine($"Number of even digits: {count}");
+
+                Console.WriteLine("Do you want to proceed? Y/N");
+                string proceed = Console.ReadLine();
+                if (proceed.Equals("Y") || proceed.Equals("y"))
+                    continue;
+                else
+                    break;
+            }
+        }
+
         static void Main(string[] args)
         {
             //NumberProcesses();
             //Logistics();
-            TwoNumbersAandB();
+            //TwoNumbersAandB();
+            EvenDigits();
         }
     }
 }
