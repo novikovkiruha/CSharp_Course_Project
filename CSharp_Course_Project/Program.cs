@@ -368,30 +368,61 @@ namespace CSharp_Course_Project
                     }
                     else
                     {
-                        for (i = 1; i <= length; i += 2)
+                        if (length % 2 == 0)
                         {
-                            for (k = length; k > i; k -= 2)
+                            for (i = 1; i <= length; i += 2)
                             {
-                                Console.Write(" ");
+                                for (k = length; k > i; k -= 2)
+                                {
+                                    Console.Write(" ");
+                                }
+                                for (j = 0; j < i; j++)
+                                {
+                                    Console.Write("*");
+                                }
+                                Console.Write("\n");
                             }
-                            for (j = 0; j < i; j++)
+                            for (i = length-1; i >= 1; i -= 2)
                             {
-                                Console.Write("*");
+                                for (k = length; k > i; k -= 2)
+                                {
+                                    Console.Write(" ");
+                                }
+                                for (j = 0; j < i; j++)
+                                {
+                                    Console.Write("*");
+                                }
+                                Console.Write("\n");
                             }
-                            Console.Write("\n");
                         }
-                        for (i = length - 3; i >= 0; i -= 2)
+                        else
                         {
-                            for (k = length; k > i; k -= 2)
+                            for (i = 1; i <= length; i += 2)
                             {
-                                Console.Write(" ");
+                                for (k = length; k > i; k -= 2)
+                                {
+                                    Console.Write(" ");
+                                }
+                                for (j = 0; j < i; j++)
+                                {
+                                    Console.Write("*");
+                                }
+                                Console.Write("\n");
                             }
-                            for (j = 0; j < i; j++)
+                            for (i = length; i >= 0; i -= 2)
                             {
-                                Console.Write("*");
+                                for (k = length; k > i; k -= 2)
+                                {
+                                    Console.Write(" ");
+                                }
+                                for (j = 0; j < i; j++)
+                                {
+                                    Console.Write("*");
+                                }
+                                Console.Write("\n");
                             }
-                            Console.Write("\n");
                         }
+                        
                         break;
                     }
                 }
@@ -417,13 +448,13 @@ namespace CSharp_Course_Project
             //ThreeNumbers();
             //OddAndThreeDigitNumber();
             //ThreeNumbersOperations();
-            ConsoleCalculator();
+            //ConsoleCalculator();
             //RangeNumber();
             //Translator();
             //EmployeeBonus();
             //Factrorial();
             //NumberProcesses();
-            //GeometricalFigures();
+            GeometricalFigures();
         }
     }
 }
