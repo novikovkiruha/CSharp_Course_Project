@@ -23,20 +23,21 @@ namespace CSharp_Course_Project
                 else if (number < 0)
                     Console.WriteLine("Negative number");
                 else if (number > 0)
-                    Console.WriteLine("Positive number");
-
-                int count = 0;
-                for (int i = 1; i <= number; i++)
                 {
-                    if (number % i == 0)
+                    Console.WriteLine("Positive number");
+                    int count = 0;
+                    for (int i = 1; i <= number; i++)
                     {
-                        count++;
+                        if (number % i == 0)
+                        {
+                            count++;
+                        }
                     }
+                    if (count == 2)
+                        Console.WriteLine($"{number} is a prime number");
+                    else
+                        Console.WriteLine($"{number} is NOT a prime number");
                 }
-                if (count == 2)
-                    Console.WriteLine($"{number} is a prime number");
-                else
-                    Console.WriteLine($"{number} is NOT a prime number");
 
                 int[] array = new int[5] { 9, 5, 3, 6, 9 }; // 0 = 2, 1 = 5, 2 = 3
                 for (int i = 0; i < array.Length; i++)
@@ -46,14 +47,15 @@ namespace CSharp_Course_Project
                         Console.WriteLine($"The number is divided by {array[i]}");
                     }
                 }
-                continue;
+                Console.WriteLine("Do you want to proceed? Y/N");
+                string proceed = Console.ReadLine();
+                if (proceed.Equals("Y") || proceed.Equals("y"))
+                    continue;
+                else
+                    break;
             }
         }
 
-        //Имеется N клиентов, которым компания производитель должна доставить товар.
-        //Сколько существует возможных маршрутов доставки товара, с учетом того, что товар будет доставлять одна машина?  
-        //Напишите программу, которая будет рассчитывать, и выводить на экран количество возможных вариантов доставки товара.
-        //Для решения задачи, используйте факториал N!, рассчитываемый с помощью цикла do-while.
         public static void Logistics()
         {
             while (true)
@@ -95,10 +97,51 @@ namespace CSharp_Course_Project
             }
         }
 
+        //Дано два числа A и B(A<B) выведите сумму всех чисел расположенных между данными числами на экран.
+        //Дано два числа A и B (A<B) выведите все нечетные значения, расположенные между данными числами. 
+        public static void TwoNumbersAandB()
+        {
+            while (true)
+            {
+                Console.WriteLine("Enter 2 numbers:");
+                string stringNumberA = Console.ReadLine();
+                bool isNumberA = Int32.TryParse(stringNumberA, out int a);
+                string stringNumberB = Console.ReadLine();
+                bool isNumberB = Int32.TryParse(stringNumberB, out int b);
+
+                if (!isNumberA || !isNumberB)
+                {
+                    Console.WriteLine("Not a numeric values. Try again...");
+                    continue;
+                }
+                if (a < b)
+                {
+                    int sum = a;
+                    sum -= a;
+                    for (int i = a; i <= b; i++)
+                    {
+                        sum += i;
+                        if (i % 2 != 0)
+                        {
+                            Console.WriteLine($"{i} is odd number");
+                        }
+                    }
+                    Console.WriteLine($"Sum of numbers in range: {sum} ");
+                }
+                Console.WriteLine("Do you want to proceed? Y/N");
+                string proceed = Console.ReadLine();
+                if (proceed.Equals("Y") || proceed.Equals("y"))
+                    continue;
+                else
+                    break;
+            }
+        }
+
         static void Main(string[] args)
         {
             //NumberProcesses();
-            Logistics();
+            //Logistics();
+            TwoNumbersAandB();
         }
     }
 }
