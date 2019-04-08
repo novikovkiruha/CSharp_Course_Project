@@ -61,64 +61,49 @@ namespace CSharp_Course_Project
         {
             while (true)
             {
-                // проверить на строку через continue (в цикле)
                 Console.Write("Enter the first number: ");
                 string op1 = Console.ReadLine();
-                //int operand1 = Convert.ToInt32(op1);
-                bool isNumber = Int32.TryParse(op1, out int operand1);
-                while (true)
-                {
-                    if (!isNumber)
-                    {
-                        Console.Write("Enter the first number: ");
-                        operand1 = Convert.ToInt32(Console.ReadLine());
-                        continue;
-                    }
-                }
-
+                bool isFirstNumber = Int32.TryParse(op1, out int operand1);
                 Console.Write("Enter the second number: ");
-                int operand2 = Convert.ToInt32(Console.ReadLine());
-                while (true)
-                {
-                    if (!(operand2.GetType().Equals("System.Int32")))
-                    {
-                        Console.Write("Not a number. Enter the first number again: ");
-                        operand2 = Convert.ToInt32(Console.ReadLine());
-                        continue;
-                    }
-                    else break;
-                }
-
+                string op2 = Console.ReadLine();
+                bool isSecondNumber = Int32.TryParse(op2, out int operand2);
                 Console.Write("Enter the operation symbol: ");
                 string symbol = Console.ReadLine();
 
-                while (operand2 == 0 && symbol == "/")
+                if (!isFirstNumber || !isSecondNumber)
                 {
-                    Console.Write("Cann't divide by 0. Try enter the second number again: ");
-                    operand2 = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Entered numbers are not numberic values. Try again: ");
+                    continue;
                 }
-
-                int result = 0;
-
-                switch (symbol)
+                else if (operand2 == 0 && symbol == "/")
                 {
-                    case "+":
-                        result = operand1 + operand2;
-                        break;
-                    case "-":
-                        result = operand1 - operand2;
-                        break;
-                    case "*":
-                        result = operand1 * operand2;
-                        break;
-                    case "/":
-                        result = operand1 / operand2;
-                        break;
-                    default:
-                        break;
+                    Console.WriteLine("Сannot divide by 0. Try again:");
+                    continue;
                 }
-                Console.WriteLine(result);
+                else
+                {
+                    int result = 0;
 
+                    switch (symbol)
+                    {
+                        case "+":
+                            result = operand1 + operand2;
+                            break;
+                        case "-":
+                            result = operand1 - operand2;
+                            break;
+                        case "*":
+                            result = operand1 * operand2;
+                            break;
+                        case "/":
+                            result = operand1 / operand2;
+                            break;
+                        default:
+                            Console.WriteLine("Wrong operation symbol. Try again:");
+                            continue;
+                    }
+                    Console.WriteLine(result);
+                }
                 Console.WriteLine("Do you want to proceed? Y/N");
                 string proceed = Console.ReadLine();
                 if (proceed == "N" || proceed == "n")
@@ -395,7 +380,7 @@ namespace CSharp_Course_Project
                             }
                             Console.Write("\n");
                         }
-                        for (i = length-3; i >= 0; i -= 2)
+                        for (i = length - 3; i >= 0; i -= 2)
                         {
                             for (k = length; k > i; k -= 2)
                             {
@@ -432,13 +417,13 @@ namespace CSharp_Course_Project
             //ThreeNumbers();
             //OddAndThreeDigitNumber();
             //ThreeNumbersOperations();
-            //ConsoleCalculator();
+            ConsoleCalculator();
             //RangeNumber();
             //Translator();
             //EmployeeBonus();
             //Factrorial();
             //NumberProcesses();
-            GeometricalFigures();
+            //GeometricalFigures();
         }
     }
 }
