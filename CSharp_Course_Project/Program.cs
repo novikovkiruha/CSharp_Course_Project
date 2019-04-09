@@ -232,8 +232,6 @@ namespace CSharp_Course_Project
             }
         }
 
-        /*Напишите программу, которая вводит два целых числа и находит их произведение, не используя операцию умножения. 
-         Учтите, что числа могут быть отрицательными.*/
         public static void MultiplyOperation()
         {
             while (true)
@@ -282,6 +280,36 @@ namespace CSharp_Course_Project
             }
         }
 
+        public static void SquareNumber()
+        {
+            while (true)
+            {
+                Console.Write("Enter the number: ");
+                string stringNumber = Console.ReadLine();
+                bool isNumber = Int32.TryParse(stringNumber, out int number);
+                if (!isNumber || number <= 1)
+                {
+                    Console.WriteLine("Not a numeric, natural value or value is 1. Try again...");
+                    continue;
+                }
+
+                int[] array = new int[number-1];
+                for (int i = 1; i <= array.Length; i++)
+                {
+                    array[i-1] = i * i;
+                    Console.WriteLine($"Square of {i} = {array[i-1]}");
+                }
+                Console.WriteLine(string.Join(",", array));
+
+                Console.WriteLine("Do you want to proceed? Y/N");
+                string proceed = Console.ReadLine();
+                if (proceed.Equals("N") || proceed.Equals("n"))
+                    break;
+                else
+                    continue;
+            }
+        }
+
         static void Main(string[] args)
         {
             //NumberProcesses();
@@ -290,7 +318,8 @@ namespace CSharp_Course_Project
             //EvenDigits();
             //NumbersAverage();
             //Skier();
-            MultiplyOperation();
+            //MultiplyOperation();
+            SquareNumber();
         }
 
         /*
