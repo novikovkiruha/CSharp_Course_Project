@@ -218,14 +218,15 @@ namespace CSharp_Course_Project
         
         public static void Skier()
         {
-            double firstDayDistance = 10;
+            double dailyDistance = 10;
             int days = 1;
             double increment = 1.1;
             double kmMax = 100;
-            double dailyDistance = 10;
-            while (dailyDistance < kmMax)
+            double km = 0;
+            while (km < kmMax)
             {
-                dailyDistance += firstDayDistance * increment;
+                dailyDistance *= increment;
+                km += dailyDistance;
                 days++;
                 Console.WriteLine($"{dailyDistance} km in {days} days");
             }
