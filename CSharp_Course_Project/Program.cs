@@ -215,7 +215,7 @@ namespace CSharp_Course_Project
                     break;
             }
         }
-        
+
         public static void Skier()
         {
             double dailyDistance = 10;
@@ -232,6 +232,56 @@ namespace CSharp_Course_Project
             }
         }
 
+        /*Напишите программу, которая вводит два целых числа и находит их произведение, не используя операцию умножения. 
+         Учтите, что числа могут быть отрицательными.*/
+        public static void MultiplyOperation()
+        {
+            while (true)
+            {
+                Console.WriteLine("Enter two numbers:");
+                string stringNumber1 = Console.ReadLine();
+                bool isNumber1 = Int32.TryParse(stringNumber1, out int number1);
+                string stringNumber2 = Console.ReadLine();
+                bool isNumber2 = Int32.TryParse(stringNumber2, out int number2);
+                if (!isNumber1 || !isNumber2)
+                {
+                    Console.WriteLine("Not a numeric values. Try again...");
+                    continue;
+                }
+
+                int result = 0;
+                if (number1 >= 0 && number2 >= 0)
+                {
+                    for (int i = 0; i < number1; i++)
+                    {
+                        result += number2; // 0 + 
+                    }
+                }
+                else if (number1 < 0)
+                {
+                    for (int i = 0; i < -number1; i++)
+                    {
+                        result += -number2; // 0 + 
+                    }
+                }
+                else if (number2 < 0)
+                {
+                    for (int i = 0; i < -number2; i++)
+                    {
+                        result += -number1; // 0 + 
+                    }
+                }
+                Console.WriteLine($"Multiply result: {result}");
+
+                Console.WriteLine("Do you want to proceed? Y/N");
+                string proceed = Console.ReadLine();
+                if (proceed.Equals("N") || proceed.Equals("n"))
+                    break;
+                else
+                    continue;
+            }
+        }
+
         static void Main(string[] args)
         {
             //NumberProcesses();
@@ -239,24 +289,34 @@ namespace CSharp_Course_Project
             //TwoNumbersAandB();
             //EvenDigits();
             //NumbersAverage();
-            Skier();
+            //Skier();
+            MultiplyOperation();
         }
 
         /*
-        while (true)
+        public static void Method()
         {
-            Console.WriteLine("");
-            string stringNumber = Console.ReadLine();
-            bool isNumber = Int32.TryParse(stringNumber, out int number);
-
+            while (true)
+            {
+                Console.WriteLine("");
+                string stringNumber1 = Console.ReadLine();
+                bool isNumber1 = Int32.TryParse(stringNumber1, out int number1);
+                string stringNumber2 = Console.ReadLine();
+                bool isNumber2 = Int32.TryParse(stringNumber2, out int number2);
+                if (!isNumber1 || !isNumber2)
+                {
+                    Console.WriteLine("Not a numeric values. Try again...");
+                    continue;
+                }
             
             
-            Console.WriteLine("Do you want to proceed? Y/N");
-            string proceed = Console.ReadLine();
-            if (proceed.Equals("Y") || proceed.Equals("y"))
-                continue;
-            else
-                break;
+                Console.WriteLine("Do you want to proceed? Y/N");
+                string proceed = Console.ReadLine();
+                if (proceed.Equals("N") || proceed.Equals("n"))
+                    break;
+                else
+                    continue;
+                }
             }
         }
         */
