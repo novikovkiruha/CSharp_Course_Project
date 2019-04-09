@@ -174,7 +174,6 @@ namespace CSharp_Course_Project
             }
         }
 
-        //Найти среднее арифметическое всех целых чисел от а до b (значения а и b вводятся с клавиатуры (b>=a)
         public static void NumbersAverage()
         {
             while (true)
@@ -216,6 +215,21 @@ namespace CSharp_Course_Project
                     break;
             }
         }
+        
+        public static void Skier()
+        {
+            double firstDayDistance = 10;
+            int days = 1;
+            double increment = 1.1;
+            double kmMax = 100;
+            double dailyDistance = 10;
+            while (dailyDistance < kmMax)
+            {
+                dailyDistance += firstDayDistance * increment;
+                days++;
+                Console.WriteLine($"{dailyDistance} km in {days} days");
+            }
+        }
 
         static void Main(string[] args)
         {
@@ -223,7 +237,27 @@ namespace CSharp_Course_Project
             //Logistics();
             //TwoNumbersAandB();
             //EvenDigits();
-            NumbersAverage();
+            //NumbersAverage();
+            Skier();
         }
+
+        /*
+        while (true)
+        {
+            Console.WriteLine("");
+            string stringNumber = Console.ReadLine();
+            bool isNumber = Int32.TryParse(stringNumber, out int number);
+
+            
+            
+            Console.WriteLine("Do you want to proceed? Y/N");
+            string proceed = Console.ReadLine();
+            if (proceed.Equals("Y") || proceed.Equals("y"))
+                continue;
+            else
+                break;
+            }
+        }
+        */
     }
 }
