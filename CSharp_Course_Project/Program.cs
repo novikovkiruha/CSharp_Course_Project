@@ -372,6 +372,38 @@ namespace CSharp_Course_Project
             }
         }
 
+        public static void InvertedNumber()
+        {
+            while (true)
+            {
+                Console.Write("Enter the number: ");
+                string stringNumber = Console.ReadLine();
+                bool isNumber = Int32.TryParse(stringNumber, out int number);
+                if (!isNumber || number < 0)
+                {
+                    Console.WriteLine("Not a numeric values or less than 0. Try again...");
+                    continue;
+                }
+                int invertedNumber = 0;
+                while (number > 0)
+                {
+                    // number 12345 1234 123 12
+                    int remainder = number % 10; // 5 4 3 2 1
+                    invertedNumber *= 10; // 0 50 40 30 20 10
+                    invertedNumber += remainder; // 5 54 32
+                    number /= 10; // 1234 123 12
+                }
+                Console.WriteLine(invertedNumber);
+
+                Console.WriteLine("Do you want to proceed? Y/N");
+                string proceed = Console.ReadLine();
+                if (proceed.Equals("N") || proceed.Equals("n"))
+                    break;
+                else
+                    continue;
+            }
+        }
+
         static void Main(string[] args)
         {
             //NumberProcesses();
@@ -381,9 +413,10 @@ namespace CSharp_Course_Project
             //NumbersAverage();
             //Skier();
             //MultiplyOperation();
-            SquareNumber();
+            //SquareNumber();
             //Fibonacci();
             //FibonacciAllNumbers();
+            InvertedNumber();
         }
 
         /*
