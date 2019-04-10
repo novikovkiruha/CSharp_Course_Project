@@ -311,7 +311,6 @@ namespace CSharp_Course_Project
             }
         }
 
-        //Дано число k. Напишите программу, которая выводит все числа Фибоначчи, которые не превышают его.
         public static void Fibonacci()
         {
             while (true)
@@ -343,6 +342,37 @@ namespace CSharp_Course_Project
             }
         }
 
+        public static void FibonacciAllNumbers()
+        {
+            while (true)
+            {
+                Console.Write("Enter the number: ");
+                string stringNumber = Console.ReadLine();
+                bool isNumber = Int32.TryParse(stringNumber, out int number);
+                if (!isNumber || number < 0)
+                {
+                    Console.WriteLine("Not a numeric values or less than 0. Try again...");
+                    continue;
+                }
+                int firstNumber = 0;
+                int secondNumber = 1;
+                int nextNumber = 0;
+                for (int i = 1; i <= number; i++)
+                {
+                    Console.WriteLine(firstNumber);
+                    nextNumber = firstNumber + secondNumber;
+                    firstNumber = secondNumber;
+                    secondNumber = nextNumber;
+                }
+                Console.WriteLine("Do you want to proceed? Y/N");
+                string proceed = Console.ReadLine();
+                if (proceed.Equals("N") || proceed.Equals("n"))
+                    break;
+                else
+                    continue;
+            }
+        }
+
         static void Main(string[] args)
         {
             //NumberProcesses();
@@ -353,7 +383,8 @@ namespace CSharp_Course_Project
             //Skier();
             //MultiplyOperation();
             //SquareNumber();
-            Fibonacci();
+            //Fibonacci();
+            FibonacciAllNumbers();
         }
 
         /*
