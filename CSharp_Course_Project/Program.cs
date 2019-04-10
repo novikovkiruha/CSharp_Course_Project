@@ -434,6 +434,49 @@ namespace CSharp_Course_Project
             }
         }
 
+        public static void NumberDegree()
+        {
+            while (true)
+            {
+                Console.Write("Enter the number: ");
+                string stringNumber = Console.ReadLine();
+                bool isNumber1 = Double.TryParse(stringNumber, out double number);
+                Console.Write("Enter the degree: ");
+                string stringDegree = Console.ReadLine();
+                bool isNumber2 = Double.TryParse(stringDegree, out double degree);
+                if (!isNumber1 || !isNumber2)
+                {
+                    Console.WriteLine("Not a numeric values. Try again...");
+                    continue;
+                }
+                double result = 1;
+                if (degree > 0)
+                {
+                    for (int i = 0; i < degree; i++)
+                    {
+                        result *= number;
+                    }
+                }
+                else if (degree < 0)
+                {
+                    for (double i = degree; i < 0; i++)
+                    {
+                        result *= number;
+                    }
+                    result = 1 / result;
+                }
+                Console.WriteLine($"{number}^{degree} = {result}");
+
+                Console.WriteLine("Do you want to proceed? Y/N");
+                string proceed = Console.ReadLine();
+                if (proceed.Equals("N") || proceed.Equals("n"))
+                    break;
+                else
+                    continue;
+            }
+        }
+
+
         static void Main(string[] args)
         {
             //NumberProcesses();
@@ -447,7 +490,8 @@ namespace CSharp_Course_Project
             //Fibonacci();
             //FibonacciAllNumbers();
             //InvertedNumber();
-            NumberDigits();
+            //NumberDigits();
+            NumberDegree();
         }
 
         /*
