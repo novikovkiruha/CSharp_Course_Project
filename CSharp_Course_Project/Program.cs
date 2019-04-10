@@ -293,14 +293,13 @@ namespace CSharp_Course_Project
                     continue;
                 }
 
-                int[] array = new int[number - 1];
-                for (int i = 1; i <= array.Length; i++)
+                int result = 0;
+                for (int i = 1; i <= number; i++)
                 {
-                    array[i - 1] = i * i;
-                    Console.WriteLine($"Square of {i} = {array[i - 1]}");
+                    result = i * i;
+                    if (result <= number)
+                        Console.WriteLine($"Square of {i} = {result}");
                 }
-                Console.WriteLine(string.Join(",", array));
-
 
                 Console.WriteLine("Do you want to proceed? Y/N");
                 string proceed = Console.ReadLine();
@@ -382,9 +381,9 @@ namespace CSharp_Course_Project
             //NumbersAverage();
             //Skier();
             //MultiplyOperation();
-            //SquareNumber();
+            SquareNumber();
             //Fibonacci();
-            FibonacciAllNumbers();
+            //FibonacciAllNumbers();
         }
 
         /*
