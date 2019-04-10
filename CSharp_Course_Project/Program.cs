@@ -252,21 +252,21 @@ namespace CSharp_Course_Project
                 {
                     for (int i = 0; i < number1; i++)
                     {
-                        result += number2; // 0 + 
+                        result += number2;
                     }
                 }
                 else if (number1 < 0)
                 {
                     for (int i = 0; i < -number1; i++)
                     {
-                        result += -number2; // 0 + 
+                        result += -number2;
                     }
                 }
                 else if (number2 < 0)
                 {
                     for (int i = 0; i < -number2; i++)
                     {
-                        result += -number1; // 0 + 
+                        result += -number1;
                     }
                 }
                 Console.WriteLine($"Multiply result: {result}");
@@ -293,14 +293,47 @@ namespace CSharp_Course_Project
                     continue;
                 }
 
-                int[] array = new int[number-1];
+                int[] array = new int[number - 1];
                 for (int i = 1; i <= array.Length; i++)
                 {
-                    array[i-1] = i * i;
-                    Console.WriteLine($"Square of {i} = {array[i-1]}");
+                    array[i - 1] = i * i;
+                    Console.WriteLine($"Square of {i} = {array[i - 1]}");
                 }
                 Console.WriteLine(string.Join(",", array));
 
+
+                Console.WriteLine("Do you want to proceed? Y/N");
+                string proceed = Console.ReadLine();
+                if (proceed.Equals("N") || proceed.Equals("n"))
+                    break;
+                else
+                    continue;
+            }
+        }
+
+        //Дано число k. Напишите программу, которая выводит все числа Фибоначчи, которые не превышают его.
+        public static void Fibonacci()
+        {
+            while (true)
+            {
+                Console.Write("Enter the number: ");
+                string stringNumber = Console.ReadLine();
+                bool isNumber = Int32.TryParse(stringNumber, out int number);
+                if (!isNumber || number < 0)
+                {
+                    Console.WriteLine("Not a numeric values or less than 0. Try again...");
+                    continue;
+                }
+                int firstNumber = 0;
+                int secondNumber = 1;
+                int nextNumber = 0;
+                while (nextNumber < number)
+                {
+                    Console.WriteLine(nextNumber);
+                    firstNumber = secondNumber;
+                    secondNumber = nextNumber;
+                    nextNumber = firstNumber + secondNumber;
+                }
                 Console.WriteLine("Do you want to proceed? Y/N");
                 string proceed = Console.ReadLine();
                 if (proceed.Equals("N") || proceed.Equals("n"))
@@ -319,7 +352,8 @@ namespace CSharp_Course_Project
             //NumbersAverage();
             //Skier();
             //MultiplyOperation();
-            SquareNumber();
+            //SquareNumber();
+            Fibonacci();
         }
 
         /*
@@ -345,7 +379,6 @@ namespace CSharp_Course_Project
                     break;
                 else
                     continue;
-                }
             }
         }
         */
