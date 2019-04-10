@@ -404,6 +404,36 @@ namespace CSharp_Course_Project
             }
         }
 
+        public static void NumberDigits()
+        {
+            while (true)
+            {
+                Console.Write("Enter the number: ");
+                string stringNumber = Console.ReadLine();
+                bool isNumber = Int32.TryParse(stringNumber, out int number);
+                if (!isNumber || number < 0)
+                {
+                    Console.WriteLine("Not a numeric values or less than 0. Try again...");
+                    continue;
+                }
+                int[] array = new int[stringNumber.Length];
+                for (int i = array.Length-1; i >= 0; i--)
+                {
+                    array[i] = number % 10;
+                    number /= 10;
+                }
+                foreach (var item in array)
+                    Console.WriteLine(item);
+
+                Console.WriteLine("Do you want to proceed? Y/N");
+                string proceed = Console.ReadLine();
+                if (proceed.Equals("N") || proceed.Equals("n"))
+                    break;
+                else
+                    continue;
+            }
+        }
+
         static void Main(string[] args)
         {
             //NumberProcesses();
@@ -416,7 +446,8 @@ namespace CSharp_Course_Project
             //SquareNumber();
             //Fibonacci();
             //FibonacciAllNumbers();
-            InvertedNumber();
+            //InvertedNumber();
+            NumberDigits();
         }
 
         /*
