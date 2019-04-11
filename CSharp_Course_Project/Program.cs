@@ -4,7 +4,7 @@ namespace CSharp_Course_Project
 {
     class Program
     {
-        public static void NumberProcesses()
+        public static void NumberProcesses() // 3
         {
             while (true)
             {
@@ -56,7 +56,7 @@ namespace CSharp_Course_Project
             }
         }
 
-        public static void Logistics()
+        public static void Logistics() // 4
         {
             while (true)
             {
@@ -97,7 +97,7 @@ namespace CSharp_Course_Project
             }
         }
 
-        public static void TwoNumbersAandB()
+        public static void TwoNumbersAandB() // 5
         {
             while (true)
             {
@@ -140,7 +140,7 @@ namespace CSharp_Course_Project
             }
         }
 
-        public static void EvenDigits()
+        public static void EvenDigits() // 6
         {
             while (true)
             {
@@ -174,7 +174,7 @@ namespace CSharp_Course_Project
             }
         }
 
-        public static void NumbersAverage()
+        public static void NumbersAverage() // 7
         {
             while (true)
             {
@@ -216,7 +216,7 @@ namespace CSharp_Course_Project
             }
         }
 
-        public static void Skier()
+        public static void Skier() // 8
         {
             double dailyDistance = 10;
             int days = 1;
@@ -232,7 +232,7 @@ namespace CSharp_Course_Project
             }
         }
 
-        public static void MultiplyOperation()
+        public static void MultiplyOperation() // 9
         {
             while (true)
             {
@@ -280,7 +280,7 @@ namespace CSharp_Course_Project
             }
         }
 
-        public static void SquareNumber()
+        public static void SquareNumber() // 10
         {
             while (true)
             {
@@ -310,7 +310,7 @@ namespace CSharp_Course_Project
             }
         }
 
-        public static void Fibonacci()
+        public static void Fibonacci() // 11
         {
             while (true)
             {
@@ -341,7 +341,7 @@ namespace CSharp_Course_Project
             }
         }
 
-        public static void FibonacciAllNumbers()
+        public static void FibonacciAllNumbers() // 12
         {
             while (true)
             {
@@ -372,7 +372,7 @@ namespace CSharp_Course_Project
             }
         }
 
-        public static void InvertedNumber()
+        public static void InvertedNumber() // 13
         {
             while (true)
             {
@@ -404,7 +404,7 @@ namespace CSharp_Course_Project
             }
         }
 
-        public static void NumberDigits()
+        public static void NumberDigits() // 14
         {
             while (true)
             {
@@ -434,7 +434,7 @@ namespace CSharp_Course_Project
             }
         }
 
-        public static void NumberDegree()
+        public static void NumberDegree() // 15
         {
             while (true)
             {
@@ -476,6 +476,54 @@ namespace CSharp_Course_Project
             }
         }
 
+        public static void DeletedDigit() // 16
+        {
+            while (true)
+            {
+                Console.Write("Enter the number: ");
+                string stringNumber1 = Console.ReadLine();
+                bool isNumber1 = Int32.TryParse(stringNumber1, out int number);
+                Console.Write("Enter the digit to delete: ");
+                string stringNumber2 = Console.ReadLine();
+                bool isNumber2 = Int32.TryParse(stringNumber2, out int deletedDigit);
+
+                if (!isNumber1 || !isNumber2 || number < 0)
+                {
+                    Console.WriteLine("Not a numeric or natural values. Try again...");
+                    continue;
+                }
+                int temp = 0;
+                int invertedNumber = 0;
+                for (int i = 0; i < stringNumber1.Length; i++)
+                {
+                    temp = number % 10;
+                    if (temp != deletedDigit)
+                    {
+                        invertedNumber *= 10;
+                        invertedNumber += temp;
+                    }
+                    number /= 10;
+                }
+                number = invertedNumber;
+                stringNumber1 = number.ToString();
+                invertedNumber = 0;
+                for (int i = 0; i < stringNumber1.Length; i++)
+                {
+                    temp = number % 10;
+                    invertedNumber *= 10;
+                    invertedNumber += temp;
+                    number /= 10;
+                }
+                Console.WriteLine(invertedNumber);
+
+                Console.WriteLine("Do you want to proceed? Y/N");
+                string proceed = Console.ReadLine();
+                if (proceed.Equals("N") || proceed.Equals("n"))
+                    break;
+                else
+                    continue;
+            }
+        }
 
         static void Main(string[] args)
         {
@@ -491,7 +539,8 @@ namespace CSharp_Course_Project
             //FibonacciAllNumbers();
             //InvertedNumber();
             //NumberDigits();
-            NumberDegree();
+            //NumberDegree();
+            DeletedDigit();
         }
 
         /*
