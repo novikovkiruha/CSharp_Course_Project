@@ -32,9 +32,6 @@ namespace CSharp_Course_Project
             }
         }
 
-        /*Возьмем любое натуральное число. Если оно четное - разделим его пополам, если нечетное - умножим на 3, 
-         * прибавим 1 и разделим пополам. Повторим эти действия с вновь полученным числом.
-         * Гипотеза гласит, что независимо от выбора первого числа рано или поздно мы получим 1.*/
         public static void CollatzConjecture() // 18
         {
             while (true)
@@ -69,10 +66,47 @@ namespace CSharp_Course_Project
             }
         }
 
+        public static void RandomNumberGuessing() // 19
+        {
+            while (true)
+            {
+                var random = new Random().Next(0, 100);
+                while (true)
+                {
+                    Console.Write("Try to guess a number in range 0 and 100: ");
+                    string stringNumber = Console.ReadLine();
+                    bool isNumber = Int32.TryParse(stringNumber, out int number);
+                    if (!isNumber || number < 0)
+                    {
+                        Console.WriteLine("Not a numeric or natural value. Try again...");
+                        continue;
+                    }
+
+                    if (number > random)
+                    {
+                        Console.WriteLine("You're close, but entered number should be less");
+                        continue;
+                    }
+                    else if (number < random)
+                    {
+                        Console.WriteLine("You're close, but entered number should be bigger");
+                        continue;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"You're right! The random number is {random}");
+                        break;
+                    }
+                }
+                break;
+            }
+        }
+
         static void Main(string[] args)
         {
             //MaxDigit();
-            CollatzConjecture();
+            //CollatzConjecture();
+            RandomNumberGuessing();
         }
     }
 }
