@@ -624,7 +624,43 @@ namespace CSharp_Course_Project
             }
         }
 
-        static void Main(string[] args)
+        public static void ElementsSum() // 20
+        {
+            Console.Write("Enter the number: ");
+            string stringNumber = Console.ReadLine();
+            bool isNumber = Int32.TryParse(stringNumber, out int number);
+
+            double sum = 0;
+            string output = "";
+            double[] array = new double[number];
+            for (int i = 0; i < number; i++)
+            {
+                double numerator = i+1;
+                double denominator = 1;
+                double temp = 2;
+                for (int j = 0; j < numerator; j++) // 1 2
+                {
+                    denominator *= temp; // 2 
+                }
+                double value = numerator / denominator;
+                if (numerator % 2 == 0)
+                {
+                    value *= -1;
+                }
+                array[i] = value;
+                sum += value;
+                if (numerator == 1)
+                    output += $"{numerator}/{denominator}";
+                else if (numerator % 2 == 0 && numerator > 1)
+                    output += $" - {numerator}/{denominator}";
+                else
+                    output += $" + {numerator}/{denominator}";
+            }
+            Console.WriteLine($"S = {output} = {sum}");
+            Console.WriteLine($"S = " + string.Join(" + ", array) + $" = {sum}");
+        }
+
+            static void Main(string[] args)
         {
             //NumberProcesses();
             //Logistics();
@@ -642,7 +678,8 @@ namespace CSharp_Course_Project
             //DeletedDigit();
             //MaxDigit();
             //CollatzConjecture();
-            RandomNumberGuessing();
+            //RandomNumberGuessing();
+            ElementsSum();
         }
 
         /*
