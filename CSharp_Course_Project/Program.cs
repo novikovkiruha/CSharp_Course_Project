@@ -290,6 +290,16 @@ namespace CSharp_Course_Project
                             }
                             Console.Write("\n");
                         }
+                        Console.WriteLine();
+                        for (i = 0; i < height; i++)
+                        {
+                            for (j = 0; j < length; j++)
+                            {
+                                if (i > 0 && j > 0) Console.WriteLine(" ");
+                                else Console.Write("*");
+                            }
+                            Console.Write("\n");
+                        }
                         break;
                     }
                 }
@@ -374,7 +384,7 @@ namespace CSharp_Course_Project
                             {
                                 for (j = length; j >= i; j -= 2)
                                 {
-                                    Console.Write("-");
+                                    Console.Write(" ");
                                 }
                                 for (k = 0; k <= i; k++)
                                 {
@@ -386,7 +396,7 @@ namespace CSharp_Course_Project
                             {
                                 for (j = length; j >= i; j -= 2)
                                 {
-                                    Console.Write("-");
+                                    Console.Write(" ");
                                 }
                                 for (k = 0; k < i; k++)
                                 {
@@ -400,9 +410,9 @@ namespace CSharp_Course_Project
                         {
                             for (i = 0; i < length; i += 2)
                             {
-                                for (j = length; j >= i; j -= 2)
+                                for (j = length - 1; j >= i; j -= 2)
                                 {
-                                    Console.Write("-");
+                                    Console.Write(" ");
                                 }
                                 for (k = 0; k <= i; k++)
                                 {
@@ -410,11 +420,11 @@ namespace CSharp_Course_Project
                                 }
                                 Console.Write("\n");
                             }
-                            for (i = length-1; i >= 0; i -= 2)
+                            for (i = length - 1; i >= 0; i -= 2)
                             {
-                                for (j = length-1; j >= i; j -= 2)
+                                for (j = length; j >= i; j -= 2)
                                 {
-                                    Console.Write("-");
+                                    Console.Write(" ");
                                 }
                                 for (k = 0; k < i; k++)
                                 {
@@ -423,61 +433,6 @@ namespace CSharp_Course_Project
                                 Console.Write("\n");
                             }
                         }
-
-                        //if (length % 2 == 0)
-                        //{
-                        //    for (i = 1; i <= length; i += 2)
-                        //    {
-                        //        for (k = length; k > i; k -= 2)
-                        //        {
-                        //            Console.Write(" ");
-                        //        }
-                        //        for (j = 0; j < i; j++)
-                        //        {
-                        //            Console.Write("*");
-                        //        }
-                        //        Console.Write("\n");
-                        //    }
-                        //    for (i = length-1; i >= 1; i -= 2)
-                        //    {
-                        //        for (k = length; k > i; k -= 2)
-                        //        {
-                        //            Console.Write(" ");
-                        //        }
-                        //        for (j = 0; j < i; j++)
-                        //        {
-                        //            Console.Write("*");
-                        //        }
-                        //        Console.Write("\n");
-                        //    }
-                        //}
-                        //else
-                        //{
-                        //    for (i = 1; i <= length; i += 2)
-                        //    {
-                        //        for (k = length; k > i; k -= 2)
-                        //        {
-                        //            Console.Write(" ");
-                        //        }
-                        //        for (j = 0; j < i; j++)
-                        //        {
-                        //            Console.Write("*");
-                        //        }
-                        //        Console.Write("\n");
-                        //    }
-                        //    for (i = length; i >= 0; i -= 2)
-                        //    {
-                        //        for (k = length; k > i; k -= 2)
-                        //        {
-                        //            Console.Write(" ");
-                        //        }
-                        //        for (j = 0; j < i; j++)
-                        //        {
-                        //            Console.Write("*");
-                        //        }
-                        //        Console.Write("\n");
-                        //    }
-                        //}
                         break;
                     }
                 }
