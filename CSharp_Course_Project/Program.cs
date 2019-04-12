@@ -321,19 +321,20 @@ namespace CSharp_Course_Project
                     Console.WriteLine("Not a numeric values or less than 0. Try again...");
                     continue;
                 }
-                int firstNumber = 0;
+
                 int secondNumber = 1;
                 int nextNumber = 0;
+                Console.WriteLine("Fibonacci number:");
                 while (nextNumber < number)
                 {
                     Console.WriteLine(nextNumber);
-                    firstNumber = secondNumber;
+                    int firstNumber = secondNumber;
                     secondNumber = nextNumber;
                     nextNumber = firstNumber + secondNumber;
                 }
                 Console.WriteLine("Do you want to proceed? Y/N");
                 string proceed = Console.ReadLine();
-                if (proceed.Equals("N") || proceed.Equals("n"))
+                if (proceed.ToLower().Equals("n"))
                     break;
                 else
                     continue;
@@ -352,19 +353,19 @@ namespace CSharp_Course_Project
                     Console.WriteLine("Not a numeric values or less than 0. Try again...");
                     continue;
                 }
+
                 int firstNumber = 0;
                 int secondNumber = 1;
-                int nextNumber = 0;
                 for (int i = 1; i <= number; i++)
                 {
                     Console.WriteLine(firstNumber);
-                    nextNumber = firstNumber + secondNumber;
+                    int nextNumber = firstNumber + secondNumber;
                     firstNumber = secondNumber;
                     secondNumber = nextNumber;
                 }
                 Console.WriteLine("Do you want to proceed? Y/N");
                 string proceed = Console.ReadLine();
-                if (proceed.Equals("N") || proceed.Equals("n"))
+                if (proceed.ToLower().Equals("n"))
                     break;
                 else
                     continue;
@@ -665,7 +666,7 @@ namespace CSharp_Course_Project
             //Logistics();
             //TwoNumbersAandB();
             //EvenDigits();
-            NumbersAverage();
+            //NumbersAverage();
             //Skier();
             //MultiplyOperation();
             //SquareNumber();
