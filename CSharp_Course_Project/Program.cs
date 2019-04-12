@@ -191,15 +191,14 @@ namespace CSharp_Course_Project
                 }
                 if (a <= b)
                 {
-                    int sum = a;
-                    sum -= a;
+                    double sum = 0;
                     int count = 0;
                     for (int i = a; i <= b; i++)
                     {
                         sum += i;
                         count++;
                     }
-                    double average = (double)sum / (double)count;
+                    double average = sum / count;
                     Console.WriteLine($"Average: {average}");
                 }
                 else
@@ -666,7 +665,7 @@ namespace CSharp_Course_Project
             //Logistics();
             //TwoNumbersAandB();
             //EvenDigits();
-            //NumbersAverage();
+            NumbersAverage();
             //Skier();
             //MultiplyOperation();
             //SquareNumber();
@@ -679,34 +678,7 @@ namespace CSharp_Course_Project
             //MaxDigit();
             //CollatzConjecture();
             //RandomNumberGuessing();
-            ElementsSum();
+            //ElementsSum();
         }
-
-        /*
-        public static void Method()
-        {
-            while (true)
-            {
-                Console.WriteLine("");
-                string stringNumber1 = Console.ReadLine();
-                bool isNumber1 = Int32.TryParse(stringNumber1, out int number1);
-                string stringNumber2 = Console.ReadLine();
-                bool isNumber2 = Int32.TryParse(stringNumber2, out int number2);
-                if (!isNumber1 || !isNumber2)
-                {
-                    Console.WriteLine("Not a numeric values. Try again...");
-                    continue;
-                }
-            
-            
-                Console.WriteLine("Do you want to proceed? Y/N");
-                string proceed = Console.ReadLine();
-                if (proceed.Equals("N") || proceed.Equals("n"))
-                    break;
-                else
-                    continue;
-            }
-        }
-        */
     }
 }
