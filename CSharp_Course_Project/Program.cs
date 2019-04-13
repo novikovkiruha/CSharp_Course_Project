@@ -609,12 +609,12 @@ namespace CSharp_Course_Project
                         Console.WriteLine("You're close, but entered number should be less");
                         continue;
                     }
-                    else if (number < random)
+                    if (number < random)
                     {
                         Console.WriteLine("You're close, but entered number should be bigger");
                         continue;
                     }
-                    else
+                    if (number == random)
                     {
                         Console.WriteLine($"You're right! The random number is {random}");
                         break;
@@ -678,7 +678,7 @@ namespace CSharp_Course_Project
             //DeletedDigit();
             //MaxDigit();
             //CollatzConjecture();
-            //RandomNumberGuessing();
+            RandomNumberGuessing();
             //ElementsSum();
         }
     }
