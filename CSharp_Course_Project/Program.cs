@@ -7,7 +7,8 @@ namespace CSharp_Course_Project
         static void Main(string[] args)
         {
             //ArrayValues();
-            ArrayDuplicates();
+            //ArrayDuplicates();
+            ArrayIndex();
         }
 
         public static void ArrayValues()
@@ -42,8 +43,6 @@ namespace CSharp_Course_Project
             Console.WriteLine($"Min = {min}");
         }
 
-        //Из одномерного массива удалить все повторяющиеся элементы (дубликаты) так,
-        //чтобы каждое значение встречалось в массиве только один раз.
         public static void ArrayDuplicates()
         {
             int[] array = new int[] { 5, 4, 9, 2, 5, 6, 0, 2, 1, 0 };
@@ -73,7 +72,23 @@ namespace CSharp_Course_Project
         //В массиве определить индексы элементов, значение которых не меньше заданного минимума и не больше заданного максимума.
         public static void ArrayIndex()
         {
+            Console.Write("Enter the sire of the array: ");
+            int arraySize = Convert.ToInt32(Console.ReadLine());
+            int[] array = new int[arraySize];
+            var randomNubmers = new Random();
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = randomNubmers.Next(-100, 100);
+            }
+            Console.WriteLine(string.Join(",", array));
 
+            int min = -50;
+            int max = 50;
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] > min && array[i] < max)
+                    Console.WriteLine($"Index of {array[i]} = {i}");
+            }
         }
     }
 }
