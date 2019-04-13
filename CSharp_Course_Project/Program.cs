@@ -22,22 +22,20 @@ namespace CSharp_Course_Project
                 array[i] = randomNubmers.Next(-100, 100);
             }
 
-            foreach (var item in array)
-            {
-                Console.Write(string.Join(",", item));
-            }
-            Console.WriteLine();
-
             int max = array[0];
             int min = array[0];
             int sum = 0;
             int average = array[0];
+            int odd = array[0];
+            int even = array[0];
             for (int i = 0; i < array.Length; i++)
             {
                 sum += array[i];
                 average = sum / array.Length;
                 if (array[i] > max) max = array[i];
                 if (array[i] < min) min = array[i];
+                if (array[i] % 2 == 0) Console.WriteLine($"{array[i]} is even");
+                if (array[i] % 2 != 0) Console.WriteLine($"{array[i]} is odd");
             }
             Console.WriteLine($"Sum = {sum}");
             Console.WriteLine($"Avg = {average}");
