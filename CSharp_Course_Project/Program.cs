@@ -6,11 +6,10 @@ namespace CSharp_Course_Project
     {
         static void Main(string[] args)
         {
-            ArrayValues();
+            //ArrayValues();
+            ArrayDuplicates();
         }
-        //Создать массив размера N элементов, заполнить его произвольными целыми значениями(размер массива задает пользователь).  
-        //Вывести на экран: наибольшее значение массива, наименьшее значение массива, 
-        //общую сумму всех элементов, среднее арифметическое всех элементов, вывести все нечетные значения.
+
         public static void ArrayValues()
         {
             Console.Write("Enter the sire of the array: ");
@@ -41,6 +40,40 @@ namespace CSharp_Course_Project
             Console.WriteLine($"Avg = {average}");
             Console.WriteLine($"Max = {max}");
             Console.WriteLine($"Min = {min}");
+        }
+
+        //Из одномерного массива удалить все повторяющиеся элементы (дубликаты) так,
+        //чтобы каждое значение встречалось в массиве только один раз.
+        public static void ArrayDuplicates()
+        {
+            int[] array = new int[] { 5, 4, 9, 2, 5, 6, 0, 2, 1, 0 };
+
+            int count = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                for (int j = i + 1; j < array.Length; j++)
+                {
+                    if (array[i] == array[j])
+                    {
+                        Console.WriteLine($"Duplicate: {array[i]}");
+                        count++;
+                    }
+                }
+            }
+
+            int[] array2 = new int[array.Length - count];
+            Console.WriteLine(array2.Length);
+
+            foreach (var item in array)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+        //В массиве определить индексы элементов, значение которых не меньше заданного минимума и не больше заданного максимума.
+        public static void ArrayIndex()
+        {
+
         }
     }
 }
