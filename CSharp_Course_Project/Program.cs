@@ -104,60 +104,37 @@ namespace CSharp_Course_Project
         }
 
         //В массиве определить индексы элементов, значение которых не меньше заданного минимума и не больше заданного максимума.
-        public static void ArrayIndex() // 3
+        public static void ArrayIndex(int[] array) // 3
         {
-            Console.Write("Enter the size of the array: ");
-            int arraySize = Convert.ToInt32(Console.ReadLine());
-            int[] array = new int[arraySize];
-            var randomNubmers = new Random();
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = randomNubmers.Next(-100, 100);
-            }
-            Console.WriteLine(string.Join(",", array));
-
+            Console.WriteLine(string.Join(", ", array));
             int min = -5;
             int max = 5;
             for (int i = 0; i < array.Length; i++)
             {
                 if (array[i] > min && array[i] < max)
-                    Console.WriteLine($"Index of {array[i]} = {i}");
+                    Console.WriteLine($"Index of {array[i]} in range ({min}; {max}) = {i}");
             }
         }
 
         //Дан одномерный массив. Найти среднее арифметическое его элементов. 
         //Вывести на экран только те элементы массива, которые больше найденного среднего арифметического.
-        public static void ArrayAverage() // 4
+        public static void ArrayAverage(int[] array) // 4
         {
-            Console.Write("Enter the size of the array: ");
-            int arraySize = Convert.ToInt32(Console.ReadLine());
-            int[] array = new int[arraySize];
-            var randomNubmers = new Random();
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = randomNubmers.Next(-100, 100);
-            }
-            Console.WriteLine(string.Join(",", array));
-
+            Console.WriteLine(string.Join(", ", array));
             int average = 0;
             for (int i = 0; i < array.Length; i++)
             {
                 average += array[i];
             }
             average /= array.Length;
-            Console.WriteLine(average);
+            Console.WriteLine($"Average value of array: {average}");
         }
         //Создать метод MyReverse(int [] array), 
         //который принимает в качестве аргумента массив целочисленных элементов и возвращает инвертированный массив 
         //(элементы массива в обратном порядке).
         public static void MyReverse(int[] array) // 5
         {
-            Console.WriteLine("First array");
-            foreach (var item in array)
-            {
-                Console.WriteLine(item);
-            }
-
+            Console.WriteLine("Input array:\t" + string.Join(" , ", array));
             int getLastElement = array.Length;
             int[] invertedArray = new int[array.Length];
 
@@ -167,13 +144,7 @@ namespace CSharp_Course_Project
                 array[i] = invertedArray[getLastElement - 1 - i];
                 invertedArray[getLastElement - 1 - i] = temp;
             }
-            Console.WriteLine();
-
-            Console.WriteLine("Inverted array");
-            foreach (var item in invertedArray)
-            {
-                Console.WriteLine(item);
-            }
+            Console.WriteLine("Inverted array:\t" + string.Join(" , ", invertedArray));
         }
 
         /*
@@ -188,30 +159,46 @@ namespace CSharp_Course_Project
         */
         public static int[] SubArray(int[] array, int index, int count) // 6
         {
-            foreach (var item in array)
-                Console.WriteLine(item);
-            Console.WriteLine();
+            Console.WriteLine("Input array:\t" + string.Join(" , ", array));
 
+            int totalArrayLength = index + count;
             int[] partialArray = new int[count];
             for (int i = 0; i < partialArray.Length; i++)
             {
-                partialArray[i] = array[index + i];
+                if (totalArrayLength <= array.Length)
+                    partialArray[i] = array[index + i];
+                else
+                {
+                    while (index + i < array.Length)
+                    {
+                        partialArray[i] = array[index + i];
+                        i++;
+                    }
+                }
             }
 
-            foreach (var item in partialArray)
-                Console.WriteLine(item);
+            if (totalArrayLength > array.Length)
+            {
+                int zeroNumber = index + count - array.Length;
+                int zeroIndexInArray = partialArray.Length - zeroNumber;
+                for (int i = zeroIndexInArray; i < partialArray.Length; i++)
+                {
+                    if (partialArray[i] == 0) partialArray[i] = 1;
+                }
+            }
+            Console.WriteLine("Partial array:\t" + string.Join(" , ", partialArray));
 
             return partialArray;
         }
 
         static void Main(string[] args)
         {
-            ArrayValues(getArray());
-            ArrayDuplicates(getArray());
+            //ArrayValues(getArray());
+            //ArrayDuplicates(getArray());
             //ArrayIndex(getArray());
             //ArrayAverage(getArray());
             //MyReverse(getArray());
-            //SubArray(getArray(), 1, 3);
+            SubArray(getArray(), 5, 10);
         }
     }
 }
