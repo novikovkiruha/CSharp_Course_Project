@@ -4,23 +4,25 @@ namespace CSharp_Course_Project
 {
     class Program
     {
+        //
+        // Method for filling array
+        //
         public static int[] getArray()
         {
-            Console.Write("Enter the sire of the array: ");
+            Console.Write("Enter the size of the array: ");
             int arraySize = Convert.ToInt32(Console.ReadLine());
             int[] array = new int[arraySize];
             var randomNubmers = new Random();
             for (int i = 0; i < array.Length; i++)
             {
-                array[i] = randomNubmers.Next(0, 10);
+                array[i] = randomNubmers.Next(-10, 10);
             }
-
             return array;
         }
 
-        public static void ArrayValues()
+        public static void ArrayValues() // 1
         {
-            Console.Write("Enter the sire of the array: ");
+            Console.Write("Enter the size of the array: ");
             int arraySize = Convert.ToInt32(Console.ReadLine());
             int[] array = new int[arraySize];
             var randomNubmers = new Random();
@@ -50,42 +52,68 @@ namespace CSharp_Course_Project
             Console.WriteLine($"Min = {min}");
         }
 
-        // note: сделать с запоминанием индекса и пропускать индекс, если 
-        public static void ArrayDuplicates(int[] array)
+        public static void ArrayDuplicates(int[] array) // 2
         {
-            int[] arrayWtDuplicates = new int[array.Length];
-            arrayWtDuplicates[0] = array[0];
+            Console.WriteLine("The input array: " + string.Join(", ", array));
+            var arrayWithoutDuplicates = new int[array.Length];
+            arrayWithoutDuplicates[0] = array[0];
+            int position = 1;
 
-            int count = 0;
-            for (int i = 0; i < array.Length; i++)
+            var isDuplicate = false;
+            bool isContainZero = false;
+            int zeroCount = 0;
+
+            for (int i = 1; i < array.Length; i++)
             {
-                for (int j = i + 1; j < arrayWtDuplicates.Length; j++)
+                if (array[i] == 0)
+                    isContainZero = true;
+
+                for (int j = 0; j < position + 1; j++)
                 {
-                    if (array[i] != arrayWtDuplicates[j])
-                        arrayWtDuplicates[j] = array[i];
-                    else
+                    if (array[i] == arrayWithoutDuplicates[j])
                     {
-                        Console.WriteLine($"Duplicate: {array[i]}");
-                        continue;
+                        isDuplicate = true;
+                        break;
                     }
+                }
+
+                if (!isDuplicate)
+                {
+                    arrayWithoutDuplicates[position] = array[i];
+                    position++;
+                }
+                isDuplicate = false;
+            }
+
+            for (int i = 0; i < arrayWithoutDuplicates.Length; i++)
+            {
+                if (arrayWithoutDuplicates[i] == 0)
+                {
+                    zeroCount++;
                 }
             }
 
-            foreach (var item in array)
+            if (isContainZero) zeroCount--;
+
+            int[] arrayWithoutZero = new int[arrayWithoutDuplicates.Length - zeroCount];
+            position = 0;
+            for (int i = 0; i < arrayWithoutDuplicates.Length; i++)
             {
-                Console.WriteLine(item);
+                if (arrayWithoutDuplicates[i] != 0)
+                {
+                    arrayWithoutZero[position] = arrayWithoutDuplicates[i];
+                }
+                position++;
             }
-            Console.WriteLine();
-            foreach (var item in arrayWtDuplicates)
-            {
-                Console.WriteLine(item);
-            }
+
+            Console.WriteLine("Array without duplicates: " + string.Join(", ", arrayWithoutDuplicates));
+            Console.WriteLine("Array without zeros " + string.Join(", ", arrayWithoutZero));
         }
 
         //В массиве определить индексы элементов, значение которых не меньше заданного минимума и не больше заданного максимума.
-        public static void ArrayIndex()
+        public static void ArrayIndex() // 3
         {
-            Console.Write("Enter the sire of the array: ");
+            Console.Write("Enter the size of the array: ");
             int arraySize = Convert.ToInt32(Console.ReadLine());
             int[] array = new int[arraySize];
             var randomNubmers = new Random();
@@ -106,9 +134,9 @@ namespace CSharp_Course_Project
 
         //Дан одномерный массив. Найти среднее арифметическое его элементов. 
         //Вывести на экран только те элементы массива, которые больше найденного среднего арифметического.
-        public static void ArrayAverage()
+        public static void ArrayAverage() // 4
         {
-            Console.Write("Enter the sire of the array: ");
+            Console.Write("Enter the size of the array: ");
             int arraySize = Convert.ToInt32(Console.ReadLine());
             int[] array = new int[arraySize];
             var randomNubmers = new Random();
@@ -129,7 +157,7 @@ namespace CSharp_Course_Project
         //Создать метод MyReverse(int [] array), 
         //который принимает в качестве аргумента массив целочисленных элементов и возвращает инвертированный массив 
         //(элементы массива в обратном порядке).
-        public static void MyReverse(int[] array)
+        public static void MyReverse(int[] array) // 5
         {
             Console.WriteLine("First array");
             foreach (var item in array)
@@ -155,13 +183,42 @@ namespace CSharp_Course_Project
             }
         }
 
+        /*
+        Создайте метод int[] SubArray(int[] array, int index, int count). 
+        Метод возвращает часть полученного в качестве аргумента массива, начиная с позиции указанной в аргументе index, 
+        размерностью, которая соответствует значению аргумента count.
+
+        Если аргумент count содержит значение больше чем количество элементов, 
+        которые входят в выбираемую часть исходного массива (от указанного индекса index, 
+        до индекса последнего элемента), то при формировании нового массива размерностью в count, 
+        заполните единицами те элементы, которые не были скопированы из исходного массива.
+        */
+        public static int[] SubArray(int[] array, int index, int count) // 6
+        {
+            foreach (var item in array)
+                Console.WriteLine(item);
+            Console.WriteLine();
+
+            int[] partialArray = new int[count];
+            for (int i = 0; i < partialArray.Length; i++)
+            {
+                partialArray[i] = array[index + i];
+            }
+
+            foreach (var item in partialArray)
+                Console.WriteLine(item);
+
+            return partialArray;
+        }
+
         static void Main(string[] args)
         {
             //ArrayValues();
-            //ArrayDuplicates(getArray());
+            ArrayDuplicates(getArray());
             //ArrayIndex();
             //ArrayAverage();
-            MyReverse(getArray());
+            //MyReverse(getArray());
+            //SubArray(getArray(), 1, 3);
         }
     }
 }
