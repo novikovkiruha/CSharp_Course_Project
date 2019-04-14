@@ -103,7 +103,6 @@ namespace CSharp_Course_Project
             Console.WriteLine("Array without zeros " + string.Join(", ", arrayWithoutZero));
         }
 
-        //В массиве определить индексы элементов, значение которых не меньше заданного минимума и не больше заданного максимума.
         public static void ArrayIndex(int[] array) // 3
         {
             Console.WriteLine(string.Join(", ", array));
@@ -116,8 +115,6 @@ namespace CSharp_Course_Project
             }
         }
 
-        //Дан одномерный массив. Найти среднее арифметическое его элементов. 
-        //Вывести на экран только те элементы массива, которые больше найденного среднего арифметического.
         public static void ArrayAverage(int[] array) // 4
         {
             Console.WriteLine(string.Join(", ", array));
@@ -129,9 +126,7 @@ namespace CSharp_Course_Project
             average /= array.Length;
             Console.WriteLine($"Average value of array: {average}");
         }
-        //Создать метод MyReverse(int [] array), 
-        //который принимает в качестве аргумента массив целочисленных элементов и возвращает инвертированный массив 
-        //(элементы массива в обратном порядке).
+       
         public static void MyReverse(int[] array) // 5
         {
             Console.WriteLine("Input array:\t" + string.Join(" , ", array));
@@ -147,16 +142,6 @@ namespace CSharp_Course_Project
             Console.WriteLine("Inverted array:\t" + string.Join(" , ", invertedArray));
         }
 
-        /*
-        Создайте метод int[] SubArray(int[] array, int index, int count). 
-        Метод возвращает часть полученного в качестве аргумента массива, начиная с позиции указанной в аргументе index, 
-        размерностью, которая соответствует значению аргумента count.
-
-        Если аргумент count содержит значение больше чем количество элементов, 
-        которые входят в выбираемую часть исходного массива (от указанного индекса index, 
-        до индекса последнего элемента), то при формировании нового массива размерностью в count, 
-        заполните единицами те элементы, которые не были скопированы из исходного массива.
-        */
         public static int[] SubArray(int[] array, int index, int count) // 6
         {
             Console.WriteLine("Input array:\t" + string.Join(" , ", array));
