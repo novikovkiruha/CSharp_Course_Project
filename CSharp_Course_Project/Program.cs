@@ -176,14 +176,7 @@ namespace CSharp_Course_Project
             return partialArray;
         }
 
-        /*Создать метод, который будет выполнять увеличение длины массива переданного в качестве аргумента, на 1 элемент.
-        Элементы массива, должны сохранить свое значение и порядок индексов. 
-
-        Создайте метод, который принимает два аргумента, первый аргумент -  типа int[] array, второй аргумент - типа int value. 
-        В теле метода реализуйте возможность добавления второго аргумента метода в массив по индексу – 0, при этом длина нового массива, 
-        должна увеличиться на 1 элемент, а элементы получаемого массива в качестве первого аргумента 
-        должны скопироваться в новый массив начиная с индекса 1.*/
-        public static int[] ArrayLengthIncreasing(int[] array)
+        public static int[] ArrayLengthIncreasing(int[] array) // 7
         {
             Console.WriteLine("Input array: " + string.Join(", ", array));
 
@@ -196,7 +189,7 @@ namespace CSharp_Course_Project
             return increasedArray;
         }
 
-        public static int[] SecondArgumentAdding(int[] array, int value)
+        public static int[] SecondArgumentAdding(int[] array, int value) // 7
         {
             Console.WriteLine("Input array: " + string.Join(", ", array));
 
@@ -210,6 +203,25 @@ namespace CSharp_Course_Project
             return arrayWithNewArgument;
         }
 
+        //В двумерном массиве целых чисел определить, сколько раз в нем встречается элемент со значением X.
+        public static void RequiredElementInTwoDimensionalArray(int x)
+        {
+            int[,] twoDimArray = new int[2, 3] { { 5, 3, 7 }, { 7, 3, 5 } };
+
+            int rows = twoDimArray.GetLength(0);
+            int columns = twoDimArray.GetLength(1);
+            int count = 0;
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    if (twoDimArray[i, j] == x) count++;
+                }
+            }
+            Console.WriteLine($"{x} element occurs {count} time(s)");
+        }
+
         static void Main(string[] args)
         {
             //ArrayValues(getArray());
@@ -220,6 +232,7 @@ namespace CSharp_Course_Project
             //SubArray(getArray(), 5, 10);
             //ArrayLengthIncreasing(getArray());
             //SecondArgumentAdding(getArray(), 5);
+            RequiredElementInTwoDimensionalArray(5);
         }
     }
 }
