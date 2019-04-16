@@ -176,6 +176,40 @@ namespace CSharp_Course_Project
             return partialArray;
         }
 
+        /*Создать метод, который будет выполнять увеличение длины массива переданного в качестве аргумента, на 1 элемент.
+        Элементы массива, должны сохранить свое значение и порядок индексов. 
+
+        Создайте метод, который принимает два аргумента, первый аргумент -  типа int[] array, второй аргумент - типа int value. 
+        В теле метода реализуйте возможность добавления второго аргумента метода в массив по индексу – 0, при этом длина нового массива, 
+        должна увеличиться на 1 элемент, а элементы получаемого массива в качестве первого аргумента 
+        должны скопироваться в новый массив начиная с индекса 1.*/
+        public static int[] ArrayLengthIncreasing(int[] array)
+        {
+            Console.WriteLine("Input array: " + string.Join(", ", array));
+
+            int[] increasedArray = new int[array.Length + 1];
+            for (int i = 0; i < array.Length; i++)
+                increasedArray[i] = array[i];
+
+            Console.WriteLine("Increased array: " + string.Join(", ", increasedArray));
+
+            return increasedArray;
+        }
+
+        public static int[] SecondArgumentAdding(int[] array, int value)
+        {
+            Console.WriteLine("Input array: " + string.Join(", ", array));
+
+            int[] arrayWithNewArgument = new int[array.Length + 1];
+            arrayWithNewArgument[0] = value;
+            for (int i = 1; i < arrayWithNewArgument.Length; i++)
+                arrayWithNewArgument[i] = array[i - 1];
+
+            Console.WriteLine("Increased array with argument: " + string.Join(", ", arrayWithNewArgument));
+
+            return arrayWithNewArgument;
+        }
+
         static void Main(string[] args)
         {
             //ArrayValues(getArray());
@@ -183,7 +217,9 @@ namespace CSharp_Course_Project
             //ArrayIndex(getArray());
             //ArrayAverage(getArray());
             //MyReverse(getArray());
-            SubArray(getArray(), 5, 10);
+            //SubArray(getArray(), 5, 10);
+            //ArrayLengthIncreasing(getArray());
+            //SecondArgumentAdding(getArray(), 5);
         }
     }
 }
