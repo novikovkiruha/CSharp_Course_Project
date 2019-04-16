@@ -20,6 +20,29 @@ namespace CSharp_Course_Project
             return array;
         }
 
+        //
+        // Method for filling two-dimensional array
+        //
+        public static int[,] getTwoDimArray()
+        {
+            Console.Write("Enter number of rows: ");
+            int rows = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter number of columns: ");
+            int columns = Convert.ToInt32(Console.ReadLine());
+            int[,] twoDimArray = new int[rows, columns];
+
+            var random = new Random();
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    twoDimArray[i, j] = random.Next(-20, 20);
+                }
+            }
+            Console.WriteLine();
+            return twoDimArray;
+        }
+
         public static void ArrayValues(int[] array) // 1
         {
             int max = array[0];
@@ -126,7 +149,7 @@ namespace CSharp_Course_Project
             average /= array.Length;
             Console.WriteLine($"Average value of array: {average}");
         }
-       
+
         public static void MyReverse(int[] array) // 5
         {
             Console.WriteLine("Input array:\t" + string.Join(" , ", array));
@@ -203,8 +226,7 @@ namespace CSharp_Course_Project
             return arrayWithNewArgument;
         }
 
-        //В двумерном массиве целых чисел определить, сколько раз в нем встречается элемент со значением X.
-        public static void RequiredElementInTwoDimensionalArray(int x)
+        public static void RequiredElementInTwoDimensionalArray(int x) // 8
         {
             int[,] twoDimArray = new int[2, 3] { { 5, 3, 7 }, { 7, 3, 5 } };
 
@@ -222,6 +244,50 @@ namespace CSharp_Course_Project
             Console.WriteLine($"{x} element occurs {count} time(s)");
         }
 
+        public static void SwappedNumbersInTwoDimensionalArray(int firstRow = 0, int secondRow = 1) // 9
+        {
+            int[,] twoDimArray = getTwoDimArray();
+            int rows = twoDimArray.GetLength(0);
+            int columns = twoDimArray.GetLength(1);
+
+            //
+            // Array display
+            //
+            Console.WriteLine("Original array");
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    Console.Write($"{twoDimArray[i, j]}\t");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+
+            //
+            // Array swapped rows
+            //
+            for (int i = 0; i < columns; i++)
+            {
+                int temp = twoDimArray[firstRow, i];
+                twoDimArray[firstRow, i] = twoDimArray[secondRow, i];
+                twoDimArray[secondRow, i] = temp;
+            }
+
+            //
+            // Array display
+            //
+            Console.WriteLine($"Array with swapped {firstRow + 1} and {secondRow + 1} rows");
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    Console.Write($"{twoDimArray[i, j]}\t");
+                }
+                Console.WriteLine();
+            }
+        }
+
         static void Main(string[] args)
         {
             //ArrayValues(getArray());
@@ -232,7 +298,8 @@ namespace CSharp_Course_Project
             //SubArray(getArray(), 5, 10);
             //ArrayLengthIncreasing(getArray());
             //SecondArgumentAdding(getArray(), 5);
-            RequiredElementInTwoDimensionalArray(5);
+            //RequiredElementInTwoDimensionalArray(5);
+            SwappedNumbersInTwoDimensionalArray();
         }
     }
 }
