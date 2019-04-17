@@ -104,11 +104,6 @@ namespace CSharp_Course_Project
             Console.WriteLine($"Total sum of items: {totalSum}");
         }
 
-        /*Число совершенно, если оно равно сумме всех своих делителей, кроме самого себя.
-        Пример: 6=1+2+3. Найдите все совершенные числа от 1 до 1000 и выведите их на экран.
-        Подсказка: вам необходимо найти все делители от 1 до исследуемого числа.
-        Делителем числа называется число, которое делит данное без остатка (a % b = 0).
-        Делители можно сразу суммировать, а не помещать их сначала в массив.*/
         public static void PerfectNumbers()
         {
             for (int i = 2; i <= 1000; i++)
@@ -128,12 +123,33 @@ namespace CSharp_Course_Project
             }
         }
 
+        public static void Encryption()
+        {
+            var encryptChars = new char[10] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+            var cipher = new char[10] { ';', '+', '/', '.', '^', '@', '"', '!', '%', '#' };
+
+            string text = "513541";
+            string result = "";
+
+            for (int i = 0; i < text.Length; i++)
+            {
+                for (int j = 0; j < encryptChars.Length; j++)
+                {
+                    if (text[i] == encryptChars[j])
+                    {
+                        result += cipher[j];
+                    }
+                }
+            }
+            Console.WriteLine(result);
+        }
+
         static void Main(string[] args)
         {
             //BinaryArray();
             //GoodsAndPricesArrays();
-            PerfectNumbers();
+            //PerfectNumbers();
+            Encryption();
         }
     }
 }
- 
