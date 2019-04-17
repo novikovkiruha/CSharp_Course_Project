@@ -31,9 +31,6 @@ namespace CSharp_Course_Project
             Console.WriteLine();
         }
 
-        /* В один массив записаны наименования товаров, в другую - их цена.
-         * Написать программу, вычисляющую общую стоимость покупки при условии,
-         * что пользователь может указывать приобретаемый товар и его количество.*/
         public static void GoodsAndPricesArrays()
         {
             var items = new string[] { "Груши", "Яблоки", "Огурцы", "Помидоры", "Укроп", "Петрушка", "Курица", "Сыр", "Масло", "Молоко" };
@@ -107,10 +104,36 @@ namespace CSharp_Course_Project
             Console.WriteLine($"Total sum of items: {totalSum}");
         }
 
+        /*Число совершенно, если оно равно сумме всех своих делителей, кроме самого себя.
+        Пример: 6=1+2+3. Найдите все совершенные числа от 1 до 1000 и выведите их на экран.
+        Подсказка: вам необходимо найти все делители от 1 до исследуемого числа.
+        Делителем числа называется число, которое делит данное без остатка (a % b = 0).
+        Делители можно сразу суммировать, а не помещать их сначала в массив.*/
+        public static void PerfectNumbers()
+        {
+            for (int i = 2; i <= 1000; i++)
+            {
+                int sum = 0;
+                for (int j = 1; j < i; j++)
+                {
+                    if (i % j == 0)
+                    {
+                        sum += j;
+                    }
+                }
+                if (sum == i)
+                {
+                    Console.WriteLine($"Perfect number: {i}");
+                }
+            }
+        }
+
         static void Main(string[] args)
         {
-            BinaryArray();
+            //BinaryArray();
             //GoodsAndPricesArrays();
+            PerfectNumbers();
         }
     }
 }
+ 
