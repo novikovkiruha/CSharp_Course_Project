@@ -41,7 +41,8 @@ namespace CSharp_Course_Project
         //Во введенной строке удалить пробелы между первым и вторым вопросительным знаком.
         public static void SpacesBetweenQuestions() // 4
         {
-            string text = "Why're you seeing so serious? Ha? WHAT'RE YOU LOOKING FOR?";
+            Console.WriteLine("Original text:");
+            string text = "Why're you seeing so serious? Ha ? WHAT'RE YOU LOOKING FOR?";
             int questionIndex = 0;
 
             string newText = "";
@@ -62,6 +63,23 @@ namespace CSharp_Course_Project
             }
             text = newText;
             Console.WriteLine(text);
+
+            //
+            // 2nd option
+            //
+            text = "Why're you seeing so serious? Ha? WHAT'RE YOU LOOKING FOR?";
+            newText = "";
+            int questionIndex1 = text.IndexOf('?');
+            int questionIndex2 = text.IndexOf('?', questionIndex1 + 1);
+            for (int i = questionIndex1; i < questionIndex2; i++)
+            {
+                if (text[i] != ' ')
+                {
+                    newText += text[i];
+                }
+            }
+            string oldPart = text.Substring(questionIndex1, questionIndex2 - questionIndex1);
+            Console.WriteLine(text.Replace(oldPart, newText));
         }
 
         //Удалить в строке все лишние пробелы.
@@ -115,6 +133,17 @@ namespace CSharp_Course_Project
         }
 
         //Вводится строка слов. Вывести слова в обратном порядке.
+        public static void InvertedStringArray()
+        {
+            string text = "Why're you seeing so serious? Ha?";
+            string[] array = text.Split(' ');
+            string invertedText = "";
+            for (int i = array.Length - 1; i >= 0; i--)
+            {
+                invertedText += array[i] + ' ';
+            }
+            Console.WriteLine(invertedText.Trim());
+        }
 
         //В строке, состоящей из слов, разделенных пробелами, определить длину кратчайшего и самого длинного слов.
 
@@ -123,9 +152,10 @@ namespace CSharp_Course_Project
         {
             //ExactSymbol();
             //StringInput();
-            //SpacesBetweenQuestions();
-            SpacesDeleting();
+            SpacesBetweenQuestions();
+            //SpacesDeleting();
             //FirstWordSymbol();
+            //InvertedStringArray();
         }
     }
 }
