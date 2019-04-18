@@ -26,6 +26,17 @@ namespace CSharp_Course_Project
         }
 
         //Вставить в заданную позицию строки другую строку.
+        public static void StringInput() // 2
+        {
+            Console.WriteLine("Enter the first text:");
+            string firstText = Console.ReadLine();
+            Console.WriteLine("Enter the second text:");
+            string secondText = Console.ReadLine();
+            Console.Write("Enter the index of the first string: ");
+            int index = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine(firstText.Insert(index, secondText));
+        }
 
         //Во введенной строке удалить пробелы между первым и вторым вопросительным знаком.
 
@@ -41,7 +52,8 @@ namespace CSharp_Course_Project
 
         static void Main(string[] args)
         {
-            ExactSymbol();
+            //ExactSymbol();
+            StringInput();
         }
     }
 }
