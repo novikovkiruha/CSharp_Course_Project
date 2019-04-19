@@ -161,7 +161,7 @@ namespace CSharp_Course_Project
                 }
                 counter = 0;
             }
-            Console.WriteLine("Encryption:" + string.Join("", cipherText));
+            Console.WriteLine("Encryption: " + string.Join("", cipherText));
 
             return cipherText;
         }
@@ -183,7 +183,6 @@ namespace CSharp_Course_Project
                     if (cipherText[i] == cipher[j] && cipherText[i] != '$')
                     {
                         outputTextArray[increment] = encryptChars[j];
-                        Console.WriteLine(outputTextArray[increment]);
                         increment++;
                     }
                     else
@@ -192,7 +191,6 @@ namespace CSharp_Course_Project
                         if (counter == cipher.Length)
                         {
                             outputTextArray[increment] = '$';
-                            Console.WriteLine(outputTextArray[increment]);
                             increment++;
                         }
                     }
