@@ -126,22 +126,43 @@ namespace CSharp_Course_Project
         public static void Encryption()
         {
             var encryptChars = new char[10] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-            var cipher = new char[10] { ';', '+', '/', '.', '^', '@', '"', '!', '%', '#' };
+            var cipher = new char[11] { ';', '+', '/', '.', '^', '@', '"', '!', '%', '#', '$' };
 
-            string text = "513541";
-            string result = "";
+            Console.WriteLine("Enter some text:");
+            string inputText = Console.ReadLine();
+            var inputTextArray = new char[inputText.Length];
+            var inputTextCipher = new char[inputText.Length];
 
-            for (int i = 0; i < text.Length; i++)
+            for (int i = 0; i < inputText.Length; i++)
+            {
+                inputTextArray[i] = inputText[i];
+            }
+            
+            int counter = 0;
+            int increment = 0;
+            for (int i = 0; i < inputTextArray.Length; i++)
             {
                 for (int j = 0; j < encryptChars.Length; j++)
                 {
-                    if (text[i] == encryptChars[j])
+                    if (inputTextArray[i] == encryptChars[j])
                     {
-                        result += cipher[j];
+                        inputTextCipher[increment] = cipher[j];
+                        increment++;
+                    }
+                    else
+                    {
+                        counter++;
+                        if (counter == encryptChars.Length)
+                        {
+                            inputTextCipher[increment] = cipher[cipher.Length - 1];
+                            increment++;
+                        }
                     }
                 }
+                counter = 0;
             }
-            Console.WriteLine(result);
+            Console.WriteLine(string.Join("", inputTextArray));
+            Console.WriteLine(string.Join("", inputTextCipher));
         }
 
         static void Main(string[] args)
