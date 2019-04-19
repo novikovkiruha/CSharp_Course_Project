@@ -123,7 +123,7 @@ namespace CSharp_Course_Project
             }
         }
 
-        public static void Encryption()
+        public static char[] Encryption()
         {
             var encryptChars = new char[10] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
             var cipher = new char[11] { ';', '+', '/', '.', '^', '@', '"', '!', '%', '#', '$' };
@@ -131,13 +131,13 @@ namespace CSharp_Course_Project
             Console.WriteLine("Enter some text:");
             string inputText = Console.ReadLine();
             var inputTextArray = new char[inputText.Length];
-            var inputTextCipher = new char[inputText.Length];
+            var cipherText = new char[inputText.Length];
 
             for (int i = 0; i < inputText.Length; i++)
             {
                 inputTextArray[i] = inputText[i];
             }
-            
+
             int counter = 0;
             int increment = 0;
             for (int i = 0; i < inputTextArray.Length; i++)
@@ -146,7 +146,7 @@ namespace CSharp_Course_Project
                 {
                     if (inputTextArray[i] == encryptChars[j])
                     {
-                        inputTextCipher[increment] = cipher[j];
+                        cipherText[increment] = cipher[j];
                         increment++;
                     }
                     else
@@ -154,15 +154,52 @@ namespace CSharp_Course_Project
                         counter++;
                         if (counter == encryptChars.Length)
                         {
-                            inputTextCipher[increment] = cipher[cipher.Length - 1];
+                            cipherText[increment] = cipher[cipher.Length - 1];
                             increment++;
                         }
                     }
                 }
                 counter = 0;
             }
-            Console.WriteLine(string.Join("", inputTextArray));
-            Console.WriteLine(string.Join("", inputTextCipher));
+            Console.WriteLine("Encryption:" + string.Join("", cipherText));
+
+            return cipherText;
+        }
+
+        public static void Decryption()
+        {
+            var encryptChars = new char[10] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+            var cipher = new char[11] { ';', '+', '/', '.', '^', '@', '"', '!', '%', '#', '$' };
+
+            var cipherText = Encryption();
+            var outputTextArray = new char[cipherText.Length];
+            int increment = 0;
+            int counter = 0;
+
+            for (int i = 0; i < cipherText.Length; i++) // fuck you = f
+            {
+                for (int j = 0; j < cipher.Length; j++) // ';', '+', '/', '.', '^', '@', '"', '!', '%', '#', '$'
+                {
+                    if (cipherText[i] == cipher[j] && cipherText[i] != '$')
+                    {
+                        outputTextArray[increment] = encryptChars[j];
+                        Console.WriteLine(outputTextArray[increment]);
+                        increment++;
+                    }
+                    else
+                    {
+                        counter++;
+                        if (counter == cipher.Length)
+                        {
+                            outputTextArray[increment] = '$';
+                            Console.WriteLine(outputTextArray[increment]);
+                            increment++;
+                        }
+                    }
+                }
+                counter = 0;
+            }
+            Console.WriteLine("Decryption: " + string.Join("", outputTextArray));
         }
 
         static void Main(string[] args)
@@ -170,7 +207,8 @@ namespace CSharp_Course_Project
             //BinaryArray();
             //GoodsAndPricesArrays();
             //PerfectNumbers();
-            Encryption();
+            //Encryption();
+            Decryption();
         }
     }
 }
