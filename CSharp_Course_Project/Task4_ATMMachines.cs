@@ -8,18 +8,16 @@ namespace CSharp_Course_Project
         {
             string pin = InputPin();
             bool isPinNumber = IsPinNumber(pin);
-            Console.WriteLine(isPinNumber);
             bool correctPinLength = CorrectPinLength(pin);
-            Console.WriteLine(correctPinLength);
-            if (isPinNumber == false)
+            if (!isPinNumber)
             {
                 Console.WriteLine($"PIN is not a number: {pin}");
             }
-            else if (correctPinLength == false)
+            else if (!correctPinLength)
             {
                 Console.WriteLine($"Not valid PIN length: {pin}");
             }
-            else if (isPinNumber == true || correctPinLength == true)
+            else if (isPinNumber || correctPinLength)
             {
                 Console.WriteLine($"Correct PIN format: {pin}");
             }
