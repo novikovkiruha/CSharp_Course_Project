@@ -8,10 +8,19 @@ namespace CSharp_Course_Project
 {
     class InputValueCheck
     {
-        public static bool IsNumber(string inputValue)
+        private static bool IsPinNumber(string inputValue)
         {
-            bool isNumber = Double.TryParse(inputValue, out double value);
-            return isNumber;
+            bool isNumber = Int32.TryParse(inputValue, out int pin);
+            if (!isNumber)
+            {
+                isNumber = false;
+                return isNumber;
+            }
+            else
+            {
+                isNumber = true;
+                return isNumber;
+            }
         }
     }
 }

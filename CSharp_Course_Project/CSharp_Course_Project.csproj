@@ -49,6 +49,7 @@
     <Compile Include="Task1_Calculation.cs" />
     <Compile Include="Task2_Converter.cs" />
     <Compile Include="Task3_LoanRepayment.cs" />
+    <Compile Include="Task4_ATMMachines.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

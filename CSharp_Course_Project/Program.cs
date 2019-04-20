@@ -8,7 +8,8 @@ namespace CSharp_Course_Project
         {
             //Task1_Calculation.Calculation();
             //Task2_Converter.Converter();
-            Task3_LoanRepayment.LoanRepaymentStatus();
+            //Task3_LoanRepayment.LoanRepaymentStatus();
+            Task4_ATMMachines.ValidatePin();
         }
     }
 }
