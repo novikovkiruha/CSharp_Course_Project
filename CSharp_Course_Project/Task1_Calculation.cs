@@ -10,9 +10,9 @@ namespace CSharp_Course_Project
     {
         public static double Calculation()
         {
-            Console.Write("Enter the  first argument: ");
+            Console.Write("Enter the first argument: ");
             double firstArg = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Enter the  second argument: ");
+            Console.Write("Enter the second argument: ");
             double secondArg = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Enter one of the option: '+' '-' '*' '/'");
             string action = Console.ReadLine();
@@ -33,6 +33,7 @@ namespace CSharp_Course_Project
                     result = Div(firstArg, secondArg);
                     break;
                 default:
+                    Console.WriteLine("Wrong symbol. Try again...");
                     break;
             }
             Console.WriteLine($"Result: {result}");
