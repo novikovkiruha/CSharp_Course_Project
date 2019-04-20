@@ -6,7 +6,7 @@ namespace CSharp_Course_Project
     {
         static void Main(string[] args)
         {
-
+            Task1_Calculation.Calculation();
         }
     }
 }
