@@ -70,60 +70,110 @@ namespace CSharp_Course_Project
 
         public static void ArrayDuplicates(int[] array) // 2
         {
-            Console.WriteLine("The input array: " + string.Join(", ", array));
-            var arrayWithoutDuplicates = new int[array.Length];
-            arrayWithoutDuplicates[0] = array[0];
-            int position = 1;
+            //
+            // 1st option
+            //
+            int[] arrayWtDuplicates = new int[array.Length];
+            int duplicates = 0;
+            int increment = 0;
 
-            var isDuplicate = false;
-            bool isContainZero = false;
-            int zeroCount = 0;
-
-            for (int i = 1; i < array.Length; i++)
+            for (int i = 0; i < array.Length; i++)
             {
-                if (array[i] == 0)
-                    isContainZero = true;
-
-                for (int j = 0; j < position + 1; j++)
+                int counter = 0;
+                for (int j = i; j < array.Length; j++)
                 {
-                    if (array[i] == arrayWithoutDuplicates[j])
+                    if (array[i] == array[j])
                     {
-                        isDuplicate = true;
-                        break;
+                        counter++;
                     }
                 }
 
-                if (!isDuplicate)
+                if (counter == 1)
                 {
-                    arrayWithoutDuplicates[position] = array[i];
-                    position++;
+                    arrayWtDuplicates[increment] = array[i];
+                    increment++;
                 }
-                isDuplicate = false;
+                else
+                {
+                    duplicates++;
+                }
             }
 
-            for (int i = 0; i < arrayWithoutDuplicates.Length; i++)
+            increment = 0;
+            int[] arrayWtZeros = new int[arrayWtDuplicates.Length - duplicates];
+            for (int i = 0; i < arrayWtDuplicates.Length; i++)
             {
-                if (arrayWithoutDuplicates[i] == 0)
+                if (arrayWtDuplicates[i] != 0)
                 {
-                    zeroCount++;
+                    arrayWtZeros[increment] = arrayWtDuplicates[i];
+                    increment++;
                 }
             }
 
-            if (isContainZero) zeroCount--;
+            Array.Sort(array);
+            Array.Sort(arrayWtDuplicates);
+            Array.Sort(arrayWtZeros);
+            Console.WriteLine("Original array:\n" + string.Join(" , ", array));
+            Console.WriteLine("Array without duplicates:\n" + string.Join(" , ", arrayWtDuplicates));
+            Console.WriteLine("Array without zeros:\n" + string.Join(" , ", arrayWtZeros));
 
-            int[] arrayWithoutZero = new int[arrayWithoutDuplicates.Length - zeroCount];
-            position = 0;
-            for (int i = 0; i < arrayWithoutDuplicates.Length; i++)
-            {
-                if (arrayWithoutDuplicates[i] != 0)
-                {
-                    arrayWithoutZero[position] = arrayWithoutDuplicates[i];
-                }
-                position++;
-            }
+            //
+            // 2nd option
+            //
+            //Console.WriteLine("The input array: " + string.Join(", ", array));
+            //var arrayWithoutDuplicates = new int[array.Length];
+            //arrayWithoutDuplicates[0] = array[0];
+            //int position = 1;
 
-            Console.WriteLine("Array without duplicates: " + string.Join(", ", arrayWithoutDuplicates));
-            Console.WriteLine("Array without zeros " + string.Join(", ", arrayWithoutZero));
+            //var isDuplicate = false;
+            //bool isContainZero = false;
+            //int zeroCount = 0;
+
+            //for (int i = 1; i < array.Length; i++)
+            //{
+            //    if (array[i] == 0)
+            //        isContainZero = true;
+
+            //    for (int j = 0; j < position + 1; j++)
+            //    {
+            //        if (array[i] == arrayWithoutDuplicates[j])
+            //        {
+            //            isDuplicate = true;
+            //            break;
+            //        }
+            //    }
+
+            //    if (!isDuplicate)
+            //    {
+            //        arrayWithoutDuplicates[position] = array[i];
+            //        position++;
+            //    }
+            //    isDuplicate = false;
+            //}
+
+            //for (int i = 0; i < arrayWithoutDuplicates.Length; i++)
+            //{
+            //    if (arrayWithoutDuplicates[i] == 0)
+            //    {
+            //        zeroCount++;
+            //    }
+            //}
+
+            //if (isContainZero) zeroCount--;
+
+            //int[] arrayWithoutZero = new int[arrayWithoutDuplicates.Length - zeroCount];
+            //position = 0;
+            //for (int i = 0; i < arrayWithoutDuplicates.Length; i++)
+            //{
+            //    if (arrayWithoutDuplicates[i] != 0)
+            //    {
+            //        arrayWithoutZero[position] = arrayWithoutDuplicates[i];
+            //    }
+            //    position++;
+            //}
+
+            //Console.WriteLine("Array without duplicates: " + string.Join(", ", arrayWithoutDuplicates));
+            //Console.WriteLine("Array without zeros " + string.Join(", ", arrayWithoutZero));
         }
 
         public static void ArrayIndex(int[] array) // 3
@@ -291,7 +341,7 @@ namespace CSharp_Course_Project
         static void Main(string[] args)
         {
             //ArrayValues(getArray());
-            //ArrayDuplicates(getArray());
+            ArrayDuplicates(getArray());
             //ArrayIndex(getArray());
             //ArrayAverage(getArray());
             //MyReverse(getArray());
@@ -299,7 +349,7 @@ namespace CSharp_Course_Project
             //ArrayLengthIncreasing(getArray());
             //SecondArgumentAdding(getArray(), 5);
             //RequiredElementInTwoDimensionalArray(5);
-            SwappedNumbersInTwoDimensionalArray();
+            //SwappedNumbersInTwoDimensionalArray();
         }
     }
 }
