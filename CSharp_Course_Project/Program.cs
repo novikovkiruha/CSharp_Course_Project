@@ -1,10 +1,27 @@
 ﻿using System;
+using System.Text;
 
 namespace CSharp_Course_Project
 {
     class Program
     {
         //Оставить в строке только один экземпляр каждого встречающегося символа.
+        public static void UniqueSymbols()
+        {
+            Console.WriteLine("Enter some text:");
+            var text = new StringBuilder(Console.ReadLine());
+
+            for (int i = 0; i < text.Length; i++)
+            {
+                for (int j = 0; j < text.Length; j++)
+                {
+                    if (text[i] == text[j] && i != j)
+                    {
+                        Console.WriteLine(text.Remove(j, 1));
+                    }
+                }
+            }
+        }
 
         //Определить, как часто встречается определенный символ в строке.
         public static void ExactSymbol() // 2
@@ -133,7 +150,7 @@ namespace CSharp_Course_Project
         }
 
         //Вводится строка слов. Вывести слова в обратном порядке.
-        public static void InvertedStringArray()
+        public static void InvertedStringArray() // 7
         {
             string text = "Why're you seeing so serious? Ha?";
             string[] array = text.Split(' ');
@@ -146,16 +163,42 @@ namespace CSharp_Course_Project
         }
 
         //В строке, состоящей из слов, разделенных пробелами, определить длину кратчайшего и самого длинного слов.
+        public static void ShortestAndLongestWords()
+        {
+            Console.WriteLine("Enter some text:");
+            string inputText = Console.ReadLine();
+            string[] inputTextArray = inputText.Split(' ');
+            string shortestWord = "";
+            int min = inputTextArray[0].Length;
+            string longestWord = "";
+            int max = inputTextArray[0].Length;
 
+            for (int i = 0; i < inputTextArray.Length; i++)
+            {
+                if (inputTextArray[i].Length < min)
+                {
+                    min = inputTextArray[i].Length;
+                    shortestWord = inputTextArray[i];
+                }
+                else
+                {
+                    max = inputTextArray[i].Length;
+                    longestWord = inputTextArray[i];
+                }
+            }
+            Console.WriteLine($"Shortest word is \"{shortestWord}\" with {min} letter(s)\nLongest word is \"{longestWord}\" with {max} letter(s)");
+        }
 
         static void Main(string[] args)
         {
+            UniqueSymbols();
             //ExactSymbol();
             //StringInput();
-            SpacesBetweenQuestions();
+            //SpacesBetweenQuestions();
             //SpacesDeleting();
             //FirstWordSymbol();
             //InvertedStringArray();
+            //ShortestAndLongestWords();
         }
     }
 }
