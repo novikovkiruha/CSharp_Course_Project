@@ -4,9 +4,9 @@ namespace CSharp_Course_Project
 {
     class InputValueCheck
     {
-        private static bool IsPinNumber(string inputValue)
+        public static bool IsPinNumber(string inputValue)
         {
-            bool isNumber = Int32.TryParse(inputValue, out int pin);
+            bool isNumber = Int32.TryParse(inputValue, out int value);
             if (!isNumber)
             {
                 isNumber = false;
