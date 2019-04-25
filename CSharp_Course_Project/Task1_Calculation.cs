@@ -20,7 +20,7 @@ namespace CSharp_Course_Project
                 
                 Console.WriteLine("Enter one of the option: '+' '-' '*' '/'");
                 bool isValidSymbol = Char.TryParse(Console.ReadLine(), out char action);
-                if (!InputValueCheck.IsPinNumber(firstArgString) || !InputValueCheck.IsPinNumber(secondArgString))
+                if (!InputValueCheck.IsNumber(firstArgString) || !InputValueCheck.IsNumber(secondArgString))
                 {
                     Console.WriteLine("Argument is not a number. Try again...");
                     continue;
