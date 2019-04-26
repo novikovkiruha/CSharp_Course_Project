@@ -6,14 +6,14 @@ namespace CSharp_Course_Project
     {
         public static int GetTriangleRowSum()
         {
-            int row = GetInputValue();
+            int row = Task5_TriangleOddNumbers.GetInputValue();
             
             return row * row * row;
         }
 
         public static void PrintTriangleRowSum()
         {
-            Console.WriteLine(GetTriangleRowSum());
+            Console.WriteLine($"Sum of input row = {Task5_TriangleOddNumbers.GetTriangleRowSum()}");
         }
 
         public static int GetInputValue()

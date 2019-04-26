@@ -8,15 +8,15 @@ namespace CSharp_Course_Project
     {
         public static void LongestString()
         {
-            string firstString = GetRandomString();
+            string firstString = Task6_LongestString.GetRandomString();
             //string firstString = "xyaabbbccccdefww";
             Console.WriteLine($"First string: {firstString}");
-            string secondString = GetRandomString();
+            string secondString = Task6_LongestString.GetRandomString();
             //string secondString = "xxxxyyyyabklmopq";
             Console.WriteLine($"Second string: {secondString}");
-            StringBuilder longestStringBuilder = StringConcatenation(firstString, secondString);
-            StringBuilder longestStringBuilderWtDuplicates = GetStringWithoutDuplicates(longestStringBuilder);
-            string longestString = Sort(longestStringBuilderWtDuplicates);
+            StringBuilder longestStringBuilder = Task6_LongestString.StringConcatenation(firstString, secondString);
+            StringBuilder longestStringBuilderWtDuplicates = Task6_LongestString.GetStringWithoutDuplicates(longestStringBuilder);
+            string longestString = Task6_LongestString.Sort(longestStringBuilderWtDuplicates);
             Console.WriteLine(longestString);
         }
 

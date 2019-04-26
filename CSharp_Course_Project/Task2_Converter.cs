@@ -8,15 +8,17 @@ namespace CSharp_Course_Project
 {
     class Task2_Converter
     {
-        public static double Converter()
+        public static decimal Converter()
         {
-            double money = InputMoney();
-            string currency = InputCurrency();
-            double dollar = 28;
-            double euro = 30;
-            double pound = 32;
+            Console.Write("Enter the sum of money in hryvnia: ");
+            decimal money = Task2_Converter.InputMoney();
+            Console.WriteLine("Enter the currency symbol: dollar, euro, pound");
+            string currency = Task2_Converter.InputCurrency();
+            decimal dollar = 28;
+            decimal euro = 30;
+            decimal pound = 32;
 
-            double result = 0;
+            decimal result = 0;
             switch (currency)
             {
                 case "dollar":
@@ -33,20 +35,21 @@ namespace CSharp_Course_Project
                     break;
             }
             Console.WriteLine($"Converted value in {currency} is {result}");
+
             return result;
         }
 
-        private static double InputMoney()
+        private static decimal InputMoney()
         {
-            Console.Write("Enter the sum of money in hryvnia: ");
-            double money = Convert.ToDouble(Console.ReadLine());
+            decimal money = Convert.ToDecimal(Console.ReadLine());
+
             return money;
         }
 
         private static string InputCurrency()
         {
-            Console.WriteLine("Enter the currency symbol: dollar, euro, pound");
             string currency = Console.ReadLine();
+
             return currency;
         }
     }

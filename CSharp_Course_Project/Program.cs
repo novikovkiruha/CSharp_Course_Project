@@ -11,7 +11,8 @@ namespace CSharp_Course_Project
             //Task3_LoanRepayment.LoanRepaymentStatus();
             //Task4_ATMMachines.ValidatePin();
             //Task5_TriangleOddNumbers.PrintTriangleRowSum();
-            Task6_LongestString.LongestString();
+            //Task6_LongestString.LongestString();
+            Task7_CamelCase.ToCamelCase();
         }
     }
 }

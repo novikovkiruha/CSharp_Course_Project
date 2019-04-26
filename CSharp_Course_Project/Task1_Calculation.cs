@@ -25,7 +25,7 @@ namespace CSharp_Course_Project
                     Console.WriteLine("Argument is not a number. Try again...");
                     continue;
                 }
-                else if (!IsValidSymbol(action))
+                else if (!Task1_Calculation.IsValidSymbol(action))
                 {
                     Console.WriteLine("Not valid symbol. Try again...");
                     continue;
@@ -33,7 +33,7 @@ namespace CSharp_Course_Project
                 double firstArg = Convert.ToDouble(firstArgString);
                 double secondArg = Convert.ToDouble(secondArgString);
 
-                double result = GetMathResult(firstArg, secondArg, action);
+                double result = Task1_Calculation.GetMathResult(firstArg, secondArg, action);
                 Console.WriteLine($"Result: {result}");
                 return result;
             }

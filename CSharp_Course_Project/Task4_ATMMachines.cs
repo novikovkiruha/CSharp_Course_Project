@@ -6,27 +6,34 @@ namespace CSharp_Course_Project
     {
         public static void ValidatePin()
         {
-            string pin = InputPin();
-            bool isPinNumber = IsPinNumber(pin);
-            bool correctPinLength = CorrectPinLength(pin);
-            if (!isPinNumber)
+            while (true)
             {
-                Console.WriteLine($"PIN is not a number: {pin}");
-            }
-            else if (!correctPinLength)
-            {
-                Console.WriteLine($"Not valid PIN length: {pin}");
-            }
-            else if (isPinNumber || correctPinLength)
-            {
-                Console.WriteLine($"Correct PIN format: {pin}");
+                Console.WriteLine("Enter the 4-digit or 6-digit PIN:");
+                string pin = Task4_ATMMachines.InputPin();
+                bool isPinNumber = Task4_ATMMachines.IsPinNumber(pin);
+                bool correctPinLength = Task4_ATMMachines.CorrectPinLength(pin);
+                if (!isPinNumber)
+                {
+                    Console.WriteLine($"PIN is not a number: {pin}. Try again...");
+                    continue;
+                }
+                else if (!correctPinLength)
+                {
+                    Console.WriteLine($"Not valid PIN length: {pin}. Try again...");
+                    continue;
+                }
+                else if (isPinNumber || correctPinLength)
+                {
+                    Console.WriteLine($"Correct PIN format: {pin}");
+                    break;
+                }
             }
         }
 
         private static string InputPin()
         {
-            Console.WriteLine("Enter the 4-digit or 6-digit PIN:");
             string inputPin = Console.ReadLine();
+
             return inputPin;
         }
 

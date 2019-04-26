@@ -52,6 +52,7 @@
     <Compile Include="Task4_ATMMachines.cs" />
     <Compile Include="Task5_TriangleOddNumbers.cs" />
     <Compile Include="Task6_LongestString.cs" />
+    <Compile Include="Task7_CamelCase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

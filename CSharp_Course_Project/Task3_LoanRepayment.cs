@@ -4,12 +4,14 @@ namespace CSharp_Course_Project
 {
     class Task3_LoanRepayment
     {
-        public static double LoanRepaymentStatus()
+        public static decimal LoanRepaymentStatus()
         {
-            double creditAmount = CreditAmount();
-            double paymentAmount = PaymentAmount();
+            Console.WriteLine("Enter the total credit amount:");
+            decimal creditAmount = Task3_LoanRepayment.CreditAmount();
+            Console.WriteLine("Enter the payment amount:");
+            decimal paymentAmount = Task3_LoanRepayment.PaymentAmount();
 
-            double status = creditAmount - paymentAmount;
+            decimal status = creditAmount - paymentAmount;
             if (status == 0)
             {
                 Console.WriteLine($"The client paid off the entire loan");
@@ -22,20 +24,21 @@ namespace CSharp_Course_Project
             {
                 Console.WriteLine($"Client has amount of overpayment: {Math.Abs(status)}");
             }
+
             return status;
         }
 
-        private static double CreditAmount()
+        private static decimal CreditAmount()
         {
-            Console.WriteLine("Enter the total credit amount:");
-            double creditAmount = Convert.ToDouble(Console.ReadLine());
+            decimal creditAmount = Convert.ToDecimal(Console.ReadLine());
+
             return creditAmount;
         }
 
-        private static double PaymentAmount()
+        private static decimal PaymentAmount()
         {
-            Console.WriteLine("Enter the payment amount:");
-            double paymentAmount = Convert.ToDouble(Console.ReadLine());
+            decimal paymentAmount = Convert.ToDecimal(Console.ReadLine());
+
             return paymentAmount;
         }
     }
