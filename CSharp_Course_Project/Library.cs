@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CSharp_Course_Project
 {
-    class lib
+    class Library
     {
         public static string GetText()
         {

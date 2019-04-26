@@ -10,8 +10,8 @@ namespace CSharp_Course_Project
     {
         public static void NumberOfVowels()
         {
-            string text = lib.GetText();
-            int vowelsCount = GetVowelsNumber(text);
+            string text = Library.GetText();
+            int vowelsCount = Task3_NumberOfVowels.GetVowelsNumber(text);
             Console.WriteLine($"\"{text}\" - {vowelsCount} vowels");
         }
 

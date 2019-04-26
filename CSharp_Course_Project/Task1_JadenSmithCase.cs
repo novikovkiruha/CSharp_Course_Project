@@ -6,22 +6,22 @@ namespace CSharp_Course_Project
     {
         public static void JadenSmithCase()
         {
-            var jadenCasedText = FirstLetterToUpperCase();
+            var jadenCasedText = Task1_JadenSmithCase.FirstLetterToUpperCase();
             Console.WriteLine(string.Join(" ", jadenCasedText));
         }
 
         public static string[] GetInputTextArray()
         {
             Console.WriteLine("Enter some text:");
-            string text = lib.GetText();
-            string[] textArray = lib.ExtraSpacesDeleting(text);
+            string text = Library.GetText();
+            string[] textArray = Library.ExtraSpacesDeleting(text);
 
             return textArray;
         }
 
         public static string[] FirstLetterToUpperCase()
         {
-            var textArray = GetInputTextArray();
+            var textArray = Task1_JadenSmithCase.GetInputTextArray();
             string[] upperCaseArray = new string[textArray.Length];
             for (int i = 0; i < upperCaseArray.Length; i++)
             {
