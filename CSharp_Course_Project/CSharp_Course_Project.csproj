@@ -43,8 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Library.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Task1_JadenSmithCase.cs" />
+    <Compile Include="Task2_PrinterError.cs" />
+    <Compile Include="Task3_NumberOfVowels.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
