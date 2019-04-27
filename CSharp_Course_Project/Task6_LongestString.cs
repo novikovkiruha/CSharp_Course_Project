@@ -4,6 +4,10 @@ using System.Threading;
 
 namespace CSharp_Course_Project
 {
+    /// <summary>
+    /// Concatenated string with unique chars
+    /// </summary>
+    /// <owner> Kirill Novikov </owner>
     class Task6_LongestString
     {
         public static void LongestString()
@@ -20,9 +24,6 @@ namespace CSharp_Course_Project
             Console.WriteLine(longestString);
         }
 
-        //
-        // How can I make an even-changing random values?
-        //
         private static string GetRandomString()
         {
             var random = new Random();
@@ -50,9 +51,6 @@ namespace CSharp_Course_Project
             return longestStringBuilder;
         }
 
-        //
-        // Why it is executed only once and then failed?
-        //
         private static StringBuilder GetStringWithoutDuplicates(StringBuilder longestStringBuilderWtDuplicates)
         {
             for (int i = 0; i < longestStringBuilderWtDuplicates.Length; i++)
