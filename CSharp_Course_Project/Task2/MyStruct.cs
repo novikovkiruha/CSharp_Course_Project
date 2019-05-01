@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CSharp_Course_Project.Task2
 {
@@ -10,12 +6,12 @@ namespace CSharp_Course_Project.Task2
     {
         private string change;
 
-        public string Execute()
+        public string GetStructureField()
         {
             return this.change;
         }
 
-        public void SetStructureFields(string fieldValue)
+        public void SetStructureField(string fieldValue)
         {
             this.change = fieldValue;
         }

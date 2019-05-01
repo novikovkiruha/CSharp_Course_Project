@@ -50,6 +50,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Task1\Train.cs" />
     <Compile Include="Task1\TrainScheduler.cs" />
+    <Compile Include="Task4\Pupil.cs" />
+    <Compile Include="Task4\PupilList.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
