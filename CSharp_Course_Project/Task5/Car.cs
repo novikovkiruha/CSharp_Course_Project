@@ -31,19 +31,44 @@ namespace CSharp_Course_Project.Task5
                     doorsCount = value;
             }
         }
+
+        public override void DisplayCharacteristics(Vehicle vehicle)
+        {
+            Console.WriteLine(String.Format("{0, 6} | {1, 10} | {2, 9} | {3, 10} | {4, 5} | {5, 10} | {6, 10}",
+                        "Wheels",
+                        "Color",
+                        "Max Speed",
+                        "Passengers",
+                        "Doors",
+                        "Engine",
+                        "Gearbox"
+                        ));
+            Console.Write(String.Format("{0, 6} | {1, 10} | {2, 9} | {3, 10} | {4, 5} | {5, 10} | {6, 10}",
+                    vehicle.WheelCount,
+                    vehicle.Color,
+                    vehicle.MaxSpeed,
+                    vehicle.PassengerCount,
+                    this.doorsCount,
+                    this.EngineType,
+                    this.Gearbox
+                    ));
+            Console.WriteLine();
+        }
     }
 
     enum EngineType
     {
         Electric,
         Petrol,
-        Diesel
+        Diesel,
+        Gasoline
     }
 
     enum Gearbox
     {
         Manual,
         Auto,
-        Robotic
+        Robotic,
+        Hybrid
     }
 }

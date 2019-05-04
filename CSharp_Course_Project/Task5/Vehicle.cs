@@ -16,6 +16,14 @@ namespace CSharp_Course_Project.Task5
 
         public ConsoleColor Color { get; set; }
 
+        public Vehicle(int wheelCount, ConsoleColor color, int maxSpeed, int passengerCount)
+        {
+            this.wheelCount = wheelCount;
+            this.Color = color;
+            this.maxSpeed = maxSpeed;
+            this.passengerCount = passengerCount;
+        }
+
         public int WheelCount
         {
             get
@@ -59,14 +67,22 @@ namespace CSharp_Course_Project.Task5
         {
             Console.ForegroundColor = Color;
             Console.WriteLine($"{GetType().Name} has moved {meters} meters.");
+            Console.WriteLine();
         }
 
-        public Vehicle(int wheelCount, ConsoleColor color, int maxSpeed, int passengerCount)
+        public virtual void DisplayCharacteristics(Vehicle vehicle)
         {
-            this.wheelCount = wheelCount;
-            this.Color = color;
-            this.maxSpeed = maxSpeed;
-            this.passengerCount = passengerCount;
+            Console.WriteLine(String.Format("{0, 6} | {1, 10} | {2, 9} | {3, 10}",
+                        "Wheels",
+                        "Color",
+                        "Max Speed",
+                        "Passengers"));
+            Console.Write(String.Format("{0, 6} | {1, 10} | {2, 9} | {3, 10}",
+                    vehicle.WheelCount,
+                    vehicle.Color,
+                    vehicle.MaxSpeed,
+                    vehicle.PassengerCount));
+            Console.WriteLine();
         }
     }
 }

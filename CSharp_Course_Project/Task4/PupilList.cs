@@ -19,7 +19,7 @@ namespace CSharp_Course_Project.Task4
 
             for (int i = 0; i < pupils.Length; i++)
             {
-                pupils[i].Age = Convert.ToInt32(DateTime.Today.Year) - Convert.ToInt32(pupils[i].DateOfBirth.Year);
+                pupils[i].Age = CalculateAge(pupils[i]);
             }
 
             Console.WriteLine(String.Format("{0, 8} | {1, 8} | {2, 15} | {3, 4} | {4, 7} | {5, 7}\n",
@@ -42,6 +42,11 @@ namespace CSharp_Course_Project.Task4
             }
         }
 
+        public int CalculateAge(Pupil pupil)
+        {
+            return Convert.ToInt32(DateTime.Today.Year) - Convert.ToInt32(pupil.DateOfBirth.Year);
+        }
+        
         public Pupil[] FillPupilList()
         {
             for (int i = 0; i < PupilList.PupilsMaxNumber; i++)
