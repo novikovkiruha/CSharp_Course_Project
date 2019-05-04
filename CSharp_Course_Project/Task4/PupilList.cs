@@ -1,33 +1,120 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CSharp_Course_Project.Task4
 {
     class PupilList
     {
+        private const int PupilsMaxNumber = 2;
+
+        private Pupil[] pupils;
+
+        public PupilList()
+        {
+            this.pupils = new Pupil[PupilList.PupilsMaxNumber];
+        }
+
         public void Execute()
         {
-            //Pupil pupil1 = new Pupil("Kirill", "Novikov", 28, 15, "11-A");
-            //Console.WriteLine(pupil1.GetName());
-            //Console.WriteLine(pupil1.GetSurname());
-            //Console.WriteLine(String.Format($"{0,6} {1,15}\n\n", "Year", "Population"));
-
-            Pupil[] pupils = new Pupil[1];
+            this.pupils = FillPupilList();
 
             for (int i = 0; i < pupils.Length; i++)
             {
-                pupils[i] = new Pupil();
-
-                Console.Write("Name: "); 
-                pupils[i].SetName(Console.ReadLine());
-                Console.Write("SurName: ");
-                pupils[i].SetSurname(Console.ReadLine());
-                Console.Write("Age: ");
-                pupils[i].SetAge(int.Parse(Console.ReadLine()));
+                pupils[i].Age = Convert.ToInt32(DateTime.Today.Year) - Convert.ToInt32(pupils[i].DateOfBirth.Year);
             }
+
+            Console.WriteLine(String.Format("{0, 8} | {1, 8} | {2, 15} | {3, 4} | {4, 7} | {5, 7}\n",
+                "Name",
+                "Surname",
+                "Date of Birth",
+                "Age",
+                "School",
+                "Group"));
+            for (int i = 0; i < pupils.Length; i++)
+            {
+                Console.Write(String.Format("{0, 8} | {1, 8} | {2, 15} | {3, 4} | {4, 7} | {5, 7}",
+                    this.pupils[i].Name,
+                    this.pupils[i].Surname,
+                    this.pupils[i].DateOfBirth.ToString("MM/dd/yyyy"),
+                    this.pupils[i].Age,
+                    this.pupils[i].SchoolNumber,
+                    this.pupils[i].SchoolGroup));
+                Console.WriteLine();
+            }
+        }
+
+        public Pupil[] FillPupilList()
+        {
+            for (int i = 0; i < PupilList.PupilsMaxNumber; i++)
+            {
+                this.pupils[i] = this.GetNewPupil();
+                this.pupils[i].SchoolNumber = PupilList.GetSchoolNumber();
+                this.pupils[i].SchoolGroup = PupilList.GetSchoolGroup();
+            }
+
+            return this.pupils;
+        }
+
+        private static int GetSchoolNumber()
+        {
+            int schoolNumber = 0;
+            while (true)
+            {
+                Console.Write("Enter a school number: ");
+
+                if (Int32.TryParse(Console.ReadLine(), out schoolNumber))
+                    break;
+            }
+
+            return schoolNumber;
+        }
+
+        private static string GetSchoolGroup()
+        {
+            string schoolGroup = string.Empty;
+            while (true)
+            {
+                Console.Write("Enter a school group: ");
+
+                schoolGroup = Console.ReadLine();
+                if (!string.IsNullOrWhiteSpace(schoolGroup))
+                    break;
+            }
+
+            return schoolGroup;
+        }
+
+        private Pupil GetNewPupil()
+        {
+            string name = string.Empty;
+            while (true)
+            {
+                Console.Write("Enter pupil name: ");
+
+                name = Console.ReadLine();
+                if (!string.IsNullOrWhiteSpace(name))
+                    break;
+            }
+
+            string surname = string.Empty;
+            while (true)
+            {
+                Console.Write("Enter pupil surname: ");
+
+                surname = Console.ReadLine();
+                if (!string.IsNullOrWhiteSpace(surname))
+                    break;
+            }
+
+            DateTime dateOfBirth;
+            while (true)
+            {
+                Console.Write("Enter pupil's date of birth: ");
+
+                if (DateTime.TryParse(Console.ReadLine(), out dateOfBirth))
+                    break;
+            }
+
+            return new Pupil(name, surname, dateOfBirth);
         }
     }
 }

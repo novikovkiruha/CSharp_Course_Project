@@ -1,61 +1,107 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-/*
-c
-Выведите на экран в виде таблички значения из массива.
-Для ученика обязательными характеристиками состояния являются дата рождения, имя и фамилия.
-Школа и класс должны устанавливаться через соответствующие свойства. Возраст должен рассчитываться.
-*/
 
 namespace CSharp_Course_Project.Task4
 {
-    class Pupil
+    /*
+    Выведите на экран в виде таблички значения из массива.
+    Для ученика обязательными характеристиками состояния являются дата рождения, имя и фамилия.
+    Школа и класс должны устанавливаться через соответствующие свойства. Возраст должен рассчитываться.
+    */
+    public class Pupil
     {
-        private string name;
-
-        private string surname;
-
         private int age;
 
         private int schoolNumber;
 
+        private string name;
+
+        private string surname;
+
         private string schoolGroup;
 
-        public Pupil()
+        private DateTime dateOfBirth;
+
+        public Pupil(string name, string surname, DateTime dateOfBirth)
         {
+            if (string.IsNullOrWhiteSpace(name))
+                throw new ArgumentException(nameof(name));
+
+            if (string.IsNullOrWhiteSpace(surname))
+                throw new ArgumentException(nameof(surname));
+
+            this.name = name;
+            this.surname = surname;
+            this.dateOfBirth = dateOfBirth;
         }
 
-        //public Pupil(string name, string surname, int age, int schoolNumber, string schoolGroup)
-        //{
-        //    this.name = name;
-        //    this.surname = surname;
-        //    this.age = age;
-        //    this.schoolNumber = schoolNumber;
-        //    this.schoolGroup = schoolGroup;
-        //}
+        public int Age
+        {
+            get
+            {
+                return age;
+            }
+            set
+            {
+                age = value;
+            }
+        }
 
-        public string GetName() => this.name;
+        public int SchoolNumber
+        {
+            get
+            {
+                return schoolNumber;
+            }
+            set
+            {
+                schoolNumber = value;
+            }
+        }
 
-        public string GetSurname() => this.surname;
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                name = value;
+            }
+        }
 
-        public int GetAge() => this.age;
+        public string Surname {
+            get
+            {
+                return surname;
+            }
+            set
+            {
+                surname = value;
+            }
+        }
 
-        public int GetSchoolNumber() => this.schoolNumber;
+        public string SchoolGroup {
+            get
+            {
+                return schoolGroup;
+            }
+            set
+            {
+                schoolGroup = value;
+            }
+        }
 
-        public string GetSchoolGroup() => this.schoolGroup;
-
-        public void SetName(string name) => this.name = name;
-
-        public void SetSurname(string surname) => this.surname = surname;
-
-        public void SetAge(int age) => this.age = age;
-
-        public void SetSchoolNumber(int schoolNumber) => this.schoolNumber = schoolNumber;
-
-        public void SetSchoolGroup(string schoolGroup) => this.schoolGroup = schoolGroup;
+        public DateTime DateOfBirth
+        {
+            get
+            {
+                return dateOfBirth;
+            }
+            set
+            {
+                dateOfBirth = value;
+            }
+        }
     }
 }
