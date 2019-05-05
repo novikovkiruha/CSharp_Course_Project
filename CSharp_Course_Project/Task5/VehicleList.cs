@@ -4,8 +4,6 @@ namespace CSharp_Course_Project.Task5
 {
     class VehicleList
     {
-        public Vehicle[] vehicles;
-
         public void Execute()
         {
             Vehicle[] vehicles =
