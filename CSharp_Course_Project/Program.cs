@@ -1,5 +1,6 @@
 ﻿using System;
 using CSharp_Course_Project.Task1;
+using CSharp_Course_Project.Task2;
 
 namespace CSharp_Course_Project
 {
@@ -7,7 +8,8 @@ namespace CSharp_Course_Project
     {
         static void Main(string[] args)
         {
-            Execute.PrintSalary();
+            //Execute.PrintSalary();
+            PrintUser.Execute();
         }
     }
 }
