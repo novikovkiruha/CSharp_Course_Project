@@ -9,9 +9,9 @@ namespace CSharp_Course_Project
             while (true)
             {
                 Console.WriteLine("Enter the 4-digit or 6-digit PIN:");
-                string pin = Task4_ATMMachines.InputPin();
+                string pin = Task4_ATMMachines.GetPin();
                 bool isPinNumber = Task4_ATMMachines.IsPinNumber(pin);
-                bool correctPinLength = Task4_ATMMachines.CorrectPinLength(pin);
+                bool correctPinLength = Task4_ATMMachines.IsPinLengthCorrect(pin);
                 if (!isPinNumber)
                 {
                     Console.WriteLine($"PIN is not a number: {pin}. Try again...");
@@ -22,7 +22,7 @@ namespace CSharp_Course_Project
                     Console.WriteLine($"Not valid PIN length: {pin}. Try again...");
                     continue;
                 }
-                else if (isPinNumber || correctPinLength)
+                else if (isPinNumber && correctPinLength)
                 {
                     Console.WriteLine($"Correct PIN format: {pin}");
                     break;
@@ -30,7 +30,7 @@ namespace CSharp_Course_Project
             }
         }
 
-        private static string InputPin()
+        private static string GetPin()
         {
             string inputPin = Console.ReadLine();
 
@@ -39,32 +39,12 @@ namespace CSharp_Course_Project
 
         private static bool IsPinNumber(string inputPin)
         {
-            bool isPinNumber = Int32.TryParse(inputPin, out int pin);
-            if (!isPinNumber)
-            {
-                isPinNumber = false;
-                return isPinNumber;
-            }
-            else
-            {
-                isPinNumber = true;
-                return isPinNumber;
-            }
+            return Int32.TryParse(inputPin, out int pin);
         }
 
-        private static bool CorrectPinLength(string inputPin)
+        private static bool IsPinLengthCorrect(string inputPin)
         {
-            bool correctPinLength = true;
-            if (inputPin.Length != 4 && inputPin.Length != 6)
-            {
-                correctPinLength = false;
-                return correctPinLength;
-            }
-            else
-            {
-                correctPinLength = true;
-                return correctPinLength;
-            }
+            return inputPin.Length == 4 || inputPin.Length == 6;
         }
     }
 }

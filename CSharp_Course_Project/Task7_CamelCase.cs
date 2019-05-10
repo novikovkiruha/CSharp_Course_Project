@@ -39,7 +39,7 @@ namespace CSharp_Course_Project
 
         public static string GetCamelCaseText(string[] array)
         {
-            string camelCaseText = "";
+            string camelCaseText = string.Empty;
             string[] inputTextCamelCaseArray = new string[array.Length];
             for (int i = 0; i < array.Length; i++)
             {

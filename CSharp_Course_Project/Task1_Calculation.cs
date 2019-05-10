@@ -45,16 +45,16 @@ namespace CSharp_Course_Project
             switch (action)
             {
                 case '+':
-                    result = Add(firstArg, secondArg);
+                    result = Task1_Calculation.Add(firstArg, secondArg);
                     break;
                 case '-':
-                    result = Sub(firstArg, secondArg);
+                    result = Task1_Calculation.Sub(firstArg, secondArg);
                     break;
                 case '*':
-                    result = Mul(firstArg, secondArg);
+                    result = Task1_Calculation.Mul(firstArg, secondArg);
                     break;
                 case '/':
-                    result = Div(firstArg, secondArg);
+                    result = Task1_Calculation.Div(firstArg, secondArg);
                     break;
                 default:
                     break;
@@ -67,14 +67,17 @@ namespace CSharp_Course_Project
         {
             return firstArg + secondArg;
         }
+
         private static double Sub(double firstArg, double secondArg)
         {
             return firstArg - secondArg;
         }
+
         private static double Mul(double firstArg, double secondArg)
         {
             return firstArg * secondArg;
         }
+
         private static double Div(double firstArg, double secondArg)
         {
             return firstArg / secondArg;
@@ -83,16 +86,15 @@ namespace CSharp_Course_Project
         private static bool IsValidSymbol(char action)
         {
             char[] symbols = new char[] { '+', '-', '*', '/' };
-            bool isValidSymbol = false;
             for (int i = 0; i < symbols.Length; i++)
             {
                 if (action == symbols[i])
                 {
-                    isValidSymbol = true;
+                    return true;
                 }
             }
 
-            return isValidSymbol;
+            return false;
         }
     }
 }

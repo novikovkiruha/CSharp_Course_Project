@@ -5,7 +5,7 @@ using System.Threading;
 namespace CSharp_Course_Project
 {
     /// <summary>
-    /// Concatenated string with unique chars
+    /// Concatenated string with unique chars.
     /// </summary>
     /// <owner> Kirill Novikov </owner>
     class Task6_LongestString
@@ -15,11 +15,15 @@ namespace CSharp_Course_Project
             string firstString = Task6_LongestString.GetRandomString();
             //string firstString = "xyaabbbccccdefww";
             Console.WriteLine($"First string: {firstString}");
+
             string secondString = Task6_LongestString.GetRandomString();
             //string secondString = "xxxxyyyyabklmopq";
             Console.WriteLine($"Second string: {secondString}");
+
             StringBuilder longestStringBuilder = Task6_LongestString.StringConcatenation(firstString, secondString);
+
             StringBuilder longestStringBuilderWtDuplicates = Task6_LongestString.GetStringWithoutDuplicates(longestStringBuilder);
+
             string longestString = Task6_LongestString.Sort(longestStringBuilderWtDuplicates);
             Console.WriteLine(longestString);
         }
@@ -36,7 +40,7 @@ namespace CSharp_Course_Project
             {
                 randomCharArray[i] = chars[random.Next(chars.Length)];
             }
-            string randomString = string.Join("", randomCharArray);
+            string randomString = string.Join(string.Empty, randomCharArray);
             Thread.Sleep(50);
 
             return randomString;
