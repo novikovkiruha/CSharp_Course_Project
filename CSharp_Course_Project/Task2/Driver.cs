@@ -12,7 +12,7 @@ namespace CSharp_Course_Project.Task2
         public DriverCategory DriverCategory { get; set; }
 
         public Driver(string name, int age, decimal salary, double driverExp, DriverCategory driverCategory)
-         : base(name, age, salary)
+         :base(name, age, salary)
         {
             DriverExp = driverExp;
             DriverCategory = driverCategory;
