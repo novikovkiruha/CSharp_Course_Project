@@ -14,27 +14,15 @@ namespace practice_05._11._19_classes.Task2_Plants
                 new Tree("Birch tree", 150, ConsoleColor.Green, 10),
             };
 
-            var random = new Random();
-            foreach (var item in plants)
-            {
-                var waterRandom = random.Next(0, 100);
-                var mineralRandom = random.Next(0, 20);
-
-                item.WaterIntake(waterRandom);
-
-                item.MineralIntake(mineralRandom);
-
-                item.OxygenRelease(waterRandom, mineralRandom);
-
-                if (item is Flower flower)
-                    flower.CollectPollen();
-                else if (item is Tree tree)
-                    tree.AgeCount();
-
-                Console.WriteLine();
-            }
-
             return plants;
+        }
+
+        public static void Execute()
+        {
+            Plant[] plants = PlantList.GetPlantList();
+            Worker worker = new Worker();
+            Gallery gallery = new Gallery(plants, worker);
+            gallery.Manage();
         }
     }
 }

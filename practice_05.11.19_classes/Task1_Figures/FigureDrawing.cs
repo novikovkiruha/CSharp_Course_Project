@@ -4,7 +4,7 @@ namespace practice_05._11._19_classes.Task1_Figures
 {
     public static class FigureDrawing
     {
-        public static void Execute()
+        public static void DrawFigure()
         {
             Figure[] figures =
             {

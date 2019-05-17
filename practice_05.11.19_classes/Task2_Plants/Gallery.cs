@@ -4,7 +4,7 @@ namespace practice_05._11._19_classes.Task2_Plants
 {
     public class Gallery
     {
-        private Plant[] plants = PlantList.GetPlantList();
+        private Plant[] plants;
 
         private Worker worker;
 
@@ -16,9 +16,12 @@ namespace practice_05._11._19_classes.Task2_Plants
 
         public void Manage()
         {
+            plants = PlantList.GetPlantList();
+            var random = new Random();
             foreach (var item in plants)
             {
                 Console.WriteLine($"{this.worker.GetType().Name} manage {item.Type}");
+                worker.ManagePlant(item);
             }
         }
     }

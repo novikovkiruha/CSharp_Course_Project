@@ -20,7 +20,7 @@ namespace practice_05._11._19_classes.Task2_Plants
         public void WaterIntake(double waterCount)
         {
             this.Height += waterCount;
-            Console.WriteLine($"The plant {this.Type} was watered by {waterCount}l water and grew by {this.Height} cm.");
+            Console.WriteLine($"The plant {this.Type} was watered by {waterCount} liters of water and grew by {this.Height} cm.");
         }
 
         public void MineralIntake(double mineralCount)
@@ -32,8 +32,9 @@ namespace practice_05._11._19_classes.Task2_Plants
 
         public void OxygenRelease(double waterCount, double mineralCount)
         {
+            double oxygenCount = waterCount + mineralCount;
             if (waterCount > 0 && mineralCount > 0)
-                Console.WriteLine($"The plant {this.Type} allocated oxygen");
+                Console.WriteLine($"The plant {this.Type} allocated {oxygenCount} grams of oxygen");
         }
     }
 }
