@@ -9,7 +9,7 @@ namespace CSharp_Course_Project
         static void Main(string[] args)
         {
             //FigureDrawing.DrawFigure();
-            PlantList.Execute();
+            //PlantList.Execute();
         }
     }
 }

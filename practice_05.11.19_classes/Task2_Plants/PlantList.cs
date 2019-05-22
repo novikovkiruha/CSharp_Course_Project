@@ -16,13 +16,5 @@ namespace practice_05._11._19_classes.Task2_Plants
 
             return plants;
         }
-
-        public static void Execute()
-        {
-            Plant[] plants = PlantList.GetPlantList();
-            Worker worker = new Worker();
-            Gallery gallery = new Gallery(plants, worker);
-            gallery.Manage();
-        }
     }
 }

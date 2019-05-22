@@ -9,8 +9,7 @@ namespace practice_05._11._19_classes
         static void Main(string[] args)
         {
             //FigureDrawing.DrawFigure();
-            //new Gallery().Manage();
-            PlantList.Execute();
+            new Gallery(PlantList.GetPlantList(), new Worker()).Manage();
         }
     }
 }
