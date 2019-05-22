@@ -9,9 +9,9 @@ namespace CSharp_Course_Project
     {
         static void Main(string[] args)
         {
-            //SalaryAndAge.Execute();
-            //PrintUser.Execute();
-            Feeder.Feed();
+            //new SalaryAndAge().CountSalaryAndAge();
+            //new PrintUser().Execute();
+            new Feeder().Feed();
         }
     }
 }

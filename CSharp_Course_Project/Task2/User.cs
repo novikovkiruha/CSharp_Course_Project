@@ -2,7 +2,7 @@
 
 namespace CSharp_Course_Project.Task2
 {
-    class User
+    public class User
     {
         public string Name { get; set; }
 

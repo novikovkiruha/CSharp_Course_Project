@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace CSharp_Course_Project.Task2
 {
-    class Driver : Worker
+    public class Driver : Worker
     {
-        public double DriverExp { get; set; }
+        public double DriverExperience { get; set; }
         public DriverCategory DriverCategory { get; set; }
 
         public Driver(string name, int age, decimal salary, double driverExp, DriverCategory driverCategory)
          :base(name, age, salary)
         {
-            DriverExp = driverExp;
+            DriverExperience = driverExp;
             DriverCategory = driverCategory;
         }
     }
 
-    enum DriverCategory
+    public enum DriverCategory
     {
         A,
         B,

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CSharp_Course_Project.Task2
 {
-    class Worker : User
+    public class Worker : User
     {
         private decimal salary;
 
@@ -25,13 +25,9 @@ namespace CSharp_Course_Project.Task2
             set
             {
                 if (value > 0)
-                {
                     salary = value;
-                }
                 else
-                {
-                    throw new ArgumentException("Salary can't be less than 0");
-                }
+                    throw new ArgumentException("Salary can't be less or equal to 0");
             }
         }
     }

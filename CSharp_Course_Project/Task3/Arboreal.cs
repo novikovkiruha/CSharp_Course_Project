@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CSharp_Course_Project.Task3
 {
-    class Arboreal : Mammal
+    public class Arboreal : Mammal
     {
         public Arboreal(double age, double weight) : base(age, weight)
         {

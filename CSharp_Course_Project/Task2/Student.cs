@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CSharp_Course_Project.Task2
 {
-    class Student : User
+    public class Student : User
     {
         public int Scholarship { get; set; }
         public int Course { get; set; }

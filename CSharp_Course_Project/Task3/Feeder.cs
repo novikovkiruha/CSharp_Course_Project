@@ -3,9 +3,9 @@ using System.Threading;
 
 namespace CSharp_Course_Project.Task3
 {
-    static class Feeder
+    public class Feeder
     {
-        public static void Feed()
+        public void Feed()
         {
             Mammal[] mammals =
             {
@@ -19,10 +19,10 @@ namespace CSharp_Course_Project.Task3
                 new Terrestrial(0.9, 7)
             };
 
+            var random = new Random();
             for (int i = 0; i < mammals.Length; i++)
             {
-                var randomFoodAmount = new Random().Next(1, 20);
-                Thread.Sleep(50);
+                var randomFoodAmount = random.Next(1, 20);
                 mammals[i].Eat(randomFoodAmount);
             }
         }

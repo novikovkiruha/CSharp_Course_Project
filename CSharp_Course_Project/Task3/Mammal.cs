@@ -2,9 +2,9 @@
 
 namespace CSharp_Course_Project.Task3
 {
-    class Mammal
+    public class Mammal
     {
-        public double Age { get; private set; }
+        public double Age { get; }
 
         public double Weight { get; private set; }
 
@@ -27,7 +27,7 @@ namespace CSharp_Course_Project.Task3
 
             double initialWeight = this.Weight;
             this.Weight += foodAmount / 5;
-            Console.WriteLine($"Initial weight of {GetType().Name} is {initialWeight}. Weight after feeding is {this.Weight}");
+            Console.WriteLine($"Initial weight of {this.GetType().Name} is {initialWeight}. Weight after feeding is {this.Weight}");
         }
     }
 }

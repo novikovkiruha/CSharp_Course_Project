@@ -2,9 +2,9 @@
 
 namespace CSharp_Course_Project.Task1
 {
-    static class SalaryAndAge
+    public class SalaryAndAge
     {
-        public static void Execute()
+        public void CountSalaryAndAge()
         {
             Worker worker1 = new Worker("Sanya", 24, 7300);
             Worker worker2 = new Worker("Kirill", 28, 12000);

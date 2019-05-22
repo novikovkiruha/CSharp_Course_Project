@@ -2,7 +2,7 @@
 
 namespace CSharp_Course_Project.Task1
 {
-    class Worker
+    public class Worker
     {
         private int age;
 
@@ -28,9 +28,7 @@ namespace CSharp_Course_Project.Task1
                 if (value >= 1 && value <= 100)
                     age = value;
                 else
-                {
-                    System.Console.WriteLine($"Incorrect age of {Name}");
-                }
+                    throw new ArgumentException("Incorrect age of {Name}");
             }
         }
     }
