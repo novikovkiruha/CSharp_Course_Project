@@ -43,11 +43,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Task2\Driver.cs" />
+    <Compile Include="Task2\Student.cs" />
+    <Compile Include="Task2\PrintUser.cs" />
+    <Compile Include="Task2\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Task1\SalaryAndAge.cs" />
+    <Compile Include="Task1\Worker.cs" />
+    <Compile Include="Task2\Worker.cs" />
+    <Compile Include="Task3\Aquatic.cs" />
+    <Compile Include="Task3\Arboreal.cs" />
+    <Compile Include="Task3\Feeder.cs" />
+    <Compile Include="Task3\Mammal.cs" />
+    <Compile Include="Task3\Subterranean.cs" />
+    <Compile Include="Task3\Terrestrial.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
