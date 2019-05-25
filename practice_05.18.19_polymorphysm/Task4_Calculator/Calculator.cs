@@ -17,6 +17,7 @@ namespace practice_05._18._19_polymorphysm.Task4_Calculator
         {
             foreach (var item in operations)
             {
+                Console.WriteLine();
                 Console.WriteLine($"{item.GetType().Name} = {item.Calculate(firstValue, secondValue)}");
             }
         }
