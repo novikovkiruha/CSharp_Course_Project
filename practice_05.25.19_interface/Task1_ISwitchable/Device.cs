@@ -8,14 +8,26 @@ namespace practice_05._25._19_interface.Task1_ISwitchable
 {
     public class Device : ISwitchable
     {
+        public bool State { get; set; }
+
         public void SwitchOn()
         {
-            Console.WriteLine("Device was turned on");
+            this.State = true;
+            Console.WriteLine($"{this.GetType().Name} is turning on");
         }
 
         public void SwitchOff()
         {
-            Console.WriteLine("Device was turned off");
+            this.State = false;
+            Console.WriteLine($"{this.GetType().Name} is turning off");
+        }
+
+        public override string ToString()
+        {
+            if (this.State)
+                return $"{this.GetType().Name} is on";
+            else
+                return $"{this.GetType().Name} is off";
         }
     }
 }

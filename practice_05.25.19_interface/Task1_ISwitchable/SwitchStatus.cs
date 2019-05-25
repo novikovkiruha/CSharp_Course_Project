@@ -10,19 +10,17 @@ namespace practice_05._25._19_interface.Task1_ISwitchable
     {
         public void Switch()
         {
-            Console.WriteLine("Enter 1 to turn on or enter 2 to turn off the device");
-            var action = Console.ReadLine();
+            Console.WriteLine("Enter '1' to turn on or enter '0' to turn off the device");
+            var state = Console.ReadLine();
 
             var device = new Device();
 
-            if (action == "1")
-            {
+            if (state == "1")
                 device.SwitchOn();
-            }
-            else if (action == "2")
-            {
+            else if (state == "0")
                 device.SwitchOff();
-            }
+
+            Console.WriteLine(device.ToString());
         }
     }
 }
