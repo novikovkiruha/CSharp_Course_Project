@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp_Course_Project", "CSharp_Course_Project\CSharp_Course_Project.csproj", "{B1D54243-7DE7-4826-9685-F762D7A5AB57}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "practice_05.25.19_interface", "practice_05.25.19_interface\practice_05.25.19_interface.csproj", "{19B48E93-0EC4-4CB9-8F26-5127A36D07C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B1D54243-7DE7-4826-9685-F762D7A5AB57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1D54243-7DE7-4826-9685-F762D7A5AB57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1D54243-7DE7-4826-9685-F762D7A5AB57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19B48E93-0EC4-4CB9-8F26-5127A36D07C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19B48E93-0EC4-4CB9-8F26-5127A36D07C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19B48E93-0EC4-4CB9-8F26-5127A36D07C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19B48E93-0EC4-4CB9-8F26-5127A36D07C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
