@@ -6,60 +6,25 @@ namespace CSharp_Course_Project
     {
         static void Main(string[] args)
         {
-            var singleton = Singleton.GetInstance();
-            singleton.DoSomething();
-            singleton.field = 100;
-        }
-    }
+            var now = DateTime.Now;
+            now.AddDays(5);
+            Console.WriteLine(now.ToShortDateString());
 
-    public class NonStaticClass
-    {
-        public static int staticField;
-        
-        public NonStaticClass()
-        {
-            Console.WriteLine("NonStatic nonstatic constructor");
-        }
+            TimeSpan ts = new TimeSpan(2, 0, 0, 0, 0);
+            Console.WriteLine(now.Add(ts));
 
-        static NonStaticClass()
-        {
-            Console.WriteLine("NonStatic static constructor");
-            Console.WriteLine(StaticClass.staticField);
-        }
-    }
+            var now2 = now.Subtract(ts);
+            Console.WriteLine(now2);
 
-    public static class StaticClass
-    {
-        public static int staticField;
+            TimeSpan ts2 = TimeSpan.FromDays(2.5);
+            Console.WriteLine(ts2);
 
-        static StaticClass()
-        {
-            Console.WriteLine("NonStatic static constructor");
-        }
-    }
+            Console.WriteLine(now.ToUniversalTime().Ticks);
 
-    class Singleton
-    {
-        private static Singleton instance;
+            DateTimeOffset dto = DateTimeOffset.Now;
+            Console.WriteLine(dto);
 
-        public int field;
-
-        private Singleton()
-        {
-        }
-
-        public static Singleton GetInstance()
-        {
-            if (instance == null)
-            {
-                instance = new Singleton();
-            }
-
-            return instance;
-        }
-
-        public void DoSomething()
-        {
+            Console.WriteLine(now.Equals(now2));
         }
     }
 }
