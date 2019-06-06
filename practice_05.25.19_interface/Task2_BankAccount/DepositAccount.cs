@@ -35,5 +35,13 @@ namespace practice_05._25._19_interface.Task2_BankAccount
         {
             return this.InterestRate * this.CurrentBalance;
         }
+
+        public override void ShowAccountInformation()
+        {
+            Console.WriteLine($"Account Type: {this.GetType().Name}\n" +
+                $"Current Balance: {this.CurrentBalance}\n" +
+                $"Account Owner: {this.AccountOwner}\n" +
+                $"Charged amount with an interest rate of {this.InterestRate}: {this.ChargeInterest()}");
+        }
     }
 }

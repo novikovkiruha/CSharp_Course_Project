@@ -11,7 +11,6 @@ namespace practice_05._25._19_interface.Task2_BankAccount
         public CurrentAccount(decimal currentBalance, string balanceOwner) 
             :base(currentBalance, balanceOwner)
         {
-
         }
 
         public decimal DepositFunds(decimal contributedFunds)
@@ -22,6 +21,13 @@ namespace practice_05._25._19_interface.Task2_BankAccount
         public decimal WithdrawFunds(decimal withdrawnFunds)
         {
             return this.currentBalance - withdrawnFunds;
+        }
+
+        public override void ShowAccountInformation()
+        {
+            Console.WriteLine($"Account Type: {this.GetType().Name}\n" +
+                $"Current Balance: {this.CurrentBalance}\n" +
+                $"Account Owner: {this.AccountOwner}");
         }
     }
 }

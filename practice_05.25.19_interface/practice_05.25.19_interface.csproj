@@ -48,6 +48,8 @@
     <Compile Include="Task1_ISwitchable\ISwitchable.cs" />
     <Compile Include="Task1_ISwitchable\SwitchStatus.cs" />
     <Compile Include="Task1_ISwitchable\Device.cs" />
+    <Compile Include="Task2_BankAccount\AccountList.cs" />
+    <Compile Include="Task2_BankAccount\Bank.cs" />
     <Compile Include="Task2_BankAccount\BankAccount.cs" />
     <Compile Include="Task2_BankAccount\CardAccount.cs" />
     <Compile Include="Task2_BankAccount\CurrentAccount.cs" />

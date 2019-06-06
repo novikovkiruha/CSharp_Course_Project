@@ -36,5 +36,12 @@ namespace practice_05._25._19_interface.Task2_BankAccount
 
             return returnedBalance;
         }
+
+        public virtual void ShowAccountInformation()
+        {
+            Console.WriteLine($"Account Type: {this.GetType().Name}\n" +
+                $"Current Balance: {this.CurrentBalance}\n" +
+                $"Account Owner: {this.AccountOwner}");
+        }
     }
 }
