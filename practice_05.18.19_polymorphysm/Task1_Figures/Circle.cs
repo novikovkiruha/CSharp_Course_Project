@@ -29,7 +29,9 @@ namespace practice_05._18._19_classes.Task1_Figures
 
         public override void Draw()
         {
-            Console.WriteLine($"Abscissa: {this.Abscissa}\nOrdinate: {this.Ordinate}\nThe radius of {this.GetType().Name}: {this.Radius}");
+            Console.WriteLine($"Abscissa: {this.Abscissa}\n" +
+                $"Ordinate: {this.Ordinate}\n" +
+                $"The radius of {this.GetType().Name}: {this.Radius}");
         }
     }
 }

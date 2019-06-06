@@ -13,7 +13,7 @@ namespace practice_05._18._19_polymorphysm
             //new FigureDrawing().DrawFigure();
             //new Feeder().Feed();
             //new Greeting().HumanGreeting();
-            new Calculator().PerformCalculation(10, 5);
+            new Calculator(5, 10).PerformCalculation();
         }
     }
 }

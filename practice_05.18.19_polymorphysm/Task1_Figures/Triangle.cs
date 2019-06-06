@@ -59,7 +59,9 @@ namespace practice_05._18._19_classes.Task1_Figures
 
         public override void Draw()
         {
-            Console.WriteLine($"Abscissa: {this.Abscissa}\nOrdinate: {this.Ordinate}\nSides of {GetType().Name}: {this.FirstSide}, {this.SecondSide}, {this.ThirdSide}");
+            Console.WriteLine($"Abscissa: {this.Abscissa}\n" +
+                $"Ordinate: {this.Ordinate}\n" +
+                $"Sides of {GetType().Name}: {this.FirstSide}, {this.SecondSide}, {this.ThirdSide}");
         }
     }
 }
