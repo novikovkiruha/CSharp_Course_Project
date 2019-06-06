@@ -12,7 +12,15 @@ namespace practice_05._25._19_interface.Task2_BankAccount
         {
             foreach (var item in accounts)
             {
-                item.ShowAccountInformation();
+                try
+                {
+                    item.ShowAccountInformation();
+                }
+                catch (NullReferenceException)
+                {
+                    throw new NullReferenceException();
+                }
+                
                 Console.WriteLine();
             }
         }

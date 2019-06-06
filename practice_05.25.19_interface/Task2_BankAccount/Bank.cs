@@ -5,7 +5,7 @@ namespace practice_05._25._19_interface.Task2_BankAccount
 {
     public class Bank
     {
-        public List<BankAccount> accounts;
+        private readonly List<BankAccount> accounts;
 
         public Bank()
         {
