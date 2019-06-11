@@ -8,32 +8,91 @@ namespace practice_06._08._2019_System.IO.Task1_Folders
     {
         public void ShowFolders()
         {
-            var path = @"D:\";
+            var path = @"D:\Temp";
             //var path = @"C:\Windows\System32\";
-            var folders = Directory.GetDirectories(path);
-            var folderNumber = 0;
-            long totalSize = 0;
+            var folders = new DirectoryInfo(path).GetDirectories();
+            //var folders = Directory.GetDirectories(path);
+            var folderNumber = folders.Length;
+            var files = new DirectoryInfo(path).GetFiles();
+            var fileNumber = 0;
+            double totalSize = 0;
 
-            foreach (var item in folders)
+            if (folderNumber == 0)
             {
-                try
+                foreach (var file in files)
                 {
-                    DirectoryInfo folder = new DirectoryInfo(item);
-                    Console.WriteLine($"Folder Name: {folder.Name}");
-                    folderNumber++;
-                    foreach (var file in folder.GetFiles())
-                    {
-                        totalSize += file.Length;
-                    }
+                    totalSize += (double)file.Length / (1024 * 1024 * 1024);
+                    Console.WriteLine($"File Name: {file.Name}");
                 }
-                catch (Exception)
+            }
+            else
+            {
+                foreach (var folder in folders)
                 {
-                    Console.WriteLine("Couldn't define the size of the folder");
+                    double CountTotalFilesSize(double size)
+                    {
+                        totalSize = size + CountTotalFilesSize(size);
+                        Console.WriteLine(totalSize);
+                        return totalSize;
+                    }
                 }
             }
 
+            //foreach (var folder in folders)
+            //{
+            //    //var size = folder.GetFiles().Length;
+            //    try
+            //    {
+            //        string folderName = folder.Name;
+            //        Console.WriteLine($"Folder Name: {folderName}");
+            //        folderNumber++;
+            //        if (folder.Name == folderName)
+            //        {
+            //            CountTotalSize(totalSize);
+            //        }
+            //        foreach (var file in folder.GetFiles())
+            //        {
+            //            totalSize += (double)file.Length / (1024 * 1024 * 1024);
+            //            Console.WriteLine($"File Name: {file.Name}");
+            //        }
+            //        fileNumber = folder.GetFiles().Count();
+            //    }
+            //    catch (Exception)
+            //    {
+            //        Console.WriteLine("Couldn't define the size of the folder");
+            //    }
+            //}
+
             Console.WriteLine($"Number of folders: {folderNumber}");
-            Console.WriteLine($"Total size: {totalSize}");
+            Console.WriteLine($"Total size: {totalSize} GB");
+            Console.WriteLine($"Number of files {fileNumber}");
+        }
+
+        public void CountTotalSize(double size)
+        {
+            var path = @"D:\Films";
+
+            var folders = Directory.GetDirectories(path, "*.*", SearchOption.AllDirectories);
+            var files = Directory.GetFiles(path, "*.*", SearchOption.AllDirectories);
+            var totalSize = 0;
+
+            foreach (var folder in folders)
+            {
+                try
+                {
+                }
+                catch (Exception)
+                {
+
+                    Console.WriteLine("Couldn't define the size of the folder");
+                }
+                
+            }
+            Console.WriteLine(folders.Length);
+            var foldersNumber = folders.Count();
+            Console.WriteLine(foldersNumber);
+            
+            //return size + CountTotalSize(size);
         }
     }
 }
