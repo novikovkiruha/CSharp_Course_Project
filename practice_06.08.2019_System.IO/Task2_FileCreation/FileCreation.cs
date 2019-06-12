@@ -9,34 +9,48 @@ namespace practice_06._08._2019_System.IO.Task2_FileCreation
 {
     public class FileCreation
     {
-        public void CreateFile()
+        public string tempFolder = @"D:\Temp\";
+
+        public string textFile = "userText.txt";
+
+        public string CreateFile()
         {
-            var path = @"D:\";
-            var tempFolder = @"D:\Temp\";
-            var textFile = @"D:\Temp\SomeText.txt";
-            var folders = Directory.GetDirectories(path);
-
-
-            if (Directory.Exists(tempFolder))
+            try
             {
-                Console.WriteLine("Temp folder is already exist");
-                if (File.Exists(textFile))
+                if (Directory.Exists(this.tempFolder))
                 {
-                    File.Delete(textFile);
+                    Console.WriteLine($"{Path.GetDirectoryName(this.tempFolder)} folder is already exist");
+                    WriteText(this.tempFolder, this.textFile);
                 }
-                File.Create(tempFolder + "Text.txt");
+                else
+                {
+                    DirectoryInfo newFolder = Directory.CreateDirectory(this.tempFolder);
+                    Console.WriteLine($"{newFolder.Name} folder was created");
+                    WriteText(this.tempFolder, this.textFile);
+                }
             }
-            else
+            catch (Exception e)
             {
-                DirectoryInfo di = Directory.CreateDirectory(tempFolder);
-                Console.WriteLine("Temp folder was created");
+                Console.WriteLine(e.Message);
             }
+
+            return this.tempFolder + this.textFile;
         }
 
-        public string WriteSomeText()
+        public string WriteText(string path, string textFile)
         {
-            Console.WriteLine("Write some text");
-            return Console.ReadLine();
+            if (File.Exists(path + textFile))
+                File.Delete(path + textFile);
+           
+            Console.WriteLine("Write some text:");
+            var inputText = Console.ReadLine();
+
+            var writer = new StreamWriter(path + textFile, true);
+            writer.WriteLine(inputText);
+            writer.Close();
+            Console.WriteLine($"{Path.GetFileName(textFile)} file with the following text was created: '{inputText}'");
+
+            return inputText;
         }
     }
 }
