@@ -88,6 +88,7 @@ namespace practice_06._08._2019_System.IO.Task1_Folders
                 }
             }
             Console.WriteLine(size);
+
             //foreach (var file in files)
             //{
             //    try
@@ -106,6 +107,51 @@ namespace practice_06._08._2019_System.IO.Task1_Folders
             //var foldersNumber = folders.Count();
             //Console.WriteLine(foldersNumber);
 
+            return size;
+        }
+
+        public void Execute()
+        {
+            var path = @"D:\Films\";
+            int counter = 0;
+            DirectoryInfo dir = new DirectoryInfo(path);
+            foreach (var item in dir.GetDirectories())
+            {
+                counter++;
+            }
+            double size = 0;
+            size = GetDirectorySize(path, size);
+            //FileInfo[] files = dir.GetFiles();
+            //foreach (var item in files)
+            //{
+            //    size += item.Length;
+            //}
+            Console.WriteLine($"Number of directories is {counter}. Size: {size / (1024 * 1024 * 1024)}");
+        }
+
+        private double GetDirectorySize(string directoryPath, double size)
+        {
+            DirectoryInfo dir = new DirectoryInfo(directoryPath);
+            try
+            {
+                if (Directory.GetDirectories(directoryPath).Length == 0)
+                {
+                    foreach (FileInfo item in dir.GetFiles())
+                    {
+                        size += item.Length;
+                    }
+                }
+                else
+                    foreach (var item in Directory.GetDirectories(directoryPath))
+                    {
+                        Console.WriteLine(item);
+                        size += GetDirectorySize(item, size);
+                    }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             return size;
         }
     }

@@ -9,10 +9,11 @@ namespace practice_06._08._2019_System.IO
     {
         static void Main(string[] args)
         {
+            new Folder().Execute();
             //new Folder().ShowFolders();
             //new Folder().CountTotalSize(0);
             //new FileCreation().CreateFile();
-            new FileCharacters().IsFileExist(new FileCreation().tempFolder + new FileCreation().textFile);
+            //new FileCharacters().IsFileExist(new FileCreation().tempFolder + new FileCreation().textFile);
         }
     }
 }
