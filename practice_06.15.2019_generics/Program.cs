@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using practice_06._15._2019_generics.Task1_MyList;
+using System;
 
 namespace practice_06._15._2019_generics
 {
@@ -10,6 +7,7 @@ namespace practice_06._15._2019_generics
     {
         static void Main(string[] args)
         {
+            //new Execute().CodeExecute();
 
         }
     }
