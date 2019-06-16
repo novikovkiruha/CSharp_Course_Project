@@ -4,7 +4,7 @@ namespace practice_06._15._2019_generics.Task1_MyList
 {
     public class MyList<T> : IMyList<T>
     {
-        private T[] array;
+        protected T[] array;
 
         public MyList()
         {
@@ -53,6 +53,11 @@ namespace practice_06._15._2019_generics.Task1_MyList
             }
 
             return result;
+        }
+
+        public override string ToString()
+        {
+            return $"";
         }
     }
 }
