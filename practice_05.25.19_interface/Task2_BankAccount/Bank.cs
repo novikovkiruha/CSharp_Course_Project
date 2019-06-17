@@ -29,29 +29,28 @@ namespace practice_05._25._19_interface.Task2_BankAccount
                             "4 - Current Account\n" +
                             "0 - to return in previous menu");
                         string accountType = Console.ReadLine();
-                        if (accountType == "1")
+                        switch (accountType)
                         {
-                            this.accounts.Add(new BankAccount(10000, "John"));
+                            case "1":
+                                this.accounts.Add(new BankAccount(10000, "John"));
+                                break;
+                            case "2":
+                                this.accounts.Add(new DepositAccount(5000, "Lesley", 20));
+                                break;
+                            case "3":
+                                this.accounts.Add(new CardAccount(3500, "David", 5));
+                                break;
+                            case "4":
+                                this.accounts.Add(new CurrentAccount(200000, "Wilson"));
+                                break;
+                            case "0":
+                                break;
+                            default:
+                                Console.WriteLine("You use wrong number. Please, try again...");
+                                continue;
                         }
-                        else if (accountType == "2")
-                        {
-                            this.accounts.Add(new DepositAccount(5000, "Lesley", 20));
-                        }
-                        else if (accountType == "3")
-                        {
-                            this.accounts.Add(new CardAccount(3500, "David", 5));
-                        }
-                        else if (accountType == "4")
-                        {
-                            this.accounts.Add(new CurrentAccount(200000, "Wilson"));
-                        }
-                        else
-                        {
-                            break;
-                        }
+                        break;
                     }
-
-                    continue;
                 }
                 else
                 {

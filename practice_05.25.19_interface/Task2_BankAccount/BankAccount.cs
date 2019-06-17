@@ -4,9 +4,9 @@ namespace practice_05._25._19_interface.Task2_BankAccount
 {
     public class BankAccount
     {
-        protected decimal currentBalance;
+        private decimal currentBalance;
 
-        public string AccountOwner { get; }
+        protected string AccountOwner { get; }
 
         public BankAccount(decimal currentBalance, string balanceOwner)
         {
@@ -14,7 +14,7 @@ namespace practice_05._25._19_interface.Task2_BankAccount
             this.AccountOwner = balanceOwner;
         }
 
-        public decimal CurrentBalance
+        protected decimal CurrentBalance
         {
             get
             {
@@ -37,11 +37,11 @@ namespace practice_05._25._19_interface.Task2_BankAccount
             return returnedBalance;
         }
 
-        public virtual void ShowAccountInformation()
+        public override string ToString()
         {
-            Console.WriteLine($"Account Type: {this.GetType().Name}\n" +
+            return $"Account Type: {this.GetType().Name}\n" +
                 $"Current Balance: {this.CurrentBalance}\n" +
-                $"Account Owner: {this.AccountOwner}");
+                $"Account Owner: {this.AccountOwner}";
         }
     }
 }

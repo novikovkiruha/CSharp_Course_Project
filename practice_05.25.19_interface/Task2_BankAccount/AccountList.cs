@@ -14,7 +14,7 @@ namespace practice_05._25._19_interface.Task2_BankAccount
             {
                 try
                 {
-                    item.ShowAccountInformation();
+                    Console.WriteLine(item.ToString());
                 }
                 catch (NullReferenceException)
                 {
