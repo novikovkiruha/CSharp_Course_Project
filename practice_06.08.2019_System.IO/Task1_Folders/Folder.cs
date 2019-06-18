@@ -38,31 +38,6 @@ namespace practice_06._08._2019_System.IO.Task1_Folders
                 }
             }
 
-            //foreach (var folder in folders)
-            //{
-            //    //var size = folder.GetFiles().Length;
-            //    try
-            //    {
-            //        string folderName = folder.Name;
-            //        Console.WriteLine($"Folder Name: {folderName}");
-            //        folderNumber++;
-            //        if (folder.Name == folderName)
-            //        {
-            //            CountTotalSize(totalSize);
-            //        }
-            //        foreach (var file in folder.GetFiles())
-            //        {
-            //            totalSize += (double)file.Length / (1024 * 1024 * 1024);
-            //            Console.WriteLine($"File Name: {file.Name}");
-            //        }
-            //        fileNumber = folder.GetFiles().Count();
-            //    }
-            //    catch (Exception)
-            //    {
-            //        Console.WriteLine("Couldn't define the size of the folder");
-            //    }
-            //}
-
             Console.WriteLine($"Number of folders: {folderNumber}");
             Console.WriteLine($"Total size: {totalSize} GB");
             Console.WriteLine($"Number of files {fileNumber}");
@@ -94,36 +69,37 @@ namespace practice_06._08._2019_System.IO.Task1_Folders
 
         public void Execute()
         {
-            var path = @"D:\";
-            int counter = 0;
-            DirectoryInfo dir = new DirectoryInfo(path);
-            foreach (var item in dir.GetDirectories())
-                counter++;
+            var path = @"D:\Films\";
+            DirectoryInfo directory = new DirectoryInfo(path);
+            int foldersNumber = directory.GetDirectories().Length;
 
             double size = 0;
-            size = GetDirectorySize(path, size);
-            
-            Console.WriteLine($"Number of directories is {counter}. Size: {size}"); // (1024 * 1024 * 1024)
+            size = GetDirectorySize(directory, size);
+
+            Console.WriteLine($"Number of directories is {foldersNumber}. Size: {Math.Round(size / (1024 * 1024 * 1024), 2)} GB"); // (1024 * 1024 * 1024)
         }
 
-        public double GetDirectorySize(string directoryPath, double size)
+        public double GetDirectorySize(DirectoryInfo directoryPath, double size)
         {
-            DirectoryInfo dir = new DirectoryInfo(directoryPath);
+            int counter = directoryPath.GetDirectories().Length;
             try
             {
-                if (Directory.GetDirectories(directoryPath).Length == 0)
+                if (directoryPath.GetDirectories().Length > 0)
                 {
-                    foreach (FileInfo item in dir.GetFiles())
-                    {
-                        size += item.Length;
-                    }
-                }
-                else
-                    foreach (var item in Directory.GetDirectories(directoryPath))
+                    foreach (var item in directoryPath.GetDirectories())
                     {
                         Console.WriteLine(item);
                         size += GetDirectorySize(item, size);
                     }
+                }
+                else if (directoryPath.GetDirectories().Length == 0)
+                {
+                    foreach (FileInfo file in directoryPath.GetFiles())
+                    {
+                        Console.WriteLine(file);
+                        size += file.Length;
+                    }
+                }
             }
             catch (UnauthorizedAccessException ex)
             {
