@@ -6,104 +6,43 @@ namespace practice_06._08._2019_System.IO.Task1_Folders
 {
     public class Folder
     {
-        public void ShowFolders()
+        public void ShowFoldersAndSize()
         {
-            var path = @"D:\Temp";
-            //var path = @"C:\Windows\System32\";
-            var folders = new DirectoryInfo(path).GetDirectories();
-            //var folders = Directory.GetDirectories(path);
-            var folderNumber = folders.Length;
-            var files = new DirectoryInfo(path).GetFiles();
-            var fileNumber = 0;
-            double totalSize = 0;
-
-            if (folderNumber == 0)
-            {
-                foreach (var file in files)
-                {
-                    totalSize += (double)file.Length / (1024 * 1024 * 1024);
-                    Console.WriteLine($"File Name: {file.Name}");
-                }
-            }
-            else
-            {
-                foreach (var folder in folders)
-                {
-                    double CountTotalFilesSize(double size)
-                    {
-                        totalSize = size + CountTotalFilesSize(size);
-                        Console.WriteLine(totalSize);
-                        return totalSize;
-                    }
-                }
-            }
-
-            Console.WriteLine($"Number of folders: {folderNumber}");
-            Console.WriteLine($"Total size: {totalSize} GB");
-            Console.WriteLine($"Number of files {fileNumber}");
-        }
-
-        public double CountTotalSize(double size)
-        {
-            var path = @"D:\";
-
-            //var folders = Directory.GetDirectories(path, "*.*", SearchOption.AllDirectories);
-            var folders = new DirectoryInfo(path).GetDirectories();
-
-            foreach (var folder in folders)
-            {
-                try
-                {
-                    size = (double)folder.EnumerateFiles().Sum(fileSize => fileSize.Length) / (1024 * 1024 * 1024);
-                    Console.WriteLine($"File: {folder.Name} - {size}");
-                }
-                catch (UnauthorizedAccessException)
-                {
-                    Console.WriteLine("Couldn't define the size of the folder");
-                }
-            }
-            Console.WriteLine(size);
-
-            return size;
-        }
-
-        public void Execute()
-        {
-            var path = @"D:\Films\";
+            var path = @"C:\Windows\System32";
             DirectoryInfo directory = new DirectoryInfo(path);
             int foldersNumber = directory.GetDirectories().Length;
 
             double size = 0;
-            size = GetDirectorySize(directory, size);
+            size = GetDirectorySize(directory);
 
             Console.WriteLine($"Number of directories is {foldersNumber}. Size: {Math.Round(size / (1024 * 1024 * 1024), 2)} GB"); // (1024 * 1024 * 1024)
         }
 
-        public double GetDirectorySize(DirectoryInfo directoryPath, double size)
+        public double GetDirectorySize(DirectoryInfo directoryPath)
         {
-            int counter = directoryPath.GetDirectories().Length;
+            double size = 0;
+            int counter = 0;
+
             try
             {
-                if (directoryPath.GetDirectories().Length > 0)
+                counter = directoryPath.GetDirectories().Length;
+
+                foreach (FileInfo file in directoryPath.GetFiles())
                 {
-                    foreach (var item in directoryPath.GetDirectories())
-                    {
-                        Console.WriteLine(item);
-                        size += GetDirectorySize(item, size);
-                    }
+                    size += file.Length;
                 }
-                else if (directoryPath.GetDirectories().Length == 0)
+
+                if (counter == 0)
+                    return size;
+
+                foreach (var item in directoryPath.GetDirectories())
                 {
-                    foreach (FileInfo file in directoryPath.GetFiles())
-                    {
-                        Console.WriteLine(file);
-                        size += file.Length;
-                    }
+                    size += GetDirectorySize(item);
                 }
             }
-            catch (UnauthorizedAccessException ex)
+            catch (UnauthorizedAccessException e)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(e.Message);
             }
 
             return size;
