@@ -70,7 +70,7 @@ namespace practice_05._25._19_interface.Task2_BankAccount
             {
                 while (true)
                 {
-                    Console.WriteLine($"Choose action for {account.GetType().Name}?{Environment.NewLine}" +
+                    Console.WriteLine($"Choose action for {account.GetType().Name}:{Environment.NewLine}" +
                     $"1 - Deposit money{Environment.NewLine}" +
                     $"2 - Withdraw money{Environment.NewLine}" +
                     "3 - Close account");
@@ -100,11 +100,12 @@ namespace practice_05._25._19_interface.Task2_BankAccount
                     {
                         decimal returnedBalance = account.CloseAccount();
                         Console.WriteLine($"{account.GetType().Name} was closed. The returned amount = {returnedBalance}");
+                        break;
                     }
                     else
                     {
-                        Console.WriteLine("Wrong action. Try again...");
-                        break;
+                        Console.WriteLine($"Wrong action. Try again...{Environment.NewLine}");
+                        continue;
                     }
                 }
                 //
