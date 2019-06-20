@@ -9,10 +9,15 @@ namespace practice_05._25._19_interface.Task2_BankAccount
 
         public Bank()
         {
-            accounts = new List<BankAccount>();
+            this.accounts = new List<BankAccount>();
         }
 
-        public List<BankAccount> ManageAccount()
+        public void ManageAccount()
+        {
+            new Bank().AccomplishAccountAction(new AccountList().ShowAccountInformation(new Bank().AddNewAccount()));
+        }
+
+        public List<BankAccount> AddNewAccount()
         {
             while (true)
             {
@@ -22,11 +27,11 @@ namespace practice_05._25._19_interface.Task2_BankAccount
                 {
                     while (true)
                     {
-                        Console.WriteLine("Choose one of the account that you want to add:\n" +
-                            "1 - Bank Account\n" +
-                            "2 - Deposit Account\n" +
-                            "3 - Card Account\n" +
-                            "4 - Current Account\n" +
+                        Console.WriteLine($"Choose one of the account that you want to add:{Environment.NewLine}" +
+                            $"1 - Bank Account{Environment.NewLine}" +
+                            $"2 - Deposit Account{Environment.NewLine}" +
+                            $"3 - Card Account{Environment.NewLine}" +
+                            $"4 - Current Account{Environment.NewLine}" +
                             "0 - to return in previous menu");
                         string accountType = Console.ReadLine();
                         switch (accountType)
@@ -54,8 +59,74 @@ namespace practice_05._25._19_interface.Task2_BankAccount
                 }
                 else
                 {
-                    return accounts;
+                    return this.accounts;
                 }
+            }
+        }
+
+        public void AccomplishAccountAction(List<BankAccount> accounts)
+        {
+            foreach (var account in accounts)
+            {
+                while (true)
+                {
+                    Console.WriteLine($"Choose action for {account.GetType().Name}?{Environment.NewLine}" +
+                    $"1 - Deposit money{Environment.NewLine}" +
+                    $"2 - Withdraw money{Environment.NewLine}" +
+                    "3 - Close account");
+                    string action = Console.ReadLine();
+
+                    if (action == "1")
+                    {
+                        if (account is IFundsFreeAccess newAccount)
+                        {
+                            newAccount.DepositFunds(4000);
+                            Console.WriteLine(account.ToString());
+                        }
+                        else
+                            break;
+                    }
+                    else if (action == "2")
+                    {
+                        if (account is IFundsFreeAccess newAccount)
+                        {
+                            newAccount.WithdrawFunds(4000);
+                            Console.WriteLine(account.ToString());
+                        }
+                        else
+                            break;
+                    }
+                    else if (action == "3")
+                    {
+                        decimal returnedBalance = account.CloseAccount();
+                        Console.WriteLine($"{account.GetType().Name} was closed. The returned amount = {returnedBalance}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Wrong action. Try again...");
+                        break;
+                    }
+                }
+                //
+                // error for newAccount variable
+                //
+                //switch (action)
+                //{
+                //    case "1":
+                //        if (account is IFundsFreeAccess newAccount)
+                //            newAccount.DepositFunds(4000);
+                //        break;
+                //    case "2":
+                //        if (account is IFundsFreeAccess newAccount)
+                //            newAccount.DepositFunds(4000);
+                //        break;
+                //    case "3":
+                //        if (account is IChargeableInterest newAccount)
+                //            newAccount.DepositFunds(4000);
+                //        break;
+                //    default:
+                //        break;
+                //}
             }
         }
     }

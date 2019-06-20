@@ -8,7 +8,7 @@ namespace practice_05._25._19_interface.Task2_BankAccount
 {
     public class AccountList
     {
-        public void ShowAccountInformation(List<BankAccount> accounts)
+        public List<BankAccount> ShowAccountInformation(List<BankAccount> accounts)
         {
             foreach (var item in accounts)
             {
@@ -23,6 +23,8 @@ namespace practice_05._25._19_interface.Task2_BankAccount
                 
                 Console.WriteLine();
             }
+
+            return accounts;
         }
     }
 }

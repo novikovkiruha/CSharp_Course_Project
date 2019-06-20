@@ -9,7 +9,7 @@ namespace practice_05._25._19_interface
         static void Main(string[] args)
         {
             //new SwitchStatus().Switch();
-            new AccountList().ShowAccountInformation(new Bank().ManageAccount());
+            new Bank().ManageAccount();
         }
     }
 }

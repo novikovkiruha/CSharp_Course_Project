@@ -18,14 +18,14 @@ namespace practice_05._25._19_interface.Task2_BankAccount
         {
             get
             {
-                return currentBalance;
+                return this.currentBalance;
             }
             set
             {
                 if (value < 0)
                     throw new ArgumentException();
                 else
-                    currentBalance = value;
+                    this.currentBalance = value;
             }
         }
 

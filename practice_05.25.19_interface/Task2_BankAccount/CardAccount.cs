@@ -20,21 +20,20 @@ namespace practice_05._25._19_interface.Task2_BankAccount
         {
             get
             {
-                return interestRate;
+                return this.interestRate;
             }
             set
             {
                 if (value <= 0)
                     throw new ArgumentException("Interest rate can't be equal to 0");
                 else
-                    interestRate = value;
+                    this.interestRate = value;
             }
         }
 
         public decimal ChargeInterest()
         {
             return this.InterestRate * this.CurrentBalance;
-
         }
 
         public decimal DepositFunds(decimal contributedFunds)
