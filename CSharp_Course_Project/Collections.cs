@@ -31,8 +31,8 @@ namespace CSharp_Course_Project
             Collection<int> collection = new Collection<int>(); // поддерживает кастомизацию: содержит некоторые virtual/override методы
             ObservableCollection<int> obCol = new ObservableCollection<int>(); //выдача уведомлений при получении и удалении элементов: CollectionChanged
             LinkedList<int> linked = new LinkedList<int>(); // двунаправленный список
-            Stack<int> stack = new Stack<int>(); // последний пришел - первый вышел (LIFO)
-            Queue<int> queue = new Queue<int>(); // первый пришел - первый вышел
+            Stack<int> stack = new Stack<int>(); // последний пришел - первый вышел (LIFO - Last In First Out)
+            Queue<int> queue = new Queue<int>(); // первый пришел - первый вышел (FIFO - First In First Out)
             SortedList<int, string> sortedList = new SortedList<int, string>(); // сортирует по ключу. Реализован в виде списка
             SortedDictionary<int, string> sortedDictionary = new SortedDictionary<int, string>(); // дерево бинарного поиска, где все объекты отсортированы по ключу. Бинарное дерево поиска. Реализован в виде словаря
 
