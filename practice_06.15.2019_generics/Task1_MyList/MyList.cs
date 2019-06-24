@@ -57,7 +57,8 @@ namespace practice_06._15._2019_generics.Task1_MyList
 
         public override string ToString()
         {
-            return $"";
+            return $"Size: {this.Count}{Environment.NewLine}" +
+                $"Elements: {string.Join(", ", this.array)}";
         }
     }
 }

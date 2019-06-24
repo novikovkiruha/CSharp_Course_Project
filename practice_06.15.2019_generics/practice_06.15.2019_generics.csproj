@@ -51,6 +51,8 @@
     <Compile Include="Task1_MyList\MyList.cs" />
     <Compile Include="Task2_CarCollection\Car.cs" />
     <Compile Include="Task2_CarCollection\CarCollection.cs" />
+    <Compile Include="Task2_CarCollection\CarList.cs" />
+    <Compile Include="Task3_LinkedList\LinkedList.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
