@@ -31,7 +31,7 @@ namespace CSharp_Course_Project.Task1_StudentList
                 $"Surname: {this.Surname}{Environment.NewLine}" +
                 $"Course: {this.Course}{Environment.NewLine}" +
                 $"Group: {this.Group}{Environment.NewLine}" +
-                $"Faculty: {this.Faculty}";
+                $"Faculty: {this.Faculty}{Environment.NewLine}";
         }
     }
 }
