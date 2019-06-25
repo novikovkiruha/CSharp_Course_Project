@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSharp_Course_Project.Task1_StudentList;
+using System;
 
 namespace CSharp_Course_Project
 {
@@ -6,7 +7,7 @@ namespace CSharp_Course_Project
     {
         static void Main(string[] args)
         {
-
+            new StudentList().AddStudent();
         }
     }
 }
