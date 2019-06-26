@@ -7,7 +7,7 @@ namespace CSharp_Course_Project
     {
         static void Main(string[] args)
         {
-            new StudentList().AddStudent();
+            new StudentManager().ManageStudent();
         }
     }
 }
