@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace practice_06._28._2019_delegates.Task1_Calculator
 {
-    public delegate double Calculate(double firstArgument, double secondArgument);
+    //public delegate double Calculate(double firstArgument, double secondArgument);
 
     public class Calculator
     {
@@ -33,7 +33,7 @@ namespace practice_06._28._2019_delegates.Task1_Calculator
 
     public class Helper
     {
-        public void PrintResult(Calculate action)
+        public void PrintResult(Func<double,double,double> action)
         {
             double firstArgument = 10;
             double secondArgument = 20;
@@ -51,8 +51,8 @@ namespace practice_06._28._2019_delegates.Task1_Calculator
             var helper = new Helper();
             var calculator = new Calculator();
 
-            helper.PrintResult(new Calculate(calculator.Add));
-            helper.PrintResult(new Calculate(calculator.Subtract));
+            helper.PrintResult(calculator.Add);
+            helper.PrintResult(calculator.Subtract);
             helper.PrintResult(calculator.Multiply);
             helper.PrintResult(calculator.Divide);
         }
