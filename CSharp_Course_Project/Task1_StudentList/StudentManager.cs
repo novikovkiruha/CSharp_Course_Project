@@ -5,9 +5,9 @@ namespace CSharp_Course_Project.Task1_StudentList
 {
     public class StudentManager
     {
-        internal readonly List<Student> students = new List<Student>();
+        private readonly List<Student> students = new List<Student>();
 
-        public void ManageStudent()
+        public void ManageStudentList()
         {
             while (true)
             {

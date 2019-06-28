@@ -1,4 +1,5 @@
 ﻿using CSharp_Course_Project.Task1_StudentList;
+using CSharp_Course_Project.Task2_StudentDictionary;
 using System;
 
 namespace CSharp_Course_Project
@@ -7,7 +8,8 @@ namespace CSharp_Course_Project
     {
         static void Main(string[] args)
         {
-            new StudentManager().ManageStudent();
+            //new StudentManager().ManageStudentList();
+            new StudentDictionary().ManageStudentDictionary();
         }
     }
 }
