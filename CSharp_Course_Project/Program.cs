@@ -7,7 +7,8 @@ namespace CSharp_Course_Project
         static void Main(string[] args)
         {
             //DateTimeClass.Execute();
-            Collections.Execute();
+            //Collections.Execute();
+            new Delegates().Execute();
         }
     }
 }

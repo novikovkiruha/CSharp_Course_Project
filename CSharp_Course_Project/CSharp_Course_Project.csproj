@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Collections.cs" />
     <Compile Include="DateTimeClass.cs" />
+    <Compile Include="Delegates.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
