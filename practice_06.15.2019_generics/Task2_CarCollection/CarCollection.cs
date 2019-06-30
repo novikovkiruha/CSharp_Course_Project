@@ -26,7 +26,7 @@ namespace practice_06._15._2019_generics.Task2_CarCollection
 
         public override string ToString()
         {
-            var cars = "";
+            var cars = string.Empty;
             for (int i = 0; i < this.array.Length; i++)
             {
                 if (i != this.array.Length - 1)

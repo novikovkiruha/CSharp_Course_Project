@@ -9,9 +9,13 @@ namespace practice_06._15._2019_generics.Task1_MyList
     public interface IMyList<T>
     {
         void Add(T item);
+
         T this[int index] { get; }
+
         int Count { get; }
+
         void Clear();
+
         bool Contains(T item);
     }
 }

@@ -16,10 +16,11 @@ namespace practice_06._15._2019_generics
             list.Add(5);
             list.Add(1);
             list.Add(9);
-            foreach (var item in list)
+            if (list.Contains(5))
             {
-                Console.WriteLine(item);
+                list.Remove(5);
             }
+            Console.WriteLine(list.Count);
         }
     }
 }

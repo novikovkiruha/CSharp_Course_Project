@@ -23,7 +23,7 @@ namespace practice_06._15._2019_generics.Task1_MyList
         {
             get
             {
-                if (index > array.Length - 1)
+                if (index > this.array.Length - 1)
                     throw new IndexOutOfRangeException("Array doesn't containt this index");
                 else
                     return this.array[index];

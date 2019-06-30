@@ -53,6 +53,7 @@
     <Compile Include="Task2_CarCollection\CarCollection.cs" />
     <Compile Include="Task2_CarCollection\CarList.cs" />
     <Compile Include="Task3_LinkedList\LinkedList.cs" />
+    <Compile Include="Task3_LinkedList\Node.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
