@@ -2,22 +2,19 @@
 using System;
 using System.IO;
 
-//Разработайте приложение, которое позволяет посчитать сколько содержится в файле символов, строк и слов.
-//Разделителями слов считать пробелы и перенос строки.
-
 namespace practice_06._08._2019_System.IO.Task3_FileCharacters
 {
     public class FileCharacters
     {
         public void CountCharacters(string filePath)
         {
-            string tempText = "";
+            string tempText = string.Empty;
             char[] charArray;
             string[] textArray;
             int wordCounter = 0;
             int lineCounter = 0;
             var file = new FileInfo(filePath);
-            StreamReader reader = new StreamReader(file.FullName);
+            var reader = new StreamReader(file.FullName);
             tempText = reader.ReadToEnd();
 
             Console.WriteLine($"Text in file: {Environment.NewLine}{tempText}");
@@ -28,16 +25,14 @@ namespace practice_06._08._2019_System.IO.Task3_FileCharacters
                     lineCounter++;
                 }
             }
-                //while (reader.EndOfStream != true)
-                //    tempText += reader.ReadLine();
-
-                charArray = tempText.ToCharArray();
-
+                
+            charArray = tempText.ToCharArray();
             textArray = tempText.Split(' ');
             foreach (var item in textArray)
             {
                 if (item == Environment.NewLine)
                     lineCounter++;
+
                 if (item != String.Empty)
                     wordCounter++;
             }
@@ -49,7 +44,7 @@ namespace practice_06._08._2019_System.IO.Task3_FileCharacters
             reader.Close();
         }
 
-        public void IsFileExist(string filePath)
+        public void DefineFileExistence(string filePath)
         {
             if (File.Exists(filePath))
             {
@@ -57,7 +52,7 @@ namespace practice_06._08._2019_System.IO.Task3_FileCharacters
             }
             else
             {
-                filePath = new FileCreation().CreateFile();
+                filePath = new FileCreator().CreateFile();
                 CountCharacters(filePath);
             }
         }

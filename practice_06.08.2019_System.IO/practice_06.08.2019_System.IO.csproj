@@ -45,8 +45,8 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Task1_Folders\Folder.cs" />
-    <Compile Include="Task2_FileCreation\FileCreation.cs" />
+    <Compile Include="Task1_Folders\FolderHelper.cs" />
+    <Compile Include="Task2_FileCreation\FileCreator.cs" />
     <Compile Include="Task3_FileCharacters\FileCharacters.cs" />
   </ItemGroup>
   <ItemGroup>

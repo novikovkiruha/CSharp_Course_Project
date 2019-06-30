@@ -4,16 +4,15 @@ using System.Linq;
 
 namespace practice_06._08._2019_System.IO.Task1_Folders
 {
-    public class Folder
+    public class FolderHelper
     {
         public void ShowFoldersAndSize()
         {
             var path = @"C:\Windows\System32";
-            DirectoryInfo directory = new DirectoryInfo(path);
+            var directory = new DirectoryInfo(path);
             int foldersNumber = directory.GetDirectories().Length;
 
-            double size = 0;
-            size = GetDirectorySize(directory);
+            double size = GetDirectorySize(directory);
 
             Console.WriteLine($"Number of directories is {foldersNumber}. Size: {Math.Round(size / (1024 * 1024 * 1024), 2)} GB"); // (1024 * 1024 * 1024)
         }
@@ -27,7 +26,7 @@ namespace practice_06._08._2019_System.IO.Task1_Folders
             {
                 counter = directoryPath.GetDirectories().Length;
 
-                foreach (FileInfo file in directoryPath.GetFiles())
+                foreach (var file in directoryPath.GetFiles())
                 {
                     size += file.Length;
                 }

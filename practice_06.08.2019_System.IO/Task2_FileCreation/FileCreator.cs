@@ -7,7 +7,7 @@ using System.IO;
 
 namespace practice_06._08._2019_System.IO.Task2_FileCreation
 {
-    public class FileCreation
+    public class FileCreator
     {
         public string tempFolder = @"D:\Temp\";
 
@@ -24,7 +24,7 @@ namespace practice_06._08._2019_System.IO.Task2_FileCreation
                 }
                 else
                 {
-                    DirectoryInfo newFolder = Directory.CreateDirectory(this.tempFolder);
+                    var newFolder = Directory.CreateDirectory(this.tempFolder);
                     Console.WriteLine($"{newFolder.Name} folder was created");
                     WriteText(this.tempFolder, this.textFile);
                 }
@@ -34,18 +34,18 @@ namespace practice_06._08._2019_System.IO.Task2_FileCreation
                 Console.WriteLine(e.Message);
             }
 
-            return this.tempFolder + this.textFile;
+            return Path.Combine(this.tempFolder, this.textFile);
         }
 
         public string WriteText(string path, string textFile)
         {
-            if (File.Exists(path + textFile))
-                File.Delete(path + textFile);
+            if (File.Exists(Path.Combine(path, textFile)))
+                File.Delete(Path.Combine(path, textFile));
            
             Console.WriteLine("Write some text:");
             var inputText = Console.ReadLine();
 
-            var writer = new StreamWriter(path + textFile, true);
+            var writer = new StreamWriter(Path.Combine(path, textFile), true);
             writer.WriteLine(inputText);
             writer.Close();
             Console.WriteLine($"{Path.GetFileName(textFile)} file with the following text was created: '{inputText}'");

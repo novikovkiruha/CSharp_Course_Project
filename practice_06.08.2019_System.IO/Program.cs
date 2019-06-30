@@ -9,9 +9,9 @@ namespace practice_06._08._2019_System.IO
     {
         static void Main(string[] args)
         {
-            new Folder().ShowFoldersAndSize();
-            //new FileCreation().CreateFile();
-            //new FileCharacters().IsFileExist(new FileCreation().tempFolder + new FileCreation().textFile);
+            new FolderHelper().ShowFoldersAndSize();
+            new FileCreator().CreateFile();
+            new FileCharacters().DefineFileExistence(new FileCreator().tempFolder + new FileCreator().textFile);
         }
     }
 }
