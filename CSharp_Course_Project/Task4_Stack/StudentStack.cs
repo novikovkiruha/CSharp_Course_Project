@@ -1,16 +1,16 @@
-﻿using System;
+﻿using CSharp_Course_Project.Task1_StudentList;
+using System;
 using System.Collections.Generic;
-using CSharp_Course_Project.Task1_StudentList;
 
-namespace CSharp_Course_Project.Task3_Queue
+namespace CSharp_Course_Project.Task4_Stack
 {
-    public class StudentQueue
+    public class StudentStack
     {
         private readonly Dictionary<string, Student> students = new Dictionary<string, Student>();
 
         private readonly Queue<string> tasks = new Queue<string>();
 
-        public void ManageStudentQueue()
+        public void ManageStudentStack()
         {
             while (true)
             {
@@ -19,6 +19,7 @@ namespace CSharp_Course_Project.Task3_Queue
                 $"2 - Remove student{Environment.NewLine}" +
                 $"3 - Print student list{Environment.NewLine}" +
                 $"4 - Manage task{Environment.NewLine}" +
+                $"5 - Manage library books{Environment.NewLine}" +
                 $"0 - Escape{Environment.NewLine}");
                 var option = Console.ReadLine();
 
@@ -35,6 +36,9 @@ namespace CSharp_Course_Project.Task3_Queue
                         break;
                     case "4":
                         this.ManageTask();
+                        break;
+                    case "5":
+                        this.ManageBookLibrary();
                         break;
                     case "0":
                         break;
@@ -152,6 +156,46 @@ namespace CSharp_Course_Project.Task3_Queue
 
                 if (action == "0")
                     break;
+            }
+        }
+
+        public void ManageBookLibrary()
+        {
+            while (true)
+            {
+                if (this.students.Count > 0)
+                {
+                    Console.WriteLine($"Please, select the option:{Environment.NewLine}" +
+                        $"1 - Take the book from the library{Environment.NewLine}" +
+                        $"2 - Return the book to the library{Environment.NewLine}" +
+                        $"0 - Escape{Environment.NewLine}");
+                    string option = Console.ReadLine();
+
+                    switch (option)
+                    {
+                        case "1":
+                            foreach (var value in this.students.Values)
+                                value.TakeLibraryBook();
+                            break;
+                        case "2":
+                            foreach (var value in this.students.Values)
+                                value.ReturnLibraryBook();
+                            break;
+                        case "0":
+                            break;
+                        default:
+                            Console.WriteLine("Wrong option. Please, try again...");
+                            continue;
+                    }
+
+                    if (option == "0")
+                        break;
+                }
+                else if (this.students.Count <= 0)
+                {
+                    Console.WriteLine("There is no students to assign the tasks. Please, add new student at first...");
+                    break;
+                }
             }
         }
 

@@ -49,12 +49,12 @@
     <Compile Include="Task1_StudentList\StudentManager.cs" />
     <Compile Include="Task2_StudentDictionary\StudentDictionary.cs" />
     <Compile Include="Task3_Queue\StudentQueue.cs" />
+    <Compile Include="Task4_Stack\BookLibrary.cs" />
+    <Compile Include="Task4_Stack\StudentStack.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Task4_Stack\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

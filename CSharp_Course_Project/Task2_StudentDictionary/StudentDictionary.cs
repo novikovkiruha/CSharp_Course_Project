@@ -88,13 +88,7 @@ namespace CSharp_Course_Project.Task2_StudentDictionary
                 Console.Write("Enter student surname: ");
                 var studentSurname = Console.ReadLine();
 
-                foreach (var student in this.students)
-                {
-                    if (student.Key == studentName + " " + studentSurname)
-                    {
-                        this.students.Remove(student.Key);
-                    }
-                }
+                students.Remove($"{studentName} {studentSurname}");
             }
             else
             {

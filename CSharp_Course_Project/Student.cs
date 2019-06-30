@@ -1,18 +1,24 @@
-﻿using System;
+﻿using CSharp_Course_Project.Task4_Stack;
+using System;
+using System.Collections.Generic;
 
 namespace CSharp_Course_Project.Task1_StudentList
 {
     public class Student
     {
-        public string name;
+        private string name;
 
-        public string surname;
+        private string surname;
 
-        public byte course;
+        private byte course;
 
-        public string group;
+        private string group;
 
-        public string faculty;
+        private string faculty;
+
+        public Queue<string> TaskList { get; set; }
+
+        public Stack<string> bookList = new Stack<string>();
 
         public Student(string name, string surname, byte course, string group, string faculty)
         {
@@ -82,6 +88,36 @@ namespace CSharp_Course_Project.Task1_StudentList
                 else
                     throw new NullReferenceException("Surname can't be blank");
             }
+        }
+
+        public void CompleteTaskList(Queue<string> tasks)
+        {
+            this.TaskList = tasks;
+            foreach (var task in this.TaskList)
+            {
+                Console.WriteLine($"{task} task is done by {this.Name} {this.Surname}");
+            }
+            //this.TaskList.Dequeue();
+        }
+
+        public void TakeLibraryBook()
+        {
+            this.bookList.Push(new BookLibrary().GiveBook());
+
+            foreach (var item in this.bookList)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+        public void ReturnLibraryBook()
+        {
+            string returnedBook = "";
+
+            if (this.bookList.Count > 0)
+                returnedBook = this.bookList.Pop();
+            else
+                Console.WriteLine($"{this.Name} {this.Surname} has no any book");
         }
 
         public override string ToString()
