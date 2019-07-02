@@ -8,7 +8,8 @@ namespace CSharp_Course_Project
         {
             //DateTimeClass.Execute();
             //Collections.Execute();
-            new Delegates().Execute();
+            //new Delegates().Execute();
+            new AnonimousFunctions().Execute();
         }
     }
 }

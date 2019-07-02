@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnonimousFunctions.cs" />
     <Compile Include="Collections.cs" />
     <Compile Include="DateTimeClass.cs" />
     <Compile Include="Delegates.cs" />
