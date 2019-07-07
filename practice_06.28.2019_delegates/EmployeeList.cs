@@ -33,8 +33,8 @@ namespace practice_06._28._2019_delegates.Task2_DeferedInitialization
                 new Employee(6, "Tirion", "Lannister", Gender.Male, 40, "Lannister LTD"),
                 new Employee(7, "Jayme", "Lannister", Gender.Male, 42, "Lannister LTD"),
                 new Employee(8, "Serseya", "Lannister", Gender.Female, 43, "Lannister LTD"),
-                new Employee(9, "Deyneris", "Targarien", Gender.Female, 18, "Targarien International"),
-                new Employee(10, "Drago", "Targarien", Gender.Male, 45, "Targarien International")
+                new Employee(9, "Deyneris", "Targarien", Gender.Female, 18, "Targarien International Corp."),
+                new Employee(10, "Drago", "Targarien", Gender.Male, 45, "Targarien International Corp.")
             };
         }
     }

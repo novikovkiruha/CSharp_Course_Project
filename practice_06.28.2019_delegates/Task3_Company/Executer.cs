@@ -13,34 +13,51 @@ namespace practice_06._28._2019_delegates.Task3_Company
         {
             var employees = EmployeeList.GetCompanyEmployees();
 
-            //var sortedEmployeesByName = employees.OrderBy(employee => employee.Name).ToList();
+            // 1
+            var sortedEmployeesByName = employees.OrderBy(employee => employee.Name).ToList();
             //Display(sortedEmployeesByName);
 
-            //var employeesByAge = employees.Where(employee => employee.Age > 30);
+            // 2
+            var employeesByAge = employees.Where(employee => employee.Age > 30);
             //Display(employeesByAge);
 
-            //var menEmployees = employees.Where(employee => employee.Gender == Gender.Male);
+            // 3
+            var menEmployees = employees.Where(employee => employee.Gender == Gender.Male);
             //Display(menEmployees);
             //var womenEmployees = employees.Where(employee => employee.Gender == Gender.Female);
             //Display(womenEmployees);
 
-            //var companyEmployees = employees.Select(employee => $"{employee.Name} {employee.Surname}");
-            //foreach (var employee in companyEmployees)
-            //{
-            //    Console.WriteLine(employee);
-            //}
+            // 4
+            var companyEmployees = employees.Select(employee => $"{employee.Name} {employee.Surname}").ToArray();
+            //Display(companyEmployees);
 
-            //var womenEmployeesByNameAndAge = employees.Where(employee =>
-            //                                                        employee.Gender == Gender.Female
-            //                                                        && employee.Name.StartsWith("S")
-            //                                                        && employee.Age > 20);
+            // 5
+            var womenEmployeesByNameAndAge = employees.Where(employee =>
+                        employee.Gender == Gender.Female
+                        && employee.Name.StartsWith("S")
+                        && employee.Age > 20);
             //Display(womenEmployeesByNameAndAge);
 
-            var employeeNumber = employees.GroupBy(employee => employee.Company);
-            foreach (var item in employeeNumber)
-            {
-                Console.WriteLine(item);
-            }
+            // 6
+            var employeeNumber = employees.GroupBy(employee => employee.Company).Select(employee => employee.Count()).ToList();
+            //int count = 1;
+            //foreach (var item in employeeNumber)
+            //{
+            //    Console.WriteLine($"Company {count}: {item} employees");
+            //    count++;
+            //}
+
+            // 7
+            //Console.WriteLine(employees.First().ToString());
+            // 8
+            //Console.WriteLine(employees.Last().ToString());
+            // 9
+            //var firstEmployee = employees.Where(employee => employee.Age < 25).First();
+            //Console.WriteLine(firstEmployee);
+
+            // 10
+            var newEmployee = employees.Select(employee => employee.Name.Equals("Tirion"));
+            Console.WriteLine(newEmployee);
         }
 
         void Display(IEnumerable<Employee> employees)
@@ -50,6 +67,13 @@ namespace practice_06._28._2019_delegates.Task3_Company
                     $"Age: {employee.Age}{Environment.NewLine}" +
                     $"Gender: {employee.Gender}{Environment.NewLine}" +
                     $"Company: {employee.Company}{Environment.NewLine}");
+            Console.WriteLine();
+        }
+
+        void Display(string[] fullNames)
+        {
+            foreach (var fullName in fullNames)
+                Console.WriteLine($"{fullName}{Environment.NewLine}");
             Console.WriteLine();
         }
     }

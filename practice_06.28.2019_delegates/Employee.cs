@@ -38,5 +38,10 @@ namespace practice_06._28._2019_delegates.Task2_DeferedInitialization
             this.Age = age;
             this.Company = company;
         }
+
+        public override string ToString()
+        {
+            return $"{this.Name} {this.Surname}";
+        }
     }
 }
