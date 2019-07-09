@@ -9,7 +9,9 @@ namespace CSharp_Course_Project
             //DateTimeClass.Execute();
             //Collections.Execute();
             //new Delegates().Execute();
-            new AnonimousFunctions().Execute();
+            //new AnonimousFunctions().Execute();
+            //new Executer().Execute();
+            new Executer().SendMailMessage();
         }
     }
 }
