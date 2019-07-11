@@ -4,7 +4,7 @@ namespace CSharp_Course_Project
 {
     public class Program
     {
-        public static void SecondsAndHours()
+        static void SecondsAndHours()
         {
             int seconds = Convert.ToInt32(Console.ReadLine());
             int hours = seconds / 3600;
