@@ -7,7 +7,7 @@ using CSharp_Course_Project.Task5;
 
 namespace CSharp_Course_Project
 {
-    public class Program
+    class Program
     {
         static void Main(string[] args)
         {
