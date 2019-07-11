@@ -2,7 +2,7 @@
 
 namespace CSharp_Course_Project
 {
-    public class Program
+    class Program
     {
         public static void BinaryArray() // 1
         {
