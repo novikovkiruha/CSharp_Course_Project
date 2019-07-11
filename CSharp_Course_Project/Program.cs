@@ -3,7 +3,7 @@ using System.Text;
 
 namespace CSharp_Course_Project
 {
-    public class Program
+    class Program
     {
         //Оставить в строке только один экземпляр каждого встречающегося символа.
         public static void UniqueSymbols()
