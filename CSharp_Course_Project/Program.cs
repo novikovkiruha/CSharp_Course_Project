@@ -18,14 +18,12 @@ namespace CSharp_Course_Project
 
             for (int i = 0; i < array.Length; i++)
             {
+                for (int j = 0; j < array[i]; j++)
                 {
-                    for (int j = 0; j < array[i]; j++)
-                    {
-                        if (i % 2 == 0)
-                            Console.Write("0");
-                        else
-                            Console.Write("1");
-                    }
+                    if (i % 2 == 0)
+                        Console.Write("0");
+                    else
+                        Console.Write("1");
                 }
             }
             Console.WriteLine();
@@ -202,11 +200,11 @@ namespace CSharp_Course_Project
 
         static void Main(string[] args)
         {
-            //BinaryArray();
+            BinaryArray();
             //GoodsAndPricesArrays();
             //PerfectNumbers();
             //Encryption();
-            Decryption();
+            //Decryption();
         }
     }
 }
