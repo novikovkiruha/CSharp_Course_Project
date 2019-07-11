@@ -2,7 +2,7 @@
 
 namespace CSharp_Course_Project
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
