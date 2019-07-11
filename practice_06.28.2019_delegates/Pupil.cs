@@ -24,5 +24,10 @@ namespace practice_06._28._2019_delegates
             this.Surname = surname;
             this.School = school;
         }
+
+        public override string ToString()
+        {
+            return $"{this.Name} {this.Surname} from {this.School}";
+        }
     }
 }

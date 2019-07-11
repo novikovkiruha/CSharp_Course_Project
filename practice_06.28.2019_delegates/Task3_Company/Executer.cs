@@ -56,11 +56,14 @@ namespace practice_06._28._2019_delegates.Task3_Company
             //Console.WriteLine(firstEmployee);
 
             // 10
-            var newEmployee = employees.Select(employee => employee.Name.Equals("Tirion"));
-            Console.WriteLine(newEmployee);
+            var newPupil = employees.Where(employee => employee.Name.Equals("Tirion")).Select(pupil => new Pupil(name: pupil.Name, surname: pupil.Surname, school: "Fucking School")).ToList();
+            foreach (var pupil in newPupil)
+            {
+                Console.WriteLine(pupil.ToString());
+            }
         }
 
-        void Display(IEnumerable<Employee> employees)
+        public void Display(IEnumerable<Employee> employees)
         {
             foreach (var employee in employees)
                 Console.WriteLine($"Person: {employee.Name} {employee.Surname}{Environment.NewLine}" +
@@ -70,7 +73,7 @@ namespace practice_06._28._2019_delegates.Task3_Company
             Console.WriteLine();
         }
 
-        void Display(string[] fullNames)
+        public void Display(string[] fullNames)
         {
             foreach (var fullName in fullNames)
                 Console.WriteLine($"{fullName}{Environment.NewLine}");
