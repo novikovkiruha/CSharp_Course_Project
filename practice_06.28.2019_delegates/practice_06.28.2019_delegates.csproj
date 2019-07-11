@@ -53,6 +53,7 @@
     <Compile Include="Gender.cs" />
     <Compile Include="Task2_DeferedInitialization\UndeferedInitialization.cs" />
     <Compile Include="Task3_Company\Executer.cs" />
+    <Compile Include="Task4_JoinEmployees\EmployeeListJoiner.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

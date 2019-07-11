@@ -56,7 +56,9 @@ namespace practice_06._28._2019_delegates.Task3_Company
             //Console.WriteLine(firstEmployee);
 
             // 10
-            var newPupil = employees.Where(employee => employee.Name.Equals("Tirion")).Select(pupil => new Pupil(name: pupil.Name, surname: pupil.Surname, school: "Fucking School")).ToList();
+            var newPupil = employees
+                .Where(employee => employee.Name.Equals("Tirion"))
+                .Select(pupil => new Pupil(name: pupil.Name, surname: pupil.Surname, school: "Fucking School")).ToList();
             foreach (var pupil in newPupil)
             {
                 Console.WriteLine(pupil.ToString());

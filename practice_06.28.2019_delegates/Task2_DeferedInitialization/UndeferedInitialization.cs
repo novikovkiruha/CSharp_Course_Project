@@ -13,7 +13,7 @@ namespace practice_06._28._2019_delegates.Task2_DeferedInitialization
             var employees = EmployeeList.GetEmployees();
             var maleEmployees = employees.Where(employee => employee.Gender == Gender.Male).ToList();
             Display(maleEmployees);
-            employees.Add(new Employee { ID = 3, Name = "Rob", Surname = "Stark", Gender = Gender.Male });
+            employees.Add(new Employee { Id = 3, Name = "Rob", Surname = "Stark", Gender = Gender.Male });
             Display(maleEmployees);
         }
 

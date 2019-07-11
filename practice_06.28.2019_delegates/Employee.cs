@@ -4,7 +4,7 @@ namespace practice_06._28._2019_delegates.Task2_DeferedInitialization
 {
     public class Employee
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
 
         public int Age { get; set; }
 
@@ -23,7 +23,7 @@ namespace practice_06._28._2019_delegates.Task2_DeferedInitialization
 
         public Employee(int id, string name, string surname, Gender gender)
         {
-            this.ID = id;
+            this.Id = id;
             this.Name = name;
             this.Surname = surname;
             this.Gender = gender;
@@ -31,7 +31,7 @@ namespace practice_06._28._2019_delegates.Task2_DeferedInitialization
 
         public Employee(int id, string name, string surname, Gender gender, int age, string company)
         {
-            this.ID = id;
+            this.Id = id;
             this.Name = name;
             this.Surname = surname;
             this.Gender = gender;
