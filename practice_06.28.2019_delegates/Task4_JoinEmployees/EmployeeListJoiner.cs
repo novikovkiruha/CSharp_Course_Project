@@ -11,8 +11,8 @@ namespace practice_06._28._2019_delegates.Task4_JoinEmployees
     {
         public void JoinEmployeeLists()
         {
-            var inteticsEmployees = EmployeeList.GetEmployees();
-            var companyEmployees = EmployeeList.GetCompanyEmployees();
+            var inteticsEmployees = EmployeeList.GetInteticsEmployees();
+            var companyEmployees = EmployeeList.GetGoTEmployees();
 
             var employeesWithDuplicates = inteticsEmployees.Union(companyEmployees);
 
@@ -26,7 +26,7 @@ namespace practice_06._28._2019_delegates.Task4_JoinEmployees
             Console.WriteLine($"Total number of employees: {employeesWithDuplicates.Count()}{Environment.NewLine}");
 
             //var employeesWithoutDuplicates = inteticsEmployees.Concat(companyEmployees).GroupBy(employee => employee.Name).Select(employee => employee.First());
-            var employeesWithoutDuplicates = employeesWithDuplicates.Distinct();
+            var employeesWithoutDuplicates = employeesWithDuplicates.Distinct(new EmployeeComparer());
 
             counter = 1;
             Console.WriteLine("Employee list without duplicates:");
@@ -38,14 +38,25 @@ namespace practice_06._28._2019_delegates.Task4_JoinEmployees
             Console.WriteLine($"Total number of employees: {employeesWithoutDuplicates.Count()}{Environment.NewLine}");
 
             counter = 1;
-            var duplicatedEmployees = employeesWithDuplicates.Intersect(employeesWithoutDuplicates);
+            var duplicatedEmployees = inteticsEmployees.Intersect(companyEmployees, new EmployeeComparer());
             Console.WriteLine("Only duplicated employees:");
             foreach (var employee in duplicatedEmployees)
             {
                 Console.WriteLine($"{counter}: {employee.ToString()}");
                 counter++;
             }
-            Console.WriteLine($"Total number of employees: {employeesWithoutDuplicates.Count()}{Environment.NewLine}");
+            Console.WriteLine($"Total number of employees: {duplicatedEmployees.Count()}{Environment.NewLine}");
+
+            counter = 1;
+            var newEmployees = employeesWithoutDuplicates.ToList();
+            newEmployees.Add(new Employee(31, "Maksim", "Evsukov", Gender.Male));
+            Console.WriteLine("Only duplicated employees:");
+            foreach (var employee in newEmployees)
+            {
+                Console.WriteLine($"{counter}: {employee.ToString()}");
+                counter++;
+            }
+            Console.WriteLine($"Total number of employees: {newEmployees.Count()}{Environment.NewLine}");
         }
     }
 }

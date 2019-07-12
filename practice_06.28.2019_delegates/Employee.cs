@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace practice_06._28._2019_delegates.Task2_DeferedInitialization
 {
-    public class Employee
+    public class Employee : IEquatable<Employee>
     {
         public int Id { get; set; }
 
@@ -42,6 +43,34 @@ namespace practice_06._28._2019_delegates.Task2_DeferedInitialization
         public override string ToString()
         {
             return $"{this.Name} {this.Surname}";
+        }
+
+        public bool Equals(Employee employee)
+        {
+            if (Object.ReferenceEquals(employee, null))
+                return false;
+
+            if (Object.ReferenceEquals(this, employee)) return true;
+
+            return this.Name.Equals(employee.Name) &&
+               this.Surname.Equals(employee.Surname);
+        }
+    }
+
+    public class EmployeeComparer : IEqualityComparer<Employee>
+    {
+        public bool Equals(Employee employee1, Employee employee2)
+        {
+            if (employee1.Name.ToString().ToUpper() == employee2.Name.ToString().ToUpper() && employee1.Surname.ToString().ToUpper() == employee2.Surname.ToString().ToUpper())
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public int GetHashCode(Employee obj)
+        {
+            return obj.Id.GetHashCode();
         }
     }
 }

@@ -14,7 +14,7 @@ namespace practice_06._28._2019_delegates.Task3_Company
             var employees = EmployeeList.GetCompanyEmployees();
 
             // 1
-            var sortedEmployeesByName = employees.OrderBy(employee => employee.Name).ToList();
+            var sortedEmployeesByName = employees.OrderBy(employee => employee.Name).ThenBy(employee => employee.Surname).ToList();
             //Display(sortedEmployeesByName);
 
             // 2
