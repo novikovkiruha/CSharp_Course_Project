@@ -1,4 +1,5 @@
 ﻿using practice_07._13._2019_events.Task1_PingPong;
+using practice_07._13._2019_events.Task1_PingPong.Task1._1_CustomDelegate;
 using practice_07._13._2019_events.Task2_HunterAndRabbit;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,8 @@ namespace practice_07._13._2019_events
         static void Main(string[] args)
         {
             //new GameManager(new Ping(), new Pong());
-            new Hunting(new Hunter(), new Rabbit());
+            new GameManager(new Ping(), new Pong());
+            //new Hunting(new Hunter(), new Rabbit());
         }
     }
 }

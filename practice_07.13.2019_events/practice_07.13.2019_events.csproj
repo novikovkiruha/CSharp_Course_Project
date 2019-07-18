@@ -48,6 +48,10 @@
     <Compile Include="Task1_PingPong\GameManager.cs" />
     <Compile Include="Task1_PingPong\Ping.cs" />
     <Compile Include="Task1_PingPong\Pong.cs" />
+    <Compile Include="Task1_PingPong\Task1.1_CustomDelegate\GameManagerCustomDelegate.cs" />
+    <Compile Include="Task1_PingPong\Task1.1_CustomDelegate\PingCustomDelegate.cs" />
+    <Compile Include="Task1_PingPong\Task1.1_CustomDelegate\PingPongEventArgs.cs" />
+    <Compile Include="Task1_PingPong\Task1.1_CustomDelegate\PongCustomDelegate.cs" />
     <Compile Include="Task2_HunterAndRabbit\CoordinatesEventArgs.cs" />
     <Compile Include="Task2_HunterAndRabbit\Hunter.cs" />
     <Compile Include="Task2_HunterAndRabbit\Hunting.cs" />
