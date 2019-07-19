@@ -15,28 +15,28 @@ namespace practice_06._28._2019_delegates.Task3_Company
 
             // 1
             var sortedEmployeesByName = employees.OrderBy(employee => employee.Name).ThenBy(employee => employee.Surname).ToList();
-            //Display(sortedEmployeesByName);
+            //this.Display(sortedEmployeesByName);
 
             // 2
             var employeesByAge = employees.Where(employee => employee.Age > 30);
-            //Display(employeesByAge);
+            //this.Display(employeesByAge);
 
             // 3
             var menEmployees = employees.Where(employee => employee.Gender == Gender.Male);
-            //Display(menEmployees);
+            //this.Display(menEmployees);
             //var womenEmployees = employees.Where(employee => employee.Gender == Gender.Female);
-            //Display(womenEmployees);
+            //this.Display(womenEmployees);
 
             // 4
             var companyEmployees = employees.Select(employee => $"{employee.Name} {employee.Surname}").ToArray();
-            //Display(companyEmployees);
+            //this.Display(companyEmployees);
 
             // 5
             var womenEmployeesByNameAndAge = employees.Where(employee =>
                         employee.Gender == Gender.Female
                         && employee.Name.StartsWith("S")
                         && employee.Age > 20);
-            //Display(womenEmployeesByNameAndAge);
+            //this.Display(womenEmployeesByNameAndAge);
 
             // 6
             var employeeNumber = employees.GroupBy(employee => employee.Company).Select(employee => employee.Count()).ToList();
@@ -59,10 +59,9 @@ namespace practice_06._28._2019_delegates.Task3_Company
             var newPupil = employees
                 .Where(employee => employee.Name.Equals("Tirion"))
                 .Select(pupil => new Pupil(name: pupil.Name, surname: pupil.Surname, school: "Fucking School")).ToList();
+
             foreach (var pupil in newPupil)
-            {
                 Console.WriteLine(pupil.ToString());
-            }
         }
 
         public void Display(IEnumerable<Employee> employees)
@@ -72,6 +71,7 @@ namespace practice_06._28._2019_delegates.Task3_Company
                     $"Age: {employee.Age}{Environment.NewLine}" +
                     $"Gender: {employee.Gender}{Environment.NewLine}" +
                     $"Company: {employee.Company}{Environment.NewLine}");
+
             Console.WriteLine();
         }
 
@@ -79,6 +79,7 @@ namespace practice_06._28._2019_delegates.Task3_Company
         {
             foreach (var fullName in fullNames)
                 Console.WriteLine($"{fullName}{Environment.NewLine}");
+
             Console.WriteLine();
         }
     }

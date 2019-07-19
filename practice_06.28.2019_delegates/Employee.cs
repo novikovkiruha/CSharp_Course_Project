@@ -19,7 +19,6 @@ namespace practice_06._28._2019_delegates.Task2_DeferedInitialization
 
         public Employee()
         {
-
         }
 
         public Employee(int id, string name, string surname, Gender gender)
@@ -50,7 +49,8 @@ namespace practice_06._28._2019_delegates.Task2_DeferedInitialization
             if (Object.ReferenceEquals(employee, null))
                 return false;
 
-            if (Object.ReferenceEquals(this, employee)) return true;
+            if (Object.ReferenceEquals(this, employee))
+                return true;
 
             return this.Name.Equals(employee.Name) &&
                this.Surname.Equals(employee.Surname);
@@ -61,11 +61,7 @@ namespace practice_06._28._2019_delegates.Task2_DeferedInitialization
     {
         public bool Equals(Employee employee1, Employee employee2)
         {
-            if (employee1.Name.ToString().ToUpper() == employee2.Name.ToString().ToUpper() && employee1.Surname.ToString().ToUpper() == employee2.Surname.ToString().ToUpper())
-            {
-                return true;
-            }
-            return false;
+            return employee1.Name.ToString().ToUpper() == employee2.Name.ToString().ToUpper() && employee1.Surname.ToString().ToUpper() == employee2.Surname.ToString().ToUpper();
         }
 
         public int GetHashCode(Employee obj)
