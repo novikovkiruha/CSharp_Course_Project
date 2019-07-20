@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangedTask\NewFridge.cs" />
+    <Compile Include="ChangedTask\NewUser.cs" />
     <Compile Include="Enum\DoorStatus.cs" />
     <Compile Include="Enum\SwitchStatus.cs" />
     <Compile Include="Fridge.cs" />

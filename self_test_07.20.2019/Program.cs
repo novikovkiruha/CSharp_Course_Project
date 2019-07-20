@@ -1,4 +1,5 @@
-﻿using System;
+﻿using self_test_07._20._2019.ChangedTask;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,11 +11,14 @@ namespace self_test_07._20._2019
     {
         static void Main(string[] args)
         {
-            new FridgeExecutor().Execute();
-            var fridge = new Fridge();
-            var user = new User(fridge);
+            //new FridgeExecutor().Execute();
+            //var fridge = new Fridge();
+            //var user = new User(fridge);
 
-            fridge.PrintFridgeStatus(fridge);
+            //fridge.PrintFridgeStatus(fridge);
+
+            new NewFridge().ChangeSwitchStatus();
+
         }
     }
 }
