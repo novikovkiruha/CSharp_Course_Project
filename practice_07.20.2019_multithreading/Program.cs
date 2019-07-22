@@ -75,7 +75,24 @@ namespace practice_07._20._2019_multithreading
 
         static void Main(string[] args)
         {
-            new FallingSymbols().Execute();
+            SignsShower signsShower = new SignsShower();
+
+            //готовим консоль
+            Console.Clear();
+            Console.CursorVisible = false;
+
+            //в бесконечном цикле с вычисляемой задержкой отображаем
+            while (true)
+            {
+                //отображаем символы
+                signsShower.SignShow();
+
+                //задержка
+                Thread.Sleep(100);
+            }
+
+
+            //new FallingSymbols().Execute();
             //new FallingSymbols().Matrix();
 
             //Console.SetWindowSize(100, 42);
