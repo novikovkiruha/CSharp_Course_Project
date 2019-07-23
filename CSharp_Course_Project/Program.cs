@@ -12,7 +12,8 @@ namespace CSharp_Course_Project
             //new AnonimousFunctions().Execute();
             //new Executer().Execute();
             //new Executer().SendMailMessage();
-            new Multithreading().Execute();
+            //new Multithreading().Execute();
+            new Reflection().Execute();
         }
     }
 }
