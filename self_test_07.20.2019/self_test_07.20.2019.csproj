@@ -43,8 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChangedTask\NewFridge.cs" />
-    <Compile Include="ChangedTask\NewUser.cs" />
     <Compile Include="Enum\DoorStatus.cs" />
     <Compile Include="Enum\SwitchStatus.cs" />
     <Compile Include="Fridge.cs" />
@@ -52,7 +50,6 @@
     <Compile Include="FridgeStatusEventArgs.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
