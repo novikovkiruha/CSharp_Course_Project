@@ -6,7 +6,12 @@ namespace CSharp_Course_Project.Task2_StudentDictionary
 {
     public class StudentDictionary
     {
-        private readonly Dictionary<string, Student> students = new Dictionary<string, Student>();
+        private readonly Dictionary<string, Student> students;
+
+        public StudentDictionary()
+        {
+            this.students = new Dictionary<string, Student>();
+        }
 
         public void ManageStudentDictionary()
         {
@@ -62,10 +67,11 @@ namespace CSharp_Course_Project.Task2_StudentDictionary
                 var faculty = Console.ReadLine();
 
                 var student = new Student(name, surname, courseNumber, group, faculty);
-                this.students.Add(student.Name + " " + student.Surname, student);
+                this.students.Add($"{student.Name} {student.Surname}", student);
 
                 Console.WriteLine("Do you want to add one more student? Y/N");
                 var addResult = Console.ReadLine();
+
                 if (addResult.ToLower() == "y")
                     continue;
                 else
@@ -79,8 +85,11 @@ namespace CSharp_Course_Project.Task2_StudentDictionary
                 $"1 - Clear student list{Environment.NewLine}" +
                 $"2 - Remove student by name and surname");
             var removeStatus = Console.ReadLine();
+
             if (removeStatus == "1")
+            {
                 this.students.Clear();
+            }
             else if (removeStatus == "2")
             {
                 Console.Write("Enter student name: ");
@@ -88,7 +97,14 @@ namespace CSharp_Course_Project.Task2_StudentDictionary
                 Console.Write("Enter student surname: ");
                 var studentSurname = Console.ReadLine();
 
-                students.Remove($"{studentName} {studentSurname}");
+                if (this.students.TryGetValue($"{studentName} {studentSurname}", out Student selectedStudent))
+                {
+                    this.students.Remove($"{studentName} {studentSurname}");
+                }
+                else
+                {
+                    Console.WriteLine("There is no such student. Try again...");
+                }
             }
             else
             {
@@ -100,6 +116,7 @@ namespace CSharp_Course_Project.Task2_StudentDictionary
         {
             foreach (var student in this.students)
                 Console.WriteLine(student.ToString());
+
             Console.WriteLine($"Number of students: {this.students.Count}{Environment.NewLine}");
         }
     }

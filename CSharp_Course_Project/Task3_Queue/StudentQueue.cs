@@ -1,14 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using CSharp_Course_Project.Task1_StudentList;
 
 namespace CSharp_Course_Project.Task3_Queue
 {
     public class StudentQueue
     {
-        private readonly Dictionary<string, Student> students = new Dictionary<string, Student>();
+        private readonly Dictionary<string, Student> students;
 
-        private readonly Queue<string> tasks = new Queue<string>();
+        private readonly Queue<string> tasks;
+
+        public StudentQueue()
+        {
+            this.students = new Dictionary<string, Student>();
+            this.tasks = new Queue<string>();
+        }
 
         public void ManageStudentQueue()
         {
@@ -72,6 +79,7 @@ namespace CSharp_Course_Project.Task3_Queue
 
                 Console.WriteLine("Do you want to add one more student? Y/N");
                 var addResult = Console.ReadLine();
+
                 if (addResult.ToLower() == "y")
                     continue;
                 else
@@ -85,8 +93,11 @@ namespace CSharp_Course_Project.Task3_Queue
                 $"1 - Clear student list{Environment.NewLine}" +
                 $"2 - Remove student by name and surname");
             var removeStatus = Console.ReadLine();
+
             if (removeStatus == "1")
+            {
                 this.students.Clear();
+            }
             else if (removeStatus == "2")
             {
                 Console.Write("Enter student name: ");
@@ -94,7 +105,7 @@ namespace CSharp_Course_Project.Task3_Queue
                 Console.Write("Enter student surname: ");
                 var studentSurname = Console.ReadLine();
 
-                students.Remove($"{studentName} {studentSurname}");
+                this.students.Remove($"{studentName} {studentSurname}");
             }
             else
                 Console.WriteLine("Wrong option. Please, try again...");
@@ -111,6 +122,7 @@ namespace CSharp_Course_Project.Task3_Queue
                                 $"4 - Assign tasks{Environment.NewLine}" +
                                 $"0 - Escape{Environment.NewLine}");
                 var action = Console.ReadLine();
+
                 switch (action)
                 {
                     case "1":
@@ -127,17 +139,17 @@ namespace CSharp_Course_Project.Task3_Queue
                             Console.WriteLine(task);
                         break;
                     case "4":
-                        if (this.students.Count > 0 && this.tasks.Count > 0)
+                        if (this.students.Any() && this.tasks.Any())
                         {
-                            foreach (var value in this.students.Values)
-                                value.CompleteTaskList(this.tasks);
+                            foreach (var student in this.students.Values)
+                                student.CompleteTaskList(this.tasks);
                         }
-                        else if (this.students.Count <= 0)
+                        else if (!this.students.Any())
                         {
                             Console.WriteLine("There is no students to assign the tasks. Please, add new student at first...");
                             continue;
                         }
-                        else if (this.tasks.Count <= 0)
+                        else if (!this.tasks.Any())
                         {
                             Console.WriteLine("There is no tasks to assign. Please, add new task at first...");
                             continue;
@@ -159,6 +171,7 @@ namespace CSharp_Course_Project.Task3_Queue
         {
             foreach (var student in this.students)
                 Console.WriteLine(student.ToString());
+
             Console.WriteLine($"Number of students: {this.students.Count}{Environment.NewLine}");
         }
     }

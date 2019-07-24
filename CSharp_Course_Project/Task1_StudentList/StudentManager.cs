@@ -5,7 +5,12 @@ namespace CSharp_Course_Project.Task1_StudentList
 {
     public class StudentManager
     {
-        private readonly List<Student> students = new List<Student>();
+        private readonly List<Student> students;
+
+        public StudentManager()
+        {
+            this.students = new List<Student>();
+        }
 
         public void ManageStudentList()
         {
@@ -77,8 +82,11 @@ namespace CSharp_Course_Project.Task1_StudentList
                 $"1 - Clear student list{Environment.NewLine}" +
                 $"2 - Remove student by name and surname");
             var removeStatus = Console.ReadLine();
+
             if (removeStatus == "1")
+            {
                 this.students.Clear();
+            }
             else if (removeStatus == "2")
             {
                 Console.Write("Enter student name: ");
@@ -102,6 +110,7 @@ namespace CSharp_Course_Project.Task1_StudentList
         {
             foreach (var student in this.students)
                 Console.WriteLine(student.ToString());
+
             Console.WriteLine($"Number of students: {this.students.Count}{Environment.NewLine}");
         }
     }

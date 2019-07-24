@@ -34,18 +34,15 @@ namespace CSharp_Course_Project.Task4_Stack
 
         public string GiveBook()
         {
-            string selectedBook = "";
+            string selectedBook = string.Empty;
+
             foreach (var book in this.books)
-            {
                 Console.WriteLine($"{book.Key} - {book.Value}");
-            }
+
             Console.Write("Enter a number to choose a book: ");
             bool bookNumber = Int32.TryParse(Console.ReadLine(), out int bookKey);
 
-            if (this.books.ContainsKey(bookKey))
-            {
-                this.books.TryGetValue(bookKey, out selectedBook);
-            }
+            this.books.TryGetValue(bookKey, out selectedBook);
 
             return selectedBook;
         }

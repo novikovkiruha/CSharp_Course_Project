@@ -1,6 +1,7 @@
 ﻿using CSharp_Course_Project.Task4_Stack;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CSharp_Course_Project.Task1_StudentList
 {
@@ -16,9 +17,9 @@ namespace CSharp_Course_Project.Task1_StudentList
 
         private string faculty;
 
-        public Queue<string> TaskList { get; set; }
+        private readonly Stack<string> bookList;
 
-        public Stack<string> bookList = new Stack<string>();
+        public Queue<string> TaskList { get; set; }
 
         public Student(string name, string surname, byte course, string group, string faculty)
         {
@@ -27,6 +28,7 @@ namespace CSharp_Course_Project.Task1_StudentList
             this.Course = course;
             this.Group = group;
             this.Faculty = faculty;
+            this.bookList = new Stack<string>();
         }
 
         public string Name
@@ -34,7 +36,7 @@ namespace CSharp_Course_Project.Task1_StudentList
             get { return this.name; }
             set
             {
-                if (value != string.Empty)
+                if (!string.IsNullOrWhiteSpace(value))
                     this.name = value;
                 else
                     throw new NullReferenceException("Name can't be blank");
@@ -46,7 +48,7 @@ namespace CSharp_Course_Project.Task1_StudentList
             get { return this.surname; }
             set
             {
-                if (value != string.Empty)
+                if (!string.IsNullOrWhiteSpace(value))
                     this.surname = value;
                 else
                     throw new NullReferenceException("Surname can't be blank");
@@ -71,7 +73,7 @@ namespace CSharp_Course_Project.Task1_StudentList
             get { return this.group; }
             set
             {
-                if (value != string.Empty)
+                if (!string.IsNullOrWhiteSpace(value))
                     this.group = value;
                 else
                     throw new NullReferenceException("Surname can't be blank");
@@ -83,7 +85,7 @@ namespace CSharp_Course_Project.Task1_StudentList
             get { return this.faculty; }
             set
             {
-                if (value != string.Empty)
+                if (!string.IsNullOrWhiteSpace(value))
                     this.faculty = value;
                 else
                     throw new NullReferenceException("Surname can't be blank");
@@ -112,9 +114,9 @@ namespace CSharp_Course_Project.Task1_StudentList
 
         public void ReturnLibraryBook()
         {
-            string returnedBook = "";
+            string returnedBook = string.Empty;
 
-            if (this.bookList.Count > 0)
+            if (this.bookList.Any())
                 returnedBook = this.bookList.Pop();
             else
                 Console.WriteLine($"{this.Name} {this.Surname} has no any book");

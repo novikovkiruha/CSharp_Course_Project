@@ -10,6 +10,12 @@ namespace CSharp_Course_Project.Task4_Stack
 
         private readonly Queue<string> tasks = new Queue<string>();
 
+        public StudentStack()
+        {
+            this.students = new Dictionary<string, Student>();
+            this.tasks = new Queue<string>();
+        }
+
         public void ManageStudentStack()
         {
             while (true)
@@ -76,6 +82,7 @@ namespace CSharp_Course_Project.Task4_Stack
 
                 Console.WriteLine("Do you want to add one more student? Y/N");
                 var addResult = Console.ReadLine();
+
                 if (addResult.ToLower() == "y")
                     continue;
                 else
@@ -89,8 +96,11 @@ namespace CSharp_Course_Project.Task4_Stack
                 $"1 - Clear student list{Environment.NewLine}" +
                 $"2 - Remove student by name and surname");
             var removeStatus = Console.ReadLine();
+
             if (removeStatus == "1")
+            {
                 this.students.Clear();
+            }
             else if (removeStatus == "2")
             {
                 Console.Write("Enter student name: ");
@@ -98,7 +108,7 @@ namespace CSharp_Course_Project.Task4_Stack
                 Console.Write("Enter student surname: ");
                 var studentSurname = Console.ReadLine();
 
-                students.Remove($"{studentName} {studentSurname}");
+                this.students.Remove($"{studentName} {studentSurname}");
             }
             else
                 Console.WriteLine("Wrong option. Please, try again...");
@@ -115,6 +125,7 @@ namespace CSharp_Course_Project.Task4_Stack
                                 $"4 - Assign tasks{Environment.NewLine}" +
                                 $"0 - Escape{Environment.NewLine}");
                 var action = Console.ReadLine();
+
                 switch (action)
                 {
                     case "1":
@@ -203,6 +214,7 @@ namespace CSharp_Course_Project.Task4_Stack
         {
             foreach (var student in this.students)
                 Console.WriteLine(student.ToString());
+
             Console.WriteLine($"Number of students: {this.students.Count}{Environment.NewLine}");
         }
     }
