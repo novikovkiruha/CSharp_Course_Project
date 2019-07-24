@@ -25,92 +25,79 @@ namespace practice_07._20._2019_multithreading.Task1_FallingSymbols
 
         public void Execute()
         {
-            //while (true)
-            //{
-            //    var thread1 = new Thread(new ThreadStart(PrintSymbols));
-            //    var thread2 = new Thread(new ThreadStart(PrintSymbols));
-            //    thread1.Start();
-            //    thread2.Start();
-            //    new FallingSymbols().PrintSymbols();
-            //}
+            while (true)
+            {
+                var thread1 = new Thread(new ThreadStart(PrintSymbols));
+                var thread2 = new Thread(new ThreadStart(PrintSymbols));
+                thread1.Start();
+                thread2.Start();
+                new FallingSymbols().PrintSymbols();
+            }
             new FallingSymbols().PrintSymbols();
         }
 
         public void PrintSymbols()
         {
-            //lock (locker)
-            //{
-            Console.SetWindowSize(this.consoleWidth, this.consoleHeight);
-            var symbolLength = this.random.Next(3, 10);
-            var leftCursorPosition = this.random.Next(0, this.consoleWidth);
-            var topCursorPosition = this.random.Next(0, this.consoleHeight);
-
-            var i = 0;
-
-            for (i = 0; i < this.consoleHeight; i++)
+            lock (locker)
             {
-                //symbolLength = this.random.Next(3, this.consoleHeight);
-                //leftCursorPosition = this.random.Next(0, this.consoleWidth);
+                Console.SetWindowSize(this.consoleWidth, this.consoleHeight);
 
-                for (int j = 0; j < i + 1; j++)
+                Console.CursorVisible = false;
+                var symbolLength = this.random.Next(3, 10);
+                var leftCursorPosition = this.random.Next(0, this.consoleWidth);
+                var topCursorPosition = this.random.Next(0, this.consoleHeight);
+
+                var start = 0;
+                var temp = 0;
+
+                for (int i = 0; i < this.consoleHeight - 1; i++)
                 {
-                    Console.SetCursorPosition(leftCursorPosition, j);
-                    this.SetSymbolColor(i, j);
+                    if (i == temp)
+                        Console.ForegroundColor = ConsoleColor.White;
+                    else if (i == temp + 1)
+                        Console.ForegroundColor = ConsoleColor.Green;
+                    else
+                        Console.ForegroundColor = ConsoleColor.DarkGreen;
+
+                    temp++;
+
+                    Console.SetCursorPosition(leftCursorPosition, i);
+
                     var charRandom = this.random.Next(48, 126);
                     Console.WriteLine($"{Convert.ToChar(charRandom)}");
-                    Thread.Sleep(5);
+
+                    if (i > symbolLength)
+                    {
+                        Console.SetCursorPosition(leftCursorPosition, start);
+                        Console.WriteLine(" ");
+                        start++;
+                    }
+
+                    var end = consoleHeight - 2 - symbolLength;
+                    if (i == this.consoleHeight - 2)
+                    {
+                        for (int j = 0; j < symbolLength + 1; j++)
+                        {
+                            Console.SetCursorPosition(leftCursorPosition, end);
+                            Console.WriteLine(" ");
+                            end++;
+
+                            Thread.Sleep(100);
+                        }
+                    }
+
+                    Console.SetCursorPosition(0, i + 1);
+
+                    Thread.Sleep(100);
                 }
             }
-
-            //for (int i = 0; i < this.consoleHeight; i++)
-            //{
-            //    symbolLength = this.random.Next(3, 15);
-            //    leftCursorPosition = this.random.Next(0, this.consoleWidth);
-            //    for (int j = 0; j < symbolLength; j++)
-            //    {
-            //        for (int k = 0; k < j + 1; k++)
-            //        {
-            //            this.SetSymbolColor(j, k);
-            //            if (j == k)
-            //                Console.ForegroundColor = ConsoleColor.White;
-            //            else if (j == k + 1 || j == k + 2 || j == k + 3)
-            //                Console.ForegroundColor = ConsoleColor.Green;
-            //            else if (j < symbolLength)
-            //                Console.ForegroundColor = ConsoleColor.DarkGreen;
-            //            else
-            //                Console.ForegroundColor = ConsoleColor.Black;
-
-            //            Console.SetCursorPosition(leftCursorPosition, k);
-            //            var charRandom = this.random.Next(48, 126);
-            //            Console.WriteLine($"{Convert.ToChar(charRandom)}");
-            //            Thread.Sleep(100);
-            //        }
-            //    }
-            //}
-
-            //topCursorPosition = 0;
-            //while (true)
-            //{
-            //    symbolLength = this.random.Next(3, 15);
-            //    leftCursorPosition = this.random.Next(0, this.consoleWidth);
-
-            //    for (int i = 0; i < symbolLength; i++)
-            //    {
-            //        Console.SetCursorPosition(leftCursorPosition, topCursorPosition);
-            //        var charRandom = this.random.Next(48, 126);
-            //        Console.WriteLine($"{Convert.ToChar(charRandom)}");
-            //        topCursorPosition++;
-
-            //        Thread.Sleep(100);
-            //    }
-            //}
         }
 
         public void SetSymbolColor(int firstValue, int secondValue)
         {
             if (firstValue == secondValue)
                 Console.ForegroundColor = ConsoleColor.White;
-            else if (firstValue == secondValue + 1 || firstValue == secondValue + 2 || firstValue == secondValue + 3)
+            else if (firstValue == secondValue + 1)
                 Console.ForegroundColor = ConsoleColor.Green;
             else
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
