@@ -9,12 +9,16 @@ namespace practice_07._20._2019_multithreading.Task1_FallingSymbols
 
         public Random random = new Random();
 
-        private int consoleWidth = 100;
+        private readonly int consoleWidth;
 
-        private int consoleHeight = 50;
+        private readonly int consoleHeight;
 
         public FallingSymbols()
         {
+            this.consoleWidth = 100;
+            this.consoleHeight = 50;
+            Console.SetWindowSize(this.consoleWidth, this.consoleHeight);
+            Console.CursorVisible = false;
         }
 
         public FallingSymbols(int consoleWidth, int consoleHeight)
@@ -27,70 +31,73 @@ namespace practice_07._20._2019_multithreading.Task1_FallingSymbols
         {
             while (true)
             {
-                var thread1 = new Thread(new ThreadStart(PrintSymbols));
-                var thread2 = new Thread(new ThreadStart(PrintSymbols));
-                thread1.Start();
-                thread2.Start();
-                new FallingSymbols().PrintSymbols();
+                for (int i = 0; i < this.consoleWidth; i++)
+                {
+                    Thread.Sleep(new Random().Next(10, 1000));
+                    new Thread(new ThreadStart(this.PrintSymbols)).Start();
+                }
             }
-            new FallingSymbols().PrintSymbols();
         }
 
         public void PrintSymbols()
         {
-            lock (locker)
+            var symbolLength = this.random.Next(3, this.consoleHeight / 2);
+            var leftCursorPosition = this.random.Next(0, this.consoleWidth - 1);
+            var symbolSpeed = this.random.Next(30, 500);
+
+            var start = 0;
+
+            for (int i = 0; i < this.consoleHeight - 1; i++)
             {
-                Console.SetWindowSize(this.consoleWidth, this.consoleHeight);
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
 
-                Console.CursorVisible = false;
-                var symbolLength = this.random.Next(3, 10);
-                var leftCursorPosition = this.random.Next(0, this.consoleWidth);
-                var topCursorPosition = this.random.Next(0, this.consoleHeight);
+                Thread.Sleep(symbolSpeed);
 
-                var start = 0;
-                var temp = 0;
-
-                for (int i = 0; i < this.consoleHeight - 1; i++)
+                lock (locker)
                 {
-                    if (i == temp)
-                        Console.ForegroundColor = ConsoleColor.White;
-                    else if (i == temp + 1)
-                        Console.ForegroundColor = ConsoleColor.Green;
-                    else
-                        Console.ForegroundColor = ConsoleColor.DarkGreen;
-
-                    temp++;
-
                     Console.SetCursorPosition(leftCursorPosition, i);
 
-                    var charRandom = this.random.Next(48, 126);
-                    Console.WriteLine($"{Convert.ToChar(charRandom)}");
+                    Console.WriteLine($"{ConvertToChar()}");
 
                     if (i > symbolLength)
                     {
-                        Console.SetCursorPosition(leftCursorPosition, start);
-                        Console.WriteLine(" ");
+                        this.PrintSpaceSymbol(leftCursorPosition, start);
                         start++;
                     }
+                }
 
-                    var end = consoleHeight - 2 - symbolLength;
-                    if (i == this.consoleHeight - 2)
+                var end = consoleHeight - 2 - symbolLength;
+
+                if (i == this.consoleHeight - 2)
+                {
+                    for (int j = 0; j < symbolLength + 1; j++)
                     {
-                        for (int j = 0; j < symbolLength + 1; j++)
+                        lock (locker)
                         {
-                            Console.SetCursorPosition(leftCursorPosition, end);
-                            Console.WriteLine(" ");
+                            this.PrintSpaceSymbol(leftCursorPosition, end);
                             end++;
-
-                            Thread.Sleep(100);
                         }
+
+                        Thread.Sleep(symbolSpeed);
                     }
+                }
 
+                lock (locker)
+                {
                     Console.SetCursorPosition(0, i + 1);
-
-                    Thread.Sleep(100);
                 }
             }
+        }
+
+        public char ConvertToChar()
+        {
+            return Convert.ToChar(this.random.Next(48, 126));
+        }
+
+        public void PrintSpaceSymbol(int left, int top)
+        {
+            Console.SetCursorPosition(left, top);
+            Console.WriteLine(" ");
         }
 
         public void SetSymbolColor(int firstValue, int secondValue)
