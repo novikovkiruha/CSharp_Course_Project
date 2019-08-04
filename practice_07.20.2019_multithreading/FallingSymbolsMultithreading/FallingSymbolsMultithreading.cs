@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 
-namespace practice_07._20._2019_multithreading.Task1_FallingSymbols
+namespace practice_07._20._2019_multithreading.FallingSymbolsMultithreading
 {
     public class FallingSymbolsMultithreading
     {

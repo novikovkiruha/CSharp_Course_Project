@@ -7,7 +7,7 @@ namespace practice_07._20._2019_multithreading.Task1and2_Matrix
     {
         static readonly object locker = new object();
 
-        private Random random;
+        private readonly Random random;
 
         private readonly int consoleWidth;
 
