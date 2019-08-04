@@ -45,7 +45,8 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Task1_FallingSymbols\FallingSymbols.cs" />
+    <Compile Include="FallingSymbolsMultithreading\FallingSymbolsMultithreading.cs" />
+    <Compile Include="Task1and2_Matrix\FallingSymbols.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

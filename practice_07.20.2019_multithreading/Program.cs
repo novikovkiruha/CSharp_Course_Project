@@ -1,4 +1,4 @@
-﻿using practice_07._20._2019_multithreading.Task1_FallingSymbols;
+﻿using practice_07._20._2019_multithreading.Task1and2_Matrix;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,7 @@ namespace practice_07._20._2019_multithreading
     {
         static void Main(string[] args)
         {
-            new FallingSymbols().Execute();
+            new FallingSymbols().ExecuteMatrix();
         }
     }
 }
