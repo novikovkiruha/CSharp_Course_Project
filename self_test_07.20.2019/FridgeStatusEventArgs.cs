@@ -21,12 +21,5 @@ namespace self_test_07._20._2019
         {
             this.Message = message;
         }
-
-        public FridgeStatusEventArgs(SwitchStatus fridgeStatus, DoorStatus fridgeDoor, DoorStatus freezerDoor)
-        {
-            this.FridgeStatus = fridgeStatus;
-            this.FridgeDoor = fridgeDoor;
-            this.FreezerDoor = freezerDoor;
-        }
     }
 }

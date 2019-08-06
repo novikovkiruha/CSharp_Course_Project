@@ -10,7 +10,7 @@ namespace self_test_07._20._2019
     {
         static void Main(string[] args)
         {
-            new FridgeExecutor(new Fridge());
+            new FridgeExecutor().FridgeManager();
         }
     }
 }
