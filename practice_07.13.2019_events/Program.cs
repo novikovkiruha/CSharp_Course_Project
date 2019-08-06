@@ -16,8 +16,8 @@ namespace practice_07._13._2019_events
         {
             //new GameManager(new Ping(), new Pong());
             //new GameManager(new Ping(), new Pong());
-            //new Hunting(new Hunter(), new Rabbit());
-            new FileSystem("some text").CreateFile(@"D:\temp.txt");
+            new Hunting(new Hunter(), new Rabbit());
+            //new FileSystem("some text").CreateFile(@"D:\temp.txt");
         }
     }
 }

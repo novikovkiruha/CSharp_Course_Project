@@ -56,6 +56,7 @@
     <Compile Include="Task2_HunterAndRabbit\Hunter.cs" />
     <Compile Include="Task2_HunterAndRabbit\Hunting.cs" />
     <Compile Include="Task2_HunterAndRabbit\Rabbit.cs" />
+    <Compile Include="Task3_IDisposable\DisposeClass.cs" />
     <Compile Include="Task3_IDisposable\FileSystem.cs" />
   </ItemGroup>
   <ItemGroup>

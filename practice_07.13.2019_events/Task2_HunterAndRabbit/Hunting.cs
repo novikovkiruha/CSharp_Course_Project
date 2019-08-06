@@ -19,6 +19,7 @@ namespace practice_07._13._2019_events.Task2_HunterAndRabbit
 
             this.Rabbit.EventNewLocation += this.OnEventNewLocationInvoked;
             this.Rabbit.ChangeLocation();
+            this.Rabbit.EventNewLocation -= this.OnEventNewLocationInvoked;
         }
 
         public void OnEventNewLocationInvoked(object sender, CoordinatesEventArgs e)
