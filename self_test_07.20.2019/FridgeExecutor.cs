@@ -5,17 +5,12 @@ namespace self_test_07._20._2019
 {
     public class FridgeExecutor
     {
-        public Fridge fridge;
-
-        public FridgeExecutor()
-        {
-        }
+        private Fridge fridge;
 
         public void FridgeManager()
         {
             this.fridge = new Fridge();
             this.fridge.FridgeEvent += this.OnNewFridgeEventInvoked;
-            this.fridge.FridgeEvent += this.OnNewCurrentFridgeStatusInvoked;
 
             while (true)
             {
@@ -83,15 +78,8 @@ namespace self_test_07._20._2019
         public void OnNewFridgeEventInvoked(object sender, FridgeStatusEventArgs e)
         {
             Console.WriteLine(e.Message);
-        }
 
-        public void OnNewCurrentFridgeStatusInvoked(object sender, FridgeStatusEventArgs e)
-        {
             Console.ResetColor();
-
-            e.FridgeStatus = this.fridge.FridgeStatus;
-            e.FridgeDoor = this.fridge.FridgeDoor;
-            e.FreezerDoor = this.fridge.FreezerDoor;
 
             Console.WriteLine($"Current fridge status: {e.FridgeStatus}{Environment.NewLine}" +
                 $"Current fridge door status: {e.FridgeDoor}{Environment.NewLine}" +

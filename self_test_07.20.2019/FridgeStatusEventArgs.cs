@@ -17,8 +17,11 @@ namespace self_test_07._20._2019
 
         public string Message { get; }
 
-        public FridgeStatusEventArgs(string message)
+        public FridgeStatusEventArgs(SwitchStatus fridgeStatus, DoorStatus fridgeDoor, DoorStatus freezerDoor, string message)
         {
+            this.FridgeStatus = fridgeStatus;
+            this.FridgeDoor = fridgeDoor;
+            this.FreezerDoor = freezerDoor;
             this.Message = message;
         }
     }
