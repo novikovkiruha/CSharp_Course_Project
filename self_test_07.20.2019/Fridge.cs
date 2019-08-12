@@ -17,10 +17,18 @@ namespace self_test_07._20._2019
 
         public event EventHandler<FridgeStatusEventArgs> FridgeEvent;
 
+        public Fridge()
+        {
+            this.FridgeStatus = SwitchStatus.On;
+            this.FridgeDoor = DoorStatus.Close;
+            this.FreezerDoor = DoorStatus.Close;
+        }
+
+        //
+        // first option
+        //
         protected virtual void OnNewFridge(FridgeStatusEventArgs e)
         {
-            //this.FridgeEvent?.Invoke(this, e);
-
             if (this.FridgeEvent != null)
             {
                 e.FridgeStatus = this.FridgeStatus;
@@ -31,17 +39,28 @@ namespace self_test_07._20._2019
             }
         }
 
-        public Fridge()
+        //
+        // second option with add'l method
+        //
+        protected virtual void OnNewFridgeEvent(FridgeStatusEventArgs e)
         {
-            this.FridgeStatus = SwitchStatus.On;
-            this.FridgeDoor = DoorStatus.Close;
-            this.FreezerDoor = DoorStatus.Close;
+            this.FridgeEvent?.Invoke(this, e);
+        }
+
+        private void NotifySubscribers(string message)
+        {
+            this.OnNewFridgeEvent(new FridgeStatusEventArgs(this.FridgeStatus, this.FridgeDoor, this.FreezerDoor, message));
         }
 
         public SwitchStatus TurnOn()
         {
             this.FridgeStatus = SwitchStatus.On;
-            this.OnNewFridge(new FridgeStatusEventArgs($"Fridge status was turned {this.FridgeStatus}{Environment.NewLine}"));
+            
+            //first option
+            //this.OnNewFridge(new FridgeStatusEventArgs($"Fridge status was turned {this.FridgeStatus}{Environment.NewLine}"));
+
+            //second option
+            this.NotifySubscribers($"Fridge status was turned {this.FridgeStatus}{Environment.NewLine}");
 
             return this.FridgeStatus;
         }
@@ -49,7 +68,10 @@ namespace self_test_07._20._2019
         public SwitchStatus TurnOff()
         {
             this.FridgeStatus = SwitchStatus.Off;
-            this.OnNewFridge(new FridgeStatusEventArgs($"Fridge status was turned {this.FridgeStatus}{Environment.NewLine}"));
+            //this.OnNewFridge(new FridgeStatusEventArgs($"Fridge status was turned {this.FridgeStatus}{Environment.NewLine}"));
+
+            //second option
+            this.NotifySubscribers($"Fridge status was turned {this.FridgeStatus}{Environment.NewLine}");
 
             return this.FridgeStatus;
         }
@@ -57,7 +79,10 @@ namespace self_test_07._20._2019
         public DoorStatus OpenFridgeDoor()
         {
             this.FridgeDoor = DoorStatus.Open;
-            this.OnNewFridge(new FridgeStatusEventArgs($"Fridge door was {this.FridgeDoor}ed{Environment.NewLine}"));
+            //this.OnNewFridge(new FridgeStatusEventArgs($"Fridge door was {this.FridgeDoor}ed{Environment.NewLine}"));
+
+            //second option
+            this.NotifySubscribers($"Fridge door was {this.FridgeDoor}ed{Environment.NewLine}");
 
             return this.FridgeDoor;
         }
@@ -65,7 +90,10 @@ namespace self_test_07._20._2019
         public DoorStatus CloseFridgeDoor()
         {
             this.FridgeDoor = DoorStatus.Close;
-            this.OnNewFridge(new FridgeStatusEventArgs($"Fridge door was {this.FridgeDoor}d{Environment.NewLine}"));
+            //this.OnNewFridge(new FridgeStatusEventArgs($"Fridge door was {this.FridgeDoor}d{Environment.NewLine}"));
+
+            //second option
+            this.NotifySubscribers($"Fridge door was {this.FridgeDoor}d{Environment.NewLine}");
 
             return this.FridgeDoor;
         }
@@ -73,7 +101,10 @@ namespace self_test_07._20._2019
         public DoorStatus OpenFreezerDoor()
         {
             this.FreezerDoor = DoorStatus.Open;
-            this.OnNewFridge(new FridgeStatusEventArgs($"Freezer door was {this.FreezerDoor}ed{Environment.NewLine}"));
+            //this.OnNewFridge(new FridgeStatusEventArgs($"Freezer door was {this.FreezerDoor}ed{Environment.NewLine}"));
+
+            //second option
+            this.NotifySubscribers($"Freezer door was {this.FreezerDoor}ed{Environment.NewLine}");
 
             return this.FreezerDoor;
         }
@@ -81,7 +112,10 @@ namespace self_test_07._20._2019
         public DoorStatus CloseFreezerDoor()
         {
             this.FreezerDoor = DoorStatus.Close;
-            this.OnNewFridge(new FridgeStatusEventArgs($"Freezer door was {this.FreezerDoor}d{Environment.NewLine}"));
+            //this.OnNewFridge(new FridgeStatusEventArgs($"Freezer door was {this.FreezerDoor}d{Environment.NewLine}"));
+
+            //second option
+            this.NotifySubscribers($"Freezer door was {this.FreezerDoor}d{Environment.NewLine}");
 
             return this.FreezerDoor;
         }
