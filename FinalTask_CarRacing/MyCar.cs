@@ -15,22 +15,61 @@ namespace FinalTask_CarRacing
             
         }
 
-        protected override void InitializeState()
+        protected void InitializeState(int startX, int startY)
         {
             this.nodes = new List<Node>() {
-                new Node(1, 0),
-                new Node(0, 1),
-                new Node(1, 1),
-                new Node(2, 1),
-                new Node(1, 2),
-                new Node(0, 3),
-                new Node(2, 3)
+                                                    new Node(startX - 1, startY - 3),
+                new Node(startX - 2, startY - 2),   new Node(startX - 1, startY - 2),   new Node(startX, startY - 2),
+                                                    new Node(startX - 1, startY - 1),
+                new Node(startX - 2, startY),                                           new Node(startX, startY)
             };
         }
 
-        public override void Move(MoveDirection direction, Func<Figure, bool> isFree)
+        public void DrawMyCar(int startX, int startY)
         {
-            
+            this.InitializeState(startX, startY);
+            foreach (var node in this.nodes)
+            {
+                Console.SetCursorPosition(node.X, node.Y);
+                Console.WriteLine(this.Symbol);
+            }
+        }
+
+        //public override void Move(MoveDirection direction, Func<Figure, bool> isFree) { }
+        public void MoveUp()
+        {
+            foreach (var node in this.nodes)
+            {
+                node.Up();
+                this.DrawMyCar(node.X, node.Y);
+            }
+        }
+
+        public void MoveDown()
+        {
+            foreach (var node in this.nodes)
+            {
+                node.Down();
+                this.DrawMyCar(node.X, node.Y);
+            }
+        }
+
+        public void MoveLeft()
+        {
+            foreach (var node in this.nodes)
+            {
+                node.Left();
+                this.DrawMyCar(node.X, node.Y);
+            }
+        }
+
+        public void MoveRight()
+        {
+            foreach (var node in this.nodes)
+            {
+                node.Right();
+                this.DrawMyCar(node.X, node.Y);
+            }
         }
     }
 }

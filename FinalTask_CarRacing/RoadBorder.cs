@@ -14,14 +14,14 @@ namespace FinalTask_CarRacing
         {
         }
 
-        public override void Move(MoveDirection direction, Func<Figure, bool> moveState)
-        {
+        //public override void Move(MoveDirection direction, Func<Figure, bool> moveState)
+        //{
             
-        }
+        //}
 
-        protected override void InitializeState()
-        {
+        //protected override void InitializeState()
+        //{
             
-        }
+        //}
     }
 }

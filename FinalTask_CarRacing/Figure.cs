@@ -21,8 +21,9 @@ namespace FinalTask_CarRacing
             this.Color = color;
         }
 
-        protected abstract void InitializeState();
+        //protected abstract void InitializeState();
 
-        public abstract void Move(MoveDirection direction, Func<Figure, bool> moveState);
+        //public abstract void Move(MoveDirection direction, Func<Figure, bool> moveState);
+        //public abstract void Move();
     }
 }

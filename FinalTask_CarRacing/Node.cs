@@ -37,5 +37,35 @@ namespace FinalTask_CarRacing
         {
             this.x--;
         }
+
+        public int X
+        {
+            get
+            {
+                return this.x;
+            }
+            set
+            {
+                if (value == 0)
+                    throw new NullReferenceException("Please, fill X coordinate");
+                else
+                    this.x = value;
+            }
+        }
+
+        public int Y
+        {
+            get
+            {
+                return this.y;
+            }
+            set
+            {
+                if (value == 0)
+                    throw new NullReferenceException("Please, fill Y coordinate");
+                else
+                    this.x = value;
+            }
+        }
     }
 }

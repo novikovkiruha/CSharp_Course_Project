@@ -10,21 +10,40 @@ namespace FinalTask_CarRacing
     {
         public void Render()
         {
+            var field = new Field();
             var car = new MyCar('*', ConsoleColor.White);
-            Console.SetCursorPosition(1, 0);
-            Console.WriteLine("*");
-            Console.SetCursorPosition(0, 1);
-            Console.WriteLine("*");
-            Console.SetCursorPosition(1, 1);
-            Console.WriteLine("*");
-            Console.SetCursorPosition(2, 1);
-            Console.WriteLine("*");
-            Console.SetCursorPosition(1, 2);
-            Console.WriteLine("*");
-            Console.SetCursorPosition(0, 3);
-            Console.WriteLine("*");
-            Console.SetCursorPosition(2, 3);
-            Console.WriteLine("*");
+
+            field.StartX = field.Width - 1;
+            field.StartY = field.Height - 1;
+
+            //Console.SetCursorPosition(field.StartX, field.StartY);
+            car.DrawMyCar(field.StartX, field.StartY);
+
+            while (true)
+            {
+                var action = Console.ReadKey();
+
+                switch (action.Key)
+                {
+                    case ConsoleKey.UpArrow:
+                        car.MoveUp();
+                        break;
+                    case ConsoleKey.DownArrow:
+                        car.MoveDown();
+                        break;
+                    case ConsoleKey.LeftArrow:
+                        car.MoveLeft();
+                        break;
+                    case ConsoleKey.RightArrow:
+                        car.MoveRight();
+                        break;
+                    case ConsoleKey.Escape:
+                        break;
+                }
+
+                if (action.Key == ConsoleKey.Escape)
+                    break;
+            }
         }
     }
 }
