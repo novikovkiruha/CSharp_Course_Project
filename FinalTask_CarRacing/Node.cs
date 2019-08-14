@@ -20,22 +20,22 @@ namespace FinalTask_CarRacing
 
         public void Up()
         {
-            this.y++;
+            this.y--;
         }
 
         public void Down()
         {
-            this.y--;
+            this.y++;
         }
 
         public void Left()
         {
-            this.x++;
+            this.x-=2;
         }
 
         public void Right()
         {
-            this.x--;
+            this.x+=2;
         }
 
         public int X

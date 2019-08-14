@@ -20,7 +20,7 @@ namespace FinalTask_CarRacing
 
         public Field()
         {
-            this.Width = 10;
+            this.Width = 7;
             this.Height = 20;
             //this.Initialize();
         }

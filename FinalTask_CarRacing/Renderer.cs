@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FinalTask_CarRacing
 {
@@ -10,11 +6,25 @@ namespace FinalTask_CarRacing
     {
         public void Render()
         {
+            Console.CursorVisible = false;
+
             var field = new Field();
-            var car = new MyCar('*', ConsoleColor.White);
+            var car = new MyCar('*', ConsoleColor.Green);
+            var border = new RoadBorder('V', ConsoleColor.White);
 
             field.StartX = field.Width - 1;
             field.StartY = field.Height - 1;
+
+            for (int i = 0; i < field.Height + 3; i++)
+            {
+                if (i % 4 != 0 && i < field.Height)
+                {
+                    Console.SetCursorPosition(0, i);
+                    Console.WriteLine(border.Symbol);
+                    Console.SetCursorPosition(field.Width, i);
+                    Console.WriteLine(border.Symbol);
+                }
+            }
 
             //Console.SetCursorPosition(field.StartX, field.StartY);
             car.DrawMyCar(field.StartX, field.StartY);
@@ -25,12 +35,6 @@ namespace FinalTask_CarRacing
 
                 switch (action.Key)
                 {
-                    case ConsoleKey.UpArrow:
-                        car.MoveUp();
-                        break;
-                    case ConsoleKey.DownArrow:
-                        car.MoveDown();
-                        break;
                     case ConsoleKey.LeftArrow:
                         car.MoveLeft();
                         break;

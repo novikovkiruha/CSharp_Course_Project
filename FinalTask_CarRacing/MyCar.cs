@@ -9,6 +9,8 @@ namespace FinalTask_CarRacing
 {
     public class MyCar : Figure
     {
+        private int startY;
+
         public MyCar(char symbol, ConsoleColor color)
             : base(symbol, color)
         {
@@ -18,57 +20,63 @@ namespace FinalTask_CarRacing
         protected void InitializeState(int startX, int startY)
         {
             this.nodes = new List<Node>() {
+
                                                     new Node(startX - 1, startY - 3),
                 new Node(startX - 2, startY - 2),   new Node(startX - 1, startY - 2),   new Node(startX, startY - 2),
                                                     new Node(startX - 1, startY - 1),
                 new Node(startX - 2, startY),                                           new Node(startX, startY)
+
             };
         }
 
         public void DrawMyCar(int startX, int startY)
         {
+            this.startY = startY;
             this.InitializeState(startX, startY);
+
             foreach (var node in this.nodes)
             {
+                Console.ForegroundColor = this.Color;
                 Console.SetCursorPosition(node.X, node.Y);
                 Console.WriteLine(this.Symbol);
             }
         }
 
         //public override void Move(MoveDirection direction, Func<Figure, bool> isFree) { }
-        public void MoveUp()
-        {
-            foreach (var node in this.nodes)
-            {
-                node.Up();
-                this.DrawMyCar(node.X, node.Y);
-            }
-        }
-
-        public void MoveDown()
-        {
-            foreach (var node in this.nodes)
-            {
-                node.Down();
-                this.DrawMyCar(node.X, node.Y);
-            }
-        }
 
         public void MoveLeft()
         {
+            var oldX = 0;
+            var oldY = 0;
+
             foreach (var node in this.nodes)
             {
+                oldX = node.X;
+                oldY = node.Y;
+
                 node.Left();
-                this.DrawMyCar(node.X, node.Y);
+                this.DrawMyCar(node.X, this.startY);
+
+                Console.SetCursorPosition(node.X++, this.startY);
+                Console.Write(" ");
             }
         }
 
         public void MoveRight()
         {
+            var oldX = 0;
+            var oldY = 0;
+            
             foreach (var node in this.nodes)
             {
+                oldX = node.X;
+                oldY = node.Y;
+
                 node.Right();
-                this.DrawMyCar(node.X, node.Y);
+                this.DrawMyCar(node.X, this.startY);
+
+                Console.SetCursorPosition(oldX, this.startY);
+                Console.Write(" ");
             }
         }
     }
