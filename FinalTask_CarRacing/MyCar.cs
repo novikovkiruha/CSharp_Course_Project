@@ -11,6 +11,8 @@ namespace FinalTask_CarRacing
     {
         private int startY;
 
+        private int previousX;
+
         public MyCar(char symbol, ConsoleColor color)
             : base(symbol, color)
         {
@@ -47,17 +49,15 @@ namespace FinalTask_CarRacing
         public void MoveLeft()
         {
             var oldX = 0;
-            var oldY = 0;
 
             foreach (var node in this.nodes)
             {
                 oldX = node.X;
-                oldY = node.Y;
 
                 node.Left();
                 this.DrawMyCar(node.X, this.startY);
 
-                Console.SetCursorPosition(node.X++, this.startY);
+                this.DrawMyCar(oldX, this.startY);
                 Console.Write(" ");
             }
         }
@@ -65,12 +65,10 @@ namespace FinalTask_CarRacing
         public void MoveRight()
         {
             var oldX = 0;
-            var oldY = 0;
             
             foreach (var node in this.nodes)
             {
                 oldX = node.X;
-                oldY = node.Y;
 
                 node.Right();
                 this.DrawMyCar(node.X, this.startY);
