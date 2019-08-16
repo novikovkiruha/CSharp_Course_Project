@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.421
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29209.62
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp_Course_Project", "CSharp_Course_Project\CSharp_Course_Project.csproj", "{B1D54243-7DE7-4826-9685-F762D7A5AB57}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalTask_CarRacing", "FinalTask_CarRacing\FinalTask_CarRacing.csproj", "{A561E8F7-250C-4BED-8619-B5C96714F43A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRacingWinForm", "CarRacingWinForm\CarRacingWinForm.csproj", "{666C042F-71C3-406F-AAB5-9C20A1C8DB28}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{A561E8F7-250C-4BED-8619-B5C96714F43A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A561E8F7-250C-4BED-8619-B5C96714F43A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A561E8F7-250C-4BED-8619-B5C96714F43A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{666C042F-71C3-406F-AAB5-9C20A1C8DB28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{666C042F-71C3-406F-AAB5-9C20A1C8DB28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{666C042F-71C3-406F-AAB5-9C20A1C8DB28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{666C042F-71C3-406F-AAB5-9C20A1C8DB28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
