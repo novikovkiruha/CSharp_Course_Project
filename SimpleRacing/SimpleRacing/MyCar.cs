@@ -8,7 +8,7 @@ namespace SimpleRacing.SimpleRacing
 {
     public class MyCar
     {
-        static private object locker;
+        private object locker = new object();
 
         public char Symbol { get; }
 
@@ -22,7 +22,7 @@ namespace SimpleRacing.SimpleRacing
         {
             this.coordinatesX = new int[] { 6, 5, 6, 7, 6, 5, 7 };
             this.coordinatesY = new int[] { 16, 17, 17, 17, 18, 19, 19 };
-            this.Symbol = '^';
+            this.Symbol = 'O';
             this.Color = ConsoleColor.Green;
         }
 
@@ -61,16 +61,22 @@ namespace SimpleRacing.SimpleRacing
 
         public void MoveLeft()
         {
-            this.DrawRightCar(' ');
+            lock (locker)
+            {
+                this.DrawRightCar(' ');
 
-            this.DrawLeftCar(this.Symbol);
+                this.DrawLeftCar(this.Symbol);
+            }
         }
 
         public void MoveRight()
         {
-            this.DrawLeftCar(' ');
+            lock (locker)
+            {
+                this.DrawLeftCar(' ');
 
-            this.DrawRightCar(this.Symbol);
+                this.DrawRightCar(this.Symbol);
+            }
         }
     }
 }

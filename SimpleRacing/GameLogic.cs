@@ -1,15 +1,12 @@
 ﻿using SimpleRacing.SimpleRacing;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace SimpleRacing
 {
     public class GameLogic
     {
-        static private object locker;
+        private object locker = new object();
 
         private Field field;
 
@@ -31,32 +28,44 @@ namespace SimpleRacing
         {
             Console.CursorVisible = false;
 
-            //lock (locker)
-            //{
-                this.border.DrawBorder(this.field.Height, this.field.Width);
-                this.myCar.DrawStartCar();
-                this.otherCar.MoveOtherCar(this.field.Height);
+            new Thread(new ThreadStart(this.DrawBorder)).Start();
+            new Thread(new ThreadStart(this.DrawMyCar)).Start();
+            new Thread(new ThreadStart(this.DrawOtherCar)).Start();
+        }
 
-                while (true)
+        public void DrawBorder()
+        {
+            this.border.MoveBorder(this.field.Height, this.field.Width);
+        }
+
+        public void DrawMyCar()
+        {
+            this.myCar.DrawStartCar();
+
+            while (true)
+            {
+                var action = Console.ReadKey();
+
+                switch (action.Key)
                 {
-                    var action = Console.ReadKey();
-
-                    switch (action.Key)
-                    {
-                        case ConsoleKey.LeftArrow:
-                            myCar.MoveLeft();
-                            break;
-                        case ConsoleKey.RightArrow:
-                            myCar.MoveRight();
-                            break;
-                        case ConsoleKey.Escape:
-                            break;
-                    }
-
-                    if (action.Key == ConsoleKey.Escape)
+                    case ConsoleKey.LeftArrow:
+                        myCar.MoveLeft();
+                        break;
+                    case ConsoleKey.RightArrow:
+                        myCar.MoveRight();
+                        break;
+                    case ConsoleKey.Escape:
                         break;
                 }
-            //}
+
+                if (action.Key == ConsoleKey.Escape)
+                    break;
+            }
+        }
+
+        public void DrawOtherCar()
+        {
+            this.otherCar.MoveOtherCar(this.field.Height);
         }
     }
 }

@@ -5,7 +5,7 @@ namespace SimpleRacing
 {
     public class OtherCar
     {
-        static private object locker;
+        private object locker = new object();
 
         private Random random;
 
@@ -65,12 +65,15 @@ namespace SimpleRacing
 
         public void DrawOtherCar(char symbol, int positionX, int positionY)
         {
-            for (int j = 0; j < 7; j++)
+            lock (locker)
             {
-                Console.ForegroundColor = this.Color;
-                Console.SetCursorPosition(this.coordinatesX[j] + positionX, this.coordinatesY[j] + positionY);
+                for (int j = 0; j < 7; j++)
+                {
+                    Console.ForegroundColor = this.Color;
+                    Console.SetCursorPosition(this.coordinatesX[j] + positionX, this.coordinatesY[j] + positionY);
 
-                Console.WriteLine(symbol);
+                    Console.WriteLine(symbol);
+                }
             }
         }
     }
