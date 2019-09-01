@@ -5,9 +5,7 @@ namespace SimpleRacing
 {
     public class Border
     {
-        private object locker = new object();
-
-        public char Symbol { get; }
+        private char Symbol { get; }
 
         public ConsoleColor Color { get; }
 
@@ -23,22 +21,25 @@ namespace SimpleRacing
             {
                 for (int i = 0; i < fieldHeight; i++)
                 {
-                    lock (locker)
+                    Thread.Sleep(20);
+
+                    this.DrawBorder('!', i, fieldWidth);
+
+                    if (i % 2 == 0)
                     {
-                        this.DrawBorder('!', i, fieldWidth);
+                        this.DrawBorder(' ', i, fieldWidth);
                     }
                 }
 
                 for (int i = 0; i < fieldHeight; i++)
                 {
-                    Thread.Sleep(100);
+                    Thread.Sleep(20);
 
-                    lock (locker)
+                    this.DrawBorder('!', i, fieldWidth);
+
+                    if (i % 2 != 0 && i != 0)
                     {
-                        if (i % 4 == 0)
-                        {
-                            this.DrawBorder(' ', i, fieldWidth);
-                        }
+                        this.DrawBorder(' ', i, fieldWidth);
                     }
                 }
             }
@@ -46,7 +47,7 @@ namespace SimpleRacing
 
         public void DrawBorder(char symbol, int positionX, int positionY)
         {
-            lock (locker)
+            lock (GameLogic.locker)
             {
                 Console.ForegroundColor = this.Color;
 

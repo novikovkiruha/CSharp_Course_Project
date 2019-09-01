@@ -8,13 +8,19 @@ namespace SimpleRacing.SimpleRacing
 {
     public class MyCar
     {
-        private object locker = new object();
+        private int[] coordinatesX;
 
-        public char Symbol { get; }
+        private int[] coordinatesY;
 
-        public int[] coordinatesX;
+        public int Speed { get; }
 
-        public int[] coordinatesY;
+        public int Score { get; }
+
+        private char Symbol { get; }
+
+        public char CarPosition { get; set; }
+
+        public TimeSpan LifeDuration { get; set; }
 
         public ConsoleColor Color { get; }
 
@@ -22,24 +28,17 @@ namespace SimpleRacing.SimpleRacing
         {
             this.coordinatesX = new int[] { 6, 5, 6, 7, 6, 5, 7 };
             this.coordinatesY = new int[] { 16, 17, 17, 17, 18, 19, 19 };
-            this.Symbol = 'O';
+            this.Speed = 250;
+            this.Score = 0;
+            this.Symbol = 'x';
+            this.LifeDuration = new TimeSpan().Duration();
             this.Color = ConsoleColor.Green;
-        }
-
-        public void DrawStartCar()
-        {
-            for (int i = 0; i < 7; i++)
-            {
-                Console.ForegroundColor = this.Color;
-                Console.SetCursorPosition(this.coordinatesX[i], this.coordinatesY[i]);
-
-                Console.WriteLine(this.Symbol);
-            }
+            this.MoveRight();
         }
 
         public void DrawRightCar(char symbol)
         {
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < this.coordinatesX.Length; i++)
             {
                 Console.ForegroundColor = this.Color;
                 Console.SetCursorPosition(this.coordinatesX[i], this.coordinatesY[i]);
@@ -50,7 +49,7 @@ namespace SimpleRacing.SimpleRacing
 
         public void DrawLeftCar(char symbol)
         {
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < this.coordinatesX.Length; i++)
             {
                 Console.ForegroundColor = this.Color;
                 Console.SetCursorPosition(this.coordinatesX[i] - 3, this.coordinatesY[i]);
@@ -61,22 +60,31 @@ namespace SimpleRacing.SimpleRacing
 
         public void MoveLeft()
         {
-            lock (locker)
+            lock (GameLogic.locker)
             {
                 this.DrawRightCar(' ');
 
                 this.DrawLeftCar(this.Symbol);
+
+                this.CarPosition = 'L';
             }
         }
 
         public void MoveRight()
         {
-            lock (locker)
+            lock (GameLogic.locker)
             {
                 this.DrawLeftCar(' ');
 
                 this.DrawRightCar(this.Symbol);
+
+                this.CarPosition = 'R';
             }
+        }
+
+        public void IncreaseSpeed()
+        {
+            Console.WriteLine(this.LifeDuration);
         }
     }
 }

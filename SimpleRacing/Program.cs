@@ -11,6 +11,7 @@ namespace SimpleRacing
     {
         static void Main(string[] args)
         {
+            //new GameLogic().DrawBorder();
             new GameLogic().PlayGame();
         }
     }
