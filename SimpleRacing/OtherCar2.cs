@@ -4,7 +4,7 @@ using System.Threading;
 
 namespace SimpleRacing
 {
-    public class OtherCar
+    public class OtherCar2
     {
         private Random random;
 
@@ -14,11 +14,11 @@ namespace SimpleRacing
 
         private char Symbol { get; }
 
-        public char OtherCarPosition { get; set; }
+        public char OtherCar2Position { get; set; }
 
         public ConsoleColor Color { get; }
 
-        public OtherCar()
+        public OtherCar2()
         {
             this.random = new Random();
             this.coordinatesX = new int[] { 2, 4, 3, 2, 3, 4, 3 };
@@ -39,11 +39,11 @@ namespace SimpleRacing
                 {
                     case 0:
                         positionX = 0;
-                        this.OtherCarPosition = 'L';
+                        this.OtherCar2Position = 'L';
                         break;
                     case 1:
                         positionX = 3;
-                        this.OtherCarPosition = 'R';
+                        this.OtherCar2Position = 'R';
                         break;
                 }
 
@@ -65,7 +65,7 @@ namespace SimpleRacing
 
                     if (positionY > 12)
                     {
-                        if (this.OtherCarPosition == MyCar.MyCarPosition)
+                        if (this.OtherCar2Position == MyCar.MyCarPosition)
                         {
                             MyCar.IsCrash = true;
                         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SimpleRacing.SimpleRacing;
+using System;
 using System.Threading;
 
 namespace SimpleRacing
@@ -41,6 +42,11 @@ namespace SimpleRacing
                     {
                         this.DrawBorder(' ', i, fieldWidth);
                     }
+                }
+
+                if (MyCar.IsCrash)
+                {
+                    Thread.CurrentThread.Abort();
                 }
             }
         }

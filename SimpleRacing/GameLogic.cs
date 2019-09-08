@@ -8,23 +8,32 @@ namespace SimpleRacing
     {
         public static object locker = new object();
 
-        private Field field;
+        private readonly Field field;
 
         private MyCar myCar;
 
-        private OtherCar otherCar;
+        private readonly OtherCar otherCar;
 
-        private Border border;
+        private readonly OtherCar2 otherCar2;
 
-        private Board board;
+        private readonly Border border;
+
+        private readonly Board board;
 
         public GameLogic()
         {
             this.field = new Field();
-            this.myCar = new MyCar();
-            this.otherCar = new OtherCar(this.myCar.Speed);
             this.border = new Border();
-            this.board = new Board(this.otherCar.Speed, this.myCar.Score);
+            this.board = new Board();
+            this.myCar = new MyCar();
+            this.otherCar = new OtherCar();
+            this.otherCar2 = new OtherCar2();
+            this.myCar.CrashStatus += this.OnCrashStatusInvoked;
+        }
+
+        public void OnCrashStatusInvoked(object sender, CrashStatusEventArgs e)
+        {
+
         }
 
         public void PlayGame()
@@ -32,21 +41,27 @@ namespace SimpleRacing
             Console.CursorVisible = false;
 
             var borderThread = new Thread(new ThreadStart(this.DrawBorder));
-            var myCarThread = new Thread(new ThreadStart(this.DrawMyCar));
-            var otherCarThread = new Thread(new ThreadStart(this.DrawOtherCar));
             var boardThread = new Thread(new ThreadStart(this.DrawBoard));
+            var myCarThread = new Thread(new ThreadStart(this.DrawMyCar));
+            var otherCarThread1 = new Thread(new ThreadStart(this.DrawOtherCar));
+            var otherCarThread2 = new Thread(new ThreadStart(this.DrawOtherCar2));
 
             borderThread.Start();
-            myCarThread.Start();
-            otherCarThread.Start();
             boardThread.Start();
+            myCarThread.Start();
+            otherCarThread1.Start();
+            Thread.Sleep(Board.Speed * 9);
+            otherCarThread2.Start();
+            //otherCarThread2.Start();
 
-            if (this.myCar.CarPosition == this.otherCar.CarPosition)
+            while (MyCar.IsCrash)
             {
                 Console.WriteLine("Game Over");
                 borderThread.Abort();
                 myCarThread.Abort();
-                otherCarThread.Abort();
+                otherCarThread1.Abort();
+                otherCarThread2.Abort();
+                boardThread.Abort();
             }
         }
 
@@ -69,18 +84,18 @@ namespace SimpleRacing
                     case ConsoleKey.RightArrow:
                         myCar.MoveRight();
                         break;
-                    case ConsoleKey.Escape:
-                        break;
                 }
-
-                if (action.Key == ConsoleKey.Escape)
-                    break;
             }
         }
 
         public void DrawOtherCar()
         {
             this.otherCar.MoveOtherCar(this.field.Height);
+        }
+
+        public void DrawOtherCar2()
+        {
+            this.otherCar2.MoveOtherCar(this.field.Height);
         }
 
         public void DrawBoard()

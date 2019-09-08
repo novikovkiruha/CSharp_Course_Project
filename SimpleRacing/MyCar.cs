@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace SimpleRacing.SimpleRacing
 {
     public class MyCar
     {
+        public event EventHandler<CrashStatusEventArgs> CrashStatus;
+
         private int[] coordinatesX;
 
         private int[] coordinatesY;
@@ -18,11 +21,11 @@ namespace SimpleRacing.SimpleRacing
 
         private char Symbol { get; }
 
-        public char CarPosition { get; set; }
-
-        public TimeSpan LifeDuration { get; set; }
-
         public ConsoleColor Color { get; }
+
+        static public char MyCarPosition { get; set; }
+
+        static public bool IsCrash { get; set; }
 
         public MyCar()
         {
@@ -30,10 +33,19 @@ namespace SimpleRacing.SimpleRacing
             this.coordinatesY = new int[] { 16, 17, 17, 17, 18, 19, 19 };
             this.Speed = 250;
             this.Score = 0;
-            this.Symbol = 'x';
-            this.LifeDuration = new TimeSpan().Duration();
+            this.Symbol = 'o';
             this.Color = ConsoleColor.Green;
             this.MoveRight();
+        }
+
+        protected virtual void OnCrashStatus(CrashStatusEventArgs e)
+        {
+            this.CrashStatus?.Invoke(this, e);
+        }
+
+        protected virtual void OnMyCarPosition(CrashStatusEventArgs e)
+        {
+            this.CrashStatus?.Invoke(this, e);
         }
 
         public void DrawRightCar(char symbol)
@@ -44,6 +56,11 @@ namespace SimpleRacing.SimpleRacing
                 Console.SetCursorPosition(this.coordinatesX[i], this.coordinatesY[i]);
 
                 Console.WriteLine(symbol);
+
+                if (MyCar.IsCrash)
+                {
+                    Thread.CurrentThread.Abort();
+                }
             }
         }
 
@@ -55,6 +72,11 @@ namespace SimpleRacing.SimpleRacing
                 Console.SetCursorPosition(this.coordinatesX[i] - 3, this.coordinatesY[i]);
 
                 Console.WriteLine(symbol);
+
+                if (MyCar.IsCrash)
+                {
+                    Thread.CurrentThread.Interrupt();
+                }
             }
         }
 
@@ -66,7 +88,9 @@ namespace SimpleRacing.SimpleRacing
 
                 this.DrawLeftCar(this.Symbol);
 
-                this.CarPosition = 'L';
+                MyCar.MyCarPosition = 'L';
+
+                this.OnCrashStatus(new CrashStatusEventArgs(MyCar.IsCrash));
             }
         }
 
@@ -78,13 +102,10 @@ namespace SimpleRacing.SimpleRacing
 
                 this.DrawRightCar(this.Symbol);
 
-                this.CarPosition = 'R';
-            }
-        }
+                MyCar.MyCarPosition = 'R';
 
-        public void IncreaseSpeed()
-        {
-            Console.WriteLine(this.LifeDuration);
+                this.OnCrashStatus(new CrashStatusEventArgs(MyCar.IsCrash));
+            }
         }
     }
 }
