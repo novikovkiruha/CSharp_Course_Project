@@ -49,7 +49,6 @@
     <Compile Include="Field.cs" />
     <Compile Include="GameLogic.cs" />
     <Compile Include="OtherCar.cs" />
-    <Compile Include="OtherCar2.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MyCar.cs" />

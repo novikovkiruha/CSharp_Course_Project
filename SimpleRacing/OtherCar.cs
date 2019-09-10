@@ -6,11 +6,11 @@ namespace SimpleRacing
 {
     public class OtherCar
     {
-        private Random random;
+        private readonly Random random;
 
-        private int[] coordinatesX;
+        private readonly int[] coordinatesX;
 
-        private int[] coordinatesY;
+        private readonly int[] coordinatesY;
 
         private char Symbol { get; }
 
@@ -24,7 +24,7 @@ namespace SimpleRacing
             this.coordinatesX = new int[] { 2, 4, 3, 2, 3, 4, 3 };
             this.coordinatesY = new int[] { 0, 0, 1, 2, 2, 2, 3 };
             this.Symbol = '*';
-            this.Color = ConsoleColor.Red;
+            this.Color = ConsoleColor.Blue;
         }
 
         public void MoveOtherCar(int fieldHeight)
@@ -39,11 +39,9 @@ namespace SimpleRacing
                 {
                     case 0:
                         positionX = 0;
-                        this.OtherCarPosition = 'L';
                         break;
                     case 1:
                         positionX = 3;
-                        this.OtherCarPosition = 'R';
                         break;
                 }
 
@@ -61,6 +59,15 @@ namespace SimpleRacing
                         this.DrawOtherCar(' ', positionX, positionY);
                     }
 
+                    if (positionX == 0)
+                    {
+                        this.OtherCarPosition = 'L';
+                    }
+                    else if (positionX == 3)
+                    {
+                        this.OtherCarPosition = 'R';
+                    }
+
                     positionY++;
 
                     if (positionY > 12)
@@ -74,7 +81,7 @@ namespace SimpleRacing
 
                 if (MyCar.IsCrash)
                 {
-                    Thread.CurrentThread.Abort();
+                    Thread.CurrentThread.Suspend();
                 }
             }
         }

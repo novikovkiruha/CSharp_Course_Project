@@ -11,13 +11,9 @@ namespace SimpleRacing.SimpleRacing
     {
         public event EventHandler<CrashStatusEventArgs> CrashStatus;
 
-        private int[] coordinatesX;
+        private readonly int[] coordinatesX;
 
-        private int[] coordinatesY;
-
-        public int Speed { get; }
-
-        public int Score { get; }
+        private readonly int[] coordinatesY;
 
         private char Symbol { get; }
 
@@ -31,21 +27,9 @@ namespace SimpleRacing.SimpleRacing
         {
             this.coordinatesX = new int[] { 6, 5, 6, 7, 6, 5, 7 };
             this.coordinatesY = new int[] { 16, 17, 17, 17, 18, 19, 19 };
-            this.Speed = 250;
-            this.Score = 0;
             this.Symbol = 'o';
             this.Color = ConsoleColor.Green;
             this.MoveRight();
-        }
-
-        protected virtual void OnCrashStatus(CrashStatusEventArgs e)
-        {
-            this.CrashStatus?.Invoke(this, e);
-        }
-
-        protected virtual void OnMyCarPosition(CrashStatusEventArgs e)
-        {
-            this.CrashStatus?.Invoke(this, e);
         }
 
         public void DrawRightCar(char symbol)
@@ -75,7 +59,7 @@ namespace SimpleRacing.SimpleRacing
 
                 if (MyCar.IsCrash)
                 {
-                    Thread.CurrentThread.Interrupt();
+                    Thread.CurrentThread.Abort();
                 }
             }
         }
@@ -89,8 +73,6 @@ namespace SimpleRacing.SimpleRacing
                 this.DrawLeftCar(this.Symbol);
 
                 MyCar.MyCarPosition = 'L';
-
-                this.OnCrashStatus(new CrashStatusEventArgs(MyCar.IsCrash));
             }
         }
 
@@ -103,8 +85,6 @@ namespace SimpleRacing.SimpleRacing
                 this.DrawRightCar(this.Symbol);
 
                 MyCar.MyCarPosition = 'R';
-
-                this.OnCrashStatus(new CrashStatusEventArgs(MyCar.IsCrash));
             }
         }
     }

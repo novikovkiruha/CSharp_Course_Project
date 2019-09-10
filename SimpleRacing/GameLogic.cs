@@ -10,11 +10,9 @@ namespace SimpleRacing
 
         private readonly Field field;
 
-        private MyCar myCar;
+        private readonly MyCar myCar;
 
         private readonly OtherCar otherCar;
-
-        private readonly OtherCar2 otherCar2;
 
         private readonly Border border;
 
@@ -27,13 +25,6 @@ namespace SimpleRacing
             this.board = new Board();
             this.myCar = new MyCar();
             this.otherCar = new OtherCar();
-            this.otherCar2 = new OtherCar2();
-            this.myCar.CrashStatus += this.OnCrashStatusInvoked;
-        }
-
-        public void OnCrashStatusInvoked(object sender, CrashStatusEventArgs e)
-        {
-
         }
 
         public void PlayGame()
@@ -44,7 +35,7 @@ namespace SimpleRacing
             var boardThread = new Thread(new ThreadStart(this.DrawBoard));
             var myCarThread = new Thread(new ThreadStart(this.DrawMyCar));
             var otherCarThread1 = new Thread(new ThreadStart(this.DrawOtherCar));
-            var otherCarThread2 = new Thread(new ThreadStart(this.DrawOtherCar2));
+            var otherCarThread2 = new Thread(new ThreadStart(this.DrawOtherCar));
 
             borderThread.Start();
             boardThread.Start();
@@ -52,17 +43,6 @@ namespace SimpleRacing
             otherCarThread1.Start();
             Thread.Sleep(Board.Speed * 9);
             otherCarThread2.Start();
-            //otherCarThread2.Start();
-
-            while (MyCar.IsCrash)
-            {
-                Console.WriteLine("Game Over");
-                borderThread.Abort();
-                myCarThread.Abort();
-                otherCarThread1.Abort();
-                otherCarThread2.Abort();
-                boardThread.Abort();
-            }
         }
 
         public void DrawBorder()
@@ -91,11 +71,6 @@ namespace SimpleRacing
         public void DrawOtherCar()
         {
             this.otherCar.MoveOtherCar(this.field.Height);
-        }
-
-        public void DrawOtherCar2()
-        {
-            this.otherCar2.MoveOtherCar(this.field.Height);
         }
 
         public void DrawBoard()

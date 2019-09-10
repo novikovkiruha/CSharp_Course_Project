@@ -13,7 +13,7 @@ namespace SimpleRacing
         public Border()
         {
             this.Symbol = '!';
-            this.Color = ConsoleColor.White;
+            this.Color = ConsoleColor.Yellow;
         }
 
         public void MoveBorder(int fieldHeight, int fieldWidth)
@@ -46,7 +46,7 @@ namespace SimpleRacing
 
                 if (MyCar.IsCrash)
                 {
-                    Thread.CurrentThread.Abort();
+                    Thread.CurrentThread.Suspend();
                 }
             }
         }

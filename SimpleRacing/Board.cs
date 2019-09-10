@@ -8,9 +8,9 @@ namespace SimpleRacing
     {
         private int score;
 
-        private int coordinateX;
+        private readonly int coordinateX;
 
-        private int coordinateY;
+        private readonly int coordinateY;
 
         static public int Speed { get; set; }
 
@@ -40,27 +40,27 @@ namespace SimpleRacing
                     Console.WriteLine($"Score: {this.score}");
                     Console.SetCursorPosition(this.coordinateX, this.coordinateY + 1);
                     Console.WriteLine($"Speed: {speedDisplay}");
-                }
 
-                this.score += 100;
+                    this.score += 100;
 
-                if (this.score < 50000 && this.score % 10000 == 0 && Board.Speed > 50)
-                {
-                    Board.Speed -= 25;
-                    speedDisplay += 50;
-                }
-                else if (this.score % 25000 == 0 && Board.Speed > 50)
-                {
-                    Board.Speed -= 25;
-                    speedDisplay += 50;
-                }
+                    if (this.score < 50000 && this.score % 10000 == 0 && Board.Speed > 50)
+                    {
+                        Board.Speed -= 25;
+                        speedDisplay += 50;
+                    }
+                    else if (this.score % 25000 == 0 && Board.Speed > 50)
+                    {
+                        Board.Speed -= 25;
+                        speedDisplay += 50;
+                    }
 
-                if (MyCar.IsCrash)
-                {
-                    Console.SetCursorPosition(this.coordinateX, this.coordinateY + 10);
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Game Over");
-                    Thread.CurrentThread.Abort();
+                    if (MyCar.IsCrash)
+                    {
+                        Console.SetCursorPosition(this.coordinateX, this.coordinateY + 10);
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Game Over");
+                        Thread.CurrentThread.Suspend();
+                    }
                 }
             }
         }
